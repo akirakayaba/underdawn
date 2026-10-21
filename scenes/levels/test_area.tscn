@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmyr78mcbt1ro" path="res://scripts/core/Pauser.cs" id="1_2apt5"]
 [ext_resource type="PackedScene" uid="uid://b5dudyqlsi166" path="res://scenes/entities/player.tscn" id="2_3ifaq"]
-[ext_resource type="PackedScene" uid="uid://b14i73g8l1eag" path="res://scenes/entities/random_test_character.tscn" id="3_1h2li"]
+[ext_resource type="PackedScene" uid="uid://b14i73g8l1eag" path="res://scenes/entities/enemy_test_character.tscn" id="3_1h2li"]
 
 [node name="TestArea" type="Node2D" unique_id=660049894]
 

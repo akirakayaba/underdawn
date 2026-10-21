@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b14i73g8l1eag"]
+
+[ext_resource type="Texture2D" uid="uid://cbh4kio7c0vje" path="res://other/icon.svg" id="1_0quie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5o53"]
+
+[node name="EnemyTestCharacter" type="CharacterBody2D" unique_id=1573022941]
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=1039470272]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_0quie")
+
+[node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=953378673]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_e5o53")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="." unique_id=351530568]
+offset_left = 10.000001
+offset_top = -21.0
+offset_right = 14.000001
+offset_bottom = 6.0
+rotation = 1.5707964
+scale = Vector2(0.75, 0.75)
+max_value = 20.0
+step = 1.0
+show_percentage = false
+
+[node name="ElementIconSprite" type="Sprite2D" parent="." unique_id=1434004681]
+position = Vector2(0, -27)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_0quie")
