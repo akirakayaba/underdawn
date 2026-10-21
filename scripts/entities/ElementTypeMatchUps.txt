@@ -1,0 +1,27 @@
+	These are the elements that players and enemies can have,
+	included are there strengths, weaknesses, and status effects they can give
+	
+	NONE: no strengths, weaknesses, or status effects
+		
+	FIRE: strong against earth and ice, weak against water, and status effect
+			is burning the entity (higher continous damage but lasts less
+			compared to poison)
+		
+	EARTH: strong against lightning, weak against wind and poison, and status
+			effect is tremor (delays attack)
+		
+	WATER: strong against fire, weak against lightning and ice, and status
+			effect is drenching the entity (movement is slippery)
+		
+	LIGHTNING:	strong against water, weak against earth, and status effect is
+					paralyzing the entity (cant attack)
+		
+	WIND: strong against poison and earth, weak against ice, and status effect
+			is blowing away the entity (they get knocked back farther)
+		
+	ICE: strong against wind and water, weak against fire, and status effect is
+			freezing the entity (cant move)
+		
+	POISON: strong against earth, weak against wind and lightning, and status
+				effect is poisoning the entity (lower continous damage but 
+				lasts longer compared to fire)
