@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cf44hroebpfw6"]
+
+[node name="TitleScreenUi" type="Control" unique_id=952096952]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=172568134]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -160.0
+offset_right = 100.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="UnderdawnLabel" type="Label" parent="VBoxContainer" unique_id=557779473]
+layout_mode = 2
+text = "Underdawn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=1440657201]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=732412081]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=591303217]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit Game"
