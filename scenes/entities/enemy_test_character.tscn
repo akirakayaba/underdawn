@@ -16,17 +16,18 @@ scale = Vector2(1.6, 1.6)
 shape = SubResource("RectangleShape2D_e5o53")
 
 [node name="HealthProgressBar" type="ProgressBar" parent="." unique_id=351530568]
-offset_left = 10.000001
+offset_left = 11.25
 offset_top = -21.0
-offset_right = 14.000001
-offset_bottom = 6.0
+offset_right = 15.75
+offset_bottom = 9.0
 rotation = 1.5707964
 scale = Vector2(0.75, 0.75)
 max_value = 20.0
 step = 1.0
+value = 5.0
 show_percentage = false
 
 [node name="ElementIconSprite" type="Sprite2D" parent="." unique_id=1434004681]
-position = Vector2(0, -27)
-scale = Vector2(0.05, 0.05)
+position = Vector2(0, -27.25)
+scale = Vector2(0.075, 0.075)
 texture = ExtResource("1_0quie")
