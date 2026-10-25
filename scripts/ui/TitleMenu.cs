@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MainMenu : Control
+public partial class TitleMenu : Control
 {
     private void StartGame()
     {

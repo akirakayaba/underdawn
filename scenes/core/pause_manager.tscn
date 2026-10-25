@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k2h1d6j7duoh"]
+
+[ext_resource type="Script" uid="uid://bmk5wdwxddq82" path="res://scripts/core/PauseManager.cs" id="1_l4ovt"]
+
+[node name="PauseManager" type="Node" unique_id=1709594041]
+script = ExtResource("1_l4ovt")

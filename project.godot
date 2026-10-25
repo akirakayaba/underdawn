@@ -18,6 +18,7 @@ config/icon="res://other/icon.svg"
 [autoload]
 
 SceneManager="*uid://bkwcjqtmhxy3p"
+PauseManager="*uid://k2h1d6j7duoh"
 
 [display]
 
