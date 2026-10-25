@@ -2,12 +2,19 @@
 //Description:	Gives the ability to change scenes in the game
 
 using Godot;
-using System;
 
 public partial class SceneManager : Node
 {
-    public void ChangeScene(string scene)
+    //singleton static reference for global use
+    public static SceneManager Instance { get; private set; }
+
+    public override void _Ready()
     {
-        GetTree().ChangeSceneToFile(scene);
+        Instance = this;
+    }
+
+    public void ChangeScene(string scenePath)
+    {
+        GetTree().ChangeSceneToFile(scenePath);
     }
 }
