@@ -1,3 +1,6 @@
+//Name:			PauseMenu.cs
+//Description:	Functionality for pause menu buttons
+
 using Godot;
 using System;
 

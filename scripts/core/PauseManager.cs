@@ -1,5 +1,6 @@
 //Name:			PauseManager.cs
-//Description:	Allows player to pause the game
+//Description:	Allows player to pause the game, and go to
+//              the main menu correctly
 
 using Godot;
 

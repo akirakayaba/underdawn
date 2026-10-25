@@ -1,3 +1,6 @@
+//Name:			TitleMenu.cs
+//Description:	Functionality for title menu buttons
+
 using Godot;
 using System;
 
