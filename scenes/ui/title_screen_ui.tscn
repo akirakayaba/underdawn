@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cf44hroebpfw6"]
 
+[ext_resource type="Script" uid="uid://d2hd7qlejcs07" path="res://scripts/ui/TitleMenu.cs" id="1_eveek"]
+
 [node name="TitleScreenUi" type="Control" unique_id=952096952]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eveek")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=172568134]
 layout_mode = 1
@@ -46,3 +49,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="StartGame"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="Options"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="QuitGame"]
