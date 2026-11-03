@@ -11,3 +11,4 @@ script = ExtResource("1_tarea")
 
 [node name="RandomTestCharacter" parent="." unique_id=1573022941 instance=ExtResource("3_1h2li")]
 position = Vector2(158, -72)
+elementType = 6

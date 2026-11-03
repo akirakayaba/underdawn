@@ -1,6 +1,5 @@
 //Name:			ElementVisuals.cs
-//Description:	Colors and status effect names for each element, and showing
-//				a status effect on an entity (tint + popup text)
+//Description:	Colors and status effect names for each element
 //				(status effect details are in elementtypematchups.txt)
 
 using Godot;
@@ -30,13 +29,4 @@ public static class ElementVisuals
 		ElementType.POISON => "Poisoned!",
 		_ => ""
 	};
-
-	/*tints the sprite to the status color and pops up the status name,
-	  NONE clears the tint*/
-	public static void ShowStatus(Node2D entity, CanvasItem sprite, ElementType element)
-	{
-		sprite.Modulate = GetColor(element);
-		if (element != ElementType.NONE)
-			FloatingText.Show(entity, GetStatusName(element), GetColor(element));
-	}
 }
