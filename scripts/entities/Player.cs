@@ -19,6 +19,15 @@ public partial class Player : CharacterBody2D, ICombatant
 
 	private bool isAttacking = false;
 
+	/*combos: attack presses are remembered for a short time (buffer), and from
+	  comboCancelFrame on the next attack or moving cancels the rest of the attack*/
+	[Export] private float attackSpeed = 1.4f;
+	[Export] private int comboCancelFrame = 4;
+	[Export] private float attackBufferTime = 0.3f;
+	private string bufferedAttack;
+	private float bufferTimer;
+	private bool attackStarted;
+
 	/*attack damage, and the area in front of the player that the attack hits*/
 	[Export] private int attack1Damage = 10;
 	[Export] private int attack2Damage = 15;
@@ -109,12 +118,23 @@ public partial class Player : CharacterBody2D, ICombatant
 			direction = Vector2.Zero;
 
 		/*attack and attack animation for player (paralyzed players cant attack)*/
-		if (!isAttacking && status.CanAttack)
+		if (Input.IsActionJustPressed("attack1"))
+			BufferAttack("attack1");
+		else if (Input.IsActionJustPressed("attack2"))
+			BufferAttack("attack2");
+		bufferTimer -= (float)delta;
+
+		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;
+		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && (!isAttacking || inCancelWindow))
 		{
-			if (Input.IsActionJustPressed("attack1"))
-				StartAttack("attack1", attack1Damage);
-			else if (Input.IsActionJustPressed("attack2"))
-				StartAttack("attack2", attack2Damage);
+			UpdateLastDirection(direction);
+			StartAttack(bufferedAttack, bufferedAttack == "attack1" ? attack1Damage : attack2Damage);
+			bufferedAttack = null;
+		}
+		/*moving cancels the end of an attack*/
+		else if (inCancelWindow && direction != Vector2.Zero)
+		{
+			isAttacking = false;
 		}
 
 		/*freeze movement temprorly until attack animation finshes
@@ -129,15 +149,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		/*movement animation for player*/
 		if (direction != Vector2.Zero)
 		{
-			if (direction.X < 0)
-				lastDirection = "left";
-			else if (direction.X > 0)
-				lastDirection = "right";
-			else if (direction.Y < 0)
-				lastDirection = "up";
-			else if (direction.Y > 0)
-				lastDirection = "down";
-
+			UpdateLastDirection(direction);
 			animatedSprite.Play("run_" + lastDirection);
 		}
 		else
@@ -146,11 +158,30 @@ public partial class Player : CharacterBody2D, ICombatant
 		}
 	}
 
+	private void UpdateLastDirection(Vector2 direction)
+	{
+		if (direction.X < 0)
+			lastDirection = "left";
+		else if (direction.X > 0)
+			lastDirection = "right";
+		else if (direction.Y < 0)
+			lastDirection = "up";
+		else if (direction.Y > 0)
+			lastDirection = "down";
+	}
+
+	private void BufferAttack(string attackName)
+	{
+		bufferedAttack = attackName;
+		bufferTimer = attackBufferTime;
+	}
+
 	/*plays the attack and hits the enemies in front of the player,
 	  tremor (earth status) delays the attack before it starts*/
 	private async void StartAttack(string attackName, int damage)
 	{
 		isAttacking = true;
+		attackStarted = false;
 		string attackDirection = lastDirection;
 
 		if (status.AttackDelay > 0)
@@ -158,7 +189,10 @@ public partial class Player : CharacterBody2D, ICombatant
 		if (IsDead)
 			return;
 
-		animatedSprite.Play(attackName + "_" + attackDirection);
+		/*stop first so the same attack twice in a row restarts from frame 0*/
+		animatedSprite.Stop();
+		animatedSprite.Play(attackName + "_" + attackDirection, attackSpeed);
+		attackStarted = true;
 		HitEnemiesInFront(attackDirection, damage);
 	}
 

@@ -21,7 +21,7 @@ public interface ICombatant
 public static class Combat
 {
 	public const float BonusMultiplier = 1.5f;
-	public const float KnockbackForce = 200f;
+	public const float KnockbackForce = 120f;
 
 	private static readonly Dictionary<ElementType, ElementType[]> StrongAgainst = new()
 	{
