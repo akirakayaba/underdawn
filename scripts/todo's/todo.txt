@@ -1,3 +1,4 @@
-add idle animations
-add bi-dierectional animations
-collision textures
+limit the player from moving out of the camera
+add collisions in black pit area so the player cant  move
+also add the enimies models and textures and enemy spawning
+then add enemy hit box and damage
