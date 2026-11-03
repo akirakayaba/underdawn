@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxoh6tgnvqiuc"
-path="res://.godot/imported/watermarked_img_14046876085748679040.jpg-d6d10bb0def3ac21c219c2ffe28f4821.ctex"
+path="res://.godot/imported/watermarked_img_14046876085748679040.jpg-42e4398aa0b95fde412bd2f05568f560.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/Grassland/watermarked_img_14046876085748679040.jpg"
-dest_files=["res://.godot/imported/watermarked_img_14046876085748679040.jpg-d6d10bb0def3ac21c219c2ffe28f4821.ctex"]
+source_file="res://assets/levels/watermarked_img_14046876085748679040.jpg"
+dest_files=["res://.godot/imported/watermarked_img_14046876085748679040.jpg-42e4398aa0b95fde412bd2f05568f560.ctex"]
 
 [params]
 

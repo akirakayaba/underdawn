@@ -1,0 +1,3755 @@
+[gd_scene format=3 uid="uid://bjx385cjfg7b8"]
+
+[ext_resource type="Texture2D" uid="uid://bped3m35v3wc5" path="res://assets/levels/Grassland/grassland_ground.png" id="1_ground"]
+[ext_resource type="Texture2D" uid="uid://cp1t7m1avt6pv" path="res://assets/levels/Grassland/platform.png" id="2_platform"]
+[ext_resource type="Texture2D" uid="uid://dd0s5mb6xw2cs" path="res://assets/levels/Plants.png" id="3_plants"]
+[ext_resource type="Script" uid="uid://b12mxnwevjr32" path="res://Trees.cs" id="3_xtypj"]
+[ext_resource type="Texture2D" uid="uid://ditwesj0i2t4s" path="res://assets/levels/Props.png" id="4_props"]
+[ext_resource type="Script" uid="uid://fv2pq18pay5t" path="res://AutoCollisions.cs" id="5_kb40f"]
+[ext_resource type="Texture2D" uid="uid://4at836ax52t1" path="res://assets/levels/Wall.png" id="5_wall"]
+[ext_resource type="Texture2D" uid="uid://1occqufbo8wu" path="res://assets/levels/portal-Sheet.png" id="6_portal"]
+[ext_resource type="PackedScene" uid="uid://b5dudyqlsi166" path="res://scenes/entities/player.tscn" id="7_fde1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0"]
+atlas = ExtResource("6_portal")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1"]
+atlas = ExtResource("6_portal")
+region = Rect2(192, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2"]
+atlas = ExtResource("6_portal")
+region = Rect2(384, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3"]
+atlas = ExtResource("6_portal")
+region = Rect2(576, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4"]
+atlas = ExtResource("6_portal")
+region = Rect2(768, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5"]
+atlas = ExtResource("6_portal")
+region = Rect2(960, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6"]
+atlas = ExtResource("6_portal")
+region = Rect2(1152, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7"]
+atlas = ExtResource("6_portal")
+region = Rect2(1344, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8"]
+atlas = ExtResource("6_portal")
+region = Rect2(1536, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p9"]
+atlas = ExtResource("6_portal")
+region = Rect2(1728, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p10"]
+atlas = ExtResource("6_portal")
+region = Rect2(1920, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11"]
+atlas = ExtResource("6_portal")
+region = Rect2(2112, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p12"]
+atlas = ExtResource("6_portal")
+region = Rect2(2304, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p13"]
+atlas = ExtResource("6_portal")
+region = Rect2(2496, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p14"]
+atlas = ExtResource("6_portal")
+region = Rect2(2688, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p15"]
+atlas = ExtResource("6_portal")
+region = Rect2(2880, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p16"]
+atlas = ExtResource("6_portal")
+region = Rect2(3072, 0, 192, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_portal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p9")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p16")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Grassland" type="Node2D" unique_id=308208661]
+texture_filter = 1
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1861917097]
+texture = ExtResource("1_ground")
+centered = false
+
+[node name="Platform" type="Sprite2D" parent="." unique_id=215345514]
+position = Vector2(1332, 763)
+texture = ExtResource("2_platform")
+centered = false
+
+[node name="Objects" type="Node2D" parent="." unique_id=569720389]
+y_sort_enabled = true
+
+[node name="Trees" type="Node2D" parent="Objects" unique_id=1900919261]
+y_sort_enabled = true
+script = ExtResource("3_xtypj")
+
+[node name="Pine001" type="Sprite2D" parent="Objects/Trees" unique_id=1868601358]
+position = Vector2(1014, 321)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree001" type="Sprite2D" parent="Objects/Trees" unique_id=581918379]
+position = Vector2(1021, 816)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree002" type="Sprite2D" parent="Objects/Trees" unique_id=2056254683]
+position = Vector2(585, 652)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree003" type="Sprite2D" parent="Objects/Trees" unique_id=787941029]
+position = Vector2(116, 1338)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Pine002" type="Sprite2D" parent="Objects/Trees" unique_id=1869864030]
+position = Vector2(323, 204)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(834, 317, 38, 59)
+
+[node name="Pine003" type="Sprite2D" parent="Objects/Trees" unique_id=1086445610]
+position = Vector2(231, 1619)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree004" type="Sprite2D" parent="Objects/Trees" unique_id=115298077]
+position = Vector2(42, 1424)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Pine004" type="Sprite2D" parent="Objects/Trees" unique_id=983104964]
+position = Vector2(129, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree005" type="Sprite2D" parent="Objects/Trees" unique_id=950185827]
+position = Vector2(152, 878)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Pine005" type="Sprite2D" parent="Objects/Trees" unique_id=1474410790]
+position = Vector2(919, 510)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Pine006" type="Sprite2D" parent="Objects/Trees" unique_id=532168861]
+position = Vector2(1104, 364)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(775, 317, 37, 52)
+
+[node name="Tree006" type="Sprite2D" parent="Objects/Trees" unique_id=1827104840]
+position = Vector2(543, 865)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(258, 641, 88, 129)
+
+[node name="Tree007" type="Sprite2D" parent="Objects/Trees" unique_id=1472237165]
+position = Vector2(345, 1642)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree008" type="Sprite2D" parent="Objects/Trees" unique_id=820217284]
+position = Vector2(55, 1090)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(264, 850, 88, 129)
+
+[node name="Tree009" type="Sprite2D" parent="Objects/Trees" unique_id=668328498]
+position = Vector2(1051, 178)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(254, 245, 88, 129)
+
+[node name="Tree010" type="Sprite2D" parent="Objects/Trees" unique_id=821886203]
+position = Vector2(705, 577)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine007" type="Sprite2D" parent="Objects/Trees" unique_id=828780417]
+position = Vector2(862, 146)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Pine008" type="Sprite2D" parent="Objects/Trees" unique_id=984851832]
+position = Vector2(444, 348)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree011" type="Sprite2D" parent="Objects/Trees" unique_id=1738190724]
+position = Vector2(50, 98)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Tree012" type="Sprite2D" parent="Objects/Trees" unique_id=853321590]
+position = Vector2(340, 65)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine009" type="Sprite2D" parent="Objects/Trees" unique_id=1785396411]
+position = Vector2(735, 816)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree013" type="Sprite2D" parent="Objects/Trees" unique_id=1200380404]
+position = Vector2(357, 322)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(544, 244, 123, 129)
+
+[node name="Tree014" type="Sprite2D" parent="Objects/Trees" unique_id=2067229592]
+position = Vector2(826, 50)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine010" type="Sprite2D" parent="Objects/Trees" unique_id=524219145]
+position = Vector2(813, 237)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree015" type="Sprite2D" parent="Objects/Trees" unique_id=262389495]
+position = Vector2(334, 115)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree016" type="Sprite2D" parent="Objects/Trees" unique_id=1486825517]
+position = Vector2(247, 103)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Tree017" type="Sprite2D" parent="Objects/Trees" unique_id=159861250]
+position = Vector2(786, 531)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Pine011" type="Sprite2D" parent="Objects/Trees" unique_id=700976445]
+position = Vector2(630, 535)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(834, 317, 38, 59)
+
+[node name="Tree018" type="Sprite2D" parent="Objects/Trees" unique_id=1823908163]
+position = Vector2(31, 528)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree019" type="Sprite2D" parent="Objects/Trees" unique_id=847904341]
+position = Vector2(643, 356)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Tree020" type="Sprite2D" parent="Objects/Trees" unique_id=544648131]
+position = Vector2(447, 496)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine012" type="Sprite2D" parent="Objects/Trees" unique_id=1062229976]
+position = Vector2(32, 627)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(834, 317, 38, 59)
+
+[node name="Tree021" type="Sprite2D" parent="Objects/Trees" unique_id=2091013989]
+position = Vector2(307, 1242)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine013" type="Sprite2D" parent="Objects/Trees" unique_id=645854883]
+position = Vector2(86, 201)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Pine014" type="Sprite2D" parent="Objects/Trees" unique_id=1206273100]
+position = Vector2(382, 402)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine015" type="Sprite2D" parent="Objects/Trees" unique_id=1194883726]
+position = Vector2(528, 195)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine016" type="Sprite2D" parent="Objects/Trees" unique_id=246919627]
+position = Vector2(811, 622)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Pine017" type="Sprite2D" parent="Objects/Trees" unique_id=1816583045]
+position = Vector2(812, 343)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree022" type="Sprite2D" parent="Objects/Trees" unique_id=1250720627]
+position = Vector2(939, 98)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree023" type="Sprite2D" parent="Objects/Trees" unique_id=866093077]
+position = Vector2(1043, 467)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree024" type="Sprite2D" parent="Objects/Trees" unique_id=1399255206]
+position = Vector2(202, 300)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Tree025" type="Sprite2D" parent="Objects/Trees" unique_id=1104908807]
+position = Vector2(356, 1079)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Pine018" type="Sprite2D" parent="Objects/Trees" unique_id=1716515917]
+position = Vector2(273, 459)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Pine019" type="Sprite2D" parent="Objects/Trees" unique_id=1124906970]
+position = Vector2(1068, 570)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(787, 113, 37, 52)
+
+[node name="Tree026" type="Sprite2D" parent="Objects/Trees" unique_id=807470839]
+position = Vector2(20, 328)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree027" type="Sprite2D" parent="Objects/Trees" unique_id=115734450]
+position = Vector2(560, 482)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Pine020" type="Sprite2D" parent="Objects/Trees" unique_id=159106625]
+position = Vector2(535, 55)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine021" type="Sprite2D" parent="Objects/Trees" unique_id=1933857197]
+position = Vector2(427, 1669)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(775, 317, 37, 52)
+
+[node name="Tree028" type="Sprite2D" parent="Objects/Trees" unique_id=1594998856]
+position = Vector2(122, 611)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Tree029" type="Sprite2D" parent="Objects/Trees" unique_id=333718586]
+position = Vector2(365, 985)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Pine022" type="Sprite2D" parent="Objects/Trees" unique_id=1439940125]
+position = Vector2(925, 403)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree030" type="Sprite2D" parent="Objects/Trees" unique_id=2007663639]
+position = Vector2(576, 133)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(361, 660, 88, 114)
+
+[node name="Pine023" type="Sprite2D" parent="Objects/Trees" unique_id=46523568]
+position = Vector2(504, 292)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree031" type="Sprite2D" parent="Objects/Trees" unique_id=1984595771]
+position = Vector2(439, 667)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(361, 660, 88, 114)
+
+[node name="Tree032" type="Sprite2D" parent="Objects/Trees" unique_id=2023727192]
+position = Vector2(436, 1499)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree033" type="Sprite2D" parent="Objects/Trees" unique_id=979961520]
+position = Vector2(123, 1118)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree034" type="Sprite2D" parent="Objects/Trees" unique_id=1835436284]
+position = Vector2(875, 286)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(554, 849, 123, 129)
+
+[node name="Pine024" type="Sprite2D" parent="Objects/Trees" unique_id=936907750]
+position = Vector2(29, 1522)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine025" type="Sprite2D" parent="Objects/Trees" unique_id=2081486102]
+position = Vector2(101, 918)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Pine026" type="Sprite2D" parent="Objects/Trees" unique_id=147327436]
+position = Vector2(249, 871)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree035" type="Sprite2D" parent="Objects/Trees" unique_id=658984388]
+position = Vector2(106, 340)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Tree036" type="Sprite2D" parent="Objects/Trees" unique_id=86548879]
+position = Vector2(421, 1351)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Pine027" type="Sprite2D" parent="Objects/Trees" unique_id=1975052398]
+position = Vector2(884, 461)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree037" type="Sprite2D" parent="Objects/Trees" unique_id=646778355]
+position = Vector2(376, 1579)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree038" type="Sprite2D" parent="Objects/Trees" unique_id=601931593]
+position = Vector2(365, 1178)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree039" type="Sprite2D" parent="Objects/Trees" unique_id=1838374558]
+position = Vector2(628, 409)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(554, 849, 123, 129)
+
+[node name="Pine028" type="Sprite2D" parent="Objects/Trees" unique_id=623507081]
+position = Vector2(332, 1397)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine029" type="Sprite2D" parent="Objects/Trees" unique_id=1240406317]
+position = Vector2(131, 1388)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine030" type="Sprite2D" parent="Objects/Trees" unique_id=368280923]
+position = Vector2(1102, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree040" type="Sprite2D" parent="Objects/Trees" unique_id=1065497663]
+position = Vector2(470, 618)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree041" type="Sprite2D" parent="Objects/Trees" unique_id=1037950973]
+position = Vector2(125, 1631)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree042" type="Sprite2D" parent="Objects/Trees" unique_id=2118672345]
+position = Vector2(225, 687)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(7, 630, 113, 193)
+
+[node name="Pine031" type="Sprite2D" parent="Objects/Trees" unique_id=2132911154]
+position = Vector2(250, 1199)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(787, 113, 37, 52)
+
+[node name="Pine032" type="Sprite2D" parent="Objects/Trees" unique_id=790659628]
+position = Vector2(470, 394)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree043" type="Sprite2D" parent="Objects/Trees" unique_id=100124891]
+position = Vector2(89, 47)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Tree044" type="Sprite2D" parent="Objects/Trees" unique_id=1655767104]
+position = Vector2(82, 1022)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Pine033" type="Sprite2D" parent="Objects/Trees" unique_id=158569097]
+position = Vector2(147, 702)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(787, 113, 37, 52)
+
+[node name="Tree045" type="Sprite2D" parent="Objects/Trees" unique_id=1486618211]
+position = Vector2(176, 954)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree046" type="Sprite2D" parent="Objects/Trees" unique_id=1918929832]
+position = Vector2(231, 1071)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine034" type="Sprite2D" parent="Objects/Trees" unique_id=847828582]
+position = Vector2(151, 827)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree047" type="Sprite2D" parent="Objects/Trees" unique_id=1353962973]
+position = Vector2(155, 261)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree048" type="Sprite2D" parent="Objects/Trees" unique_id=1906665128]
+position = Vector2(184, 1451)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree049" type="Sprite2D" parent="Objects/Trees" unique_id=1645531320]
+position = Vector2(338, 617)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Tree050" type="Sprite2D" parent="Objects/Trees" unique_id=475829223]
+position = Vector2(222, 360)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Pine035" type="Sprite2D" parent="Objects/Trees" unique_id=719741755]
+position = Vector2(734, 157)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree051" type="Sprite2D" parent="Objects/Trees" unique_id=545331554]
+position = Vector2(413, 830)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(129, 28, 122, 154)
+
+[node name="Tree052" type="Sprite2D" parent="Objects/Trees" unique_id=328928421]
+position = Vector2(11, 270)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree053" type="Sprite2D" parent="Objects/Trees" unique_id=274745977]
+position = Vector2(982, 48)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree054" type="Sprite2D" parent="Objects/Trees" unique_id=1975876949]
+position = Vector2(266, 1296)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree055" type="Sprite2D" parent="Objects/Trees" unique_id=1342232690]
+position = Vector2(398, 1227)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Pine036" type="Sprite2D" parent="Objects/Trees" unique_id=1470116892]
+position = Vector2(450, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree056" type="Sprite2D" parent="Objects/Trees" unique_id=1696730539]
+position = Vector2(884, 198)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Tree057" type="Sprite2D" parent="Objects/Trees" unique_id=1314803320]
+position = Vector2(1023, 262)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree058" type="Sprite2D" parent="Objects/Trees" unique_id=2116707509]
+position = Vector2(333, 1451)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Pine037" type="Sprite2D" parent="Objects/Trees" unique_id=826082969]
+position = Vector2(965, 204)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree059" type="Sprite2D" parent="Objects/Trees" unique_id=496345326]
+position = Vector2(170, 468)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(129, 28, 122, 154)
+
+[node name="Tree060" type="Sprite2D" parent="Objects/Trees" unique_id=1373617508]
+position = Vector2(299, 288)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Tree061" type="Sprite2D" parent="Objects/Trees" unique_id=1703499573]
+position = Vector2(688, 209)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine038" type="Sprite2D" parent="Objects/Trees" unique_id=1773656248]
+position = Vector2(902, 337)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(775, 317, 37, 52)
+
+[node name="Pine039" type="Sprite2D" parent="Objects/Trees" unique_id=990291513]
+position = Vector2(145, 1516)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine040" type="Sprite2D" parent="Objects/Trees" unique_id=869752265]
+position = Vector2(90, 468)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree062" type="Sprite2D" parent="Objects/Trees" unique_id=315419173]
+position = Vector2(53, 1180)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree063" type="Sprite2D" parent="Objects/Trees" unique_id=1576547000]
+position = Vector2(223, 1142)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree064" type="Sprite2D" parent="Objects/Trees" unique_id=1291582684]
+position = Vector2(357, 543)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Pine041" type="Sprite2D" parent="Objects/Trees" unique_id=518266804]
+position = Vector2(717, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine042" type="Sprite2D" parent="Objects/Trees" unique_id=1483893785]
+position = Vector2(719, 439)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine043" type="Sprite2D" parent="Objects/Trees" unique_id=1132085985]
+position = Vector2(300, 390)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(844, 715, 38, 59)
+
+[node name="Pine044" type="Sprite2D" parent="Objects/Trees" unique_id=1152165065]
+position = Vector2(78, 391)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree065" type="Sprite2D" parent="Objects/Trees" unique_id=1744090385]
+position = Vector2(243, 550)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(258, 641, 88, 129)
+
+[node name="Pine045" type="Sprite2D" parent="Objects/Trees" unique_id=851930719]
+position = Vector2(283, 1032)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree066" type="Sprite2D" parent="Objects/Trees" unique_id=595173218]
+position = Vector2(189, 412)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree067" type="Sprite2D" parent="Objects/Trees" unique_id=396603567]
+position = Vector2(0, 684)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(465, 878, 77, 103)
+
+[node name="Tree068" type="Sprite2D" parent="Objects/Trees" unique_id=1630766782]
+position = Vector2(223, 1552)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Pine046" type="Sprite2D" parent="Objects/Trees" unique_id=2007801025]
+position = Vector2(101, 1285)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree069" type="Sprite2D" parent="Objects/Trees" unique_id=1186992898]
+position = Vector2(228, 1369)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Pine047" type="Sprite2D" parent="Objects/Trees" unique_id=1566034679]
+position = Vector2(454, 945)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree070" type="Sprite2D" parent="Objects/Trees" unique_id=1140195649]
+position = Vector2(113, 532)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(264, 850, 88, 129)
+
+[node name="Tree071" type="Sprite2D" parent="Objects/Trees" unique_id=516208049]
+position = Vector2(356, 876)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Tree072" type="Sprite2D" parent="Objects/Trees" unique_id=513915279]
+position = Vector2(9, 1279)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Pine048" type="Sprite2D" parent="Objects/Trees" unique_id=717745025]
+position = Vector2(472, 552)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree073" type="Sprite2D" parent="Objects/Trees" unique_id=507650337]
+position = Vector2(968, 617)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine049" type="Sprite2D" parent="Objects/Trees" unique_id=1579392183]
+position = Vector2(884, 572)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree074" type="Sprite2D" parent="Objects/Trees" unique_id=68726320]
+position = Vector2(316, 1538)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree075" type="Sprite2D" parent="Objects/Trees" unique_id=645016871]
+position = Vector2(157, 1179)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree076" type="Sprite2D" parent="Objects/Trees" unique_id=720649035]
+position = Vector2(732, 325)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Pine050" type="Sprite2D" parent="Objects/Trees" unique_id=2139348894]
+position = Vector2(439, 1127)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Pine051" type="Sprite2D" parent="Objects/Trees" unique_id=2065414343]
+position = Vector2(15, 994)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree077" type="Sprite2D" parent="Objects/Trees" unique_id=286235716]
+position = Vector2(51, 1232)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree078" type="Sprite2D" parent="Objects/Trees" unique_id=1789331561]
+position = Vector2(189, 1272)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree079" type="Sprite2D" parent="Objects/Trees" unique_id=702033420]
+position = Vector2(1090, 55)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Pine052" type="Sprite2D" parent="Objects/Trees" unique_id=1247783846]
+position = Vector2(837, 681)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree080" type="Sprite2D" parent="Objects/Trees" unique_id=1093807869]
+position = Vector2(215, 1002)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(127, 630, 122, 154)
+
+[node name="Pine053" type="Sprite2D" parent="Objects/Trees" unique_id=2078052060]
+position = Vector2(1084, 104)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree081" type="Sprite2D" parent="Objects/Trees" unique_id=1491791468]
+position = Vector2(597, 227)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Tree082" type="Sprite2D" parent="Objects/Trees" unique_id=309413431]
+position = Vector2(198, 213)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree083" type="Sprite2D" parent="Objects/Trees" unique_id=605244133]
+position = Vector2(365, 697)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Tree084" type="Sprite2D" parent="Objects/Trees" unique_id=649532680]
+position = Vector2(232, 920)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(123, 234, 122, 154)
+
+[node name="Tree085" type="Sprite2D" parent="Objects/Trees" unique_id=1102594640]
+position = Vector2(349, 493)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree086" type="Sprite2D" parent="Objects/Trees" unique_id=460059187]
+position = Vector2(573, 582)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(554, 849, 123, 129)
+
+[node name="Tree087" type="Sprite2D" parent="Objects/Trees" unique_id=1299505703]
+position = Vector2(701, 628)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(258, 641, 88, 129)
+
+[node name="Pine054" type="Sprite2D" parent="Objects/Trees" unique_id=197190653]
+position = Vector2(648, 56)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree088" type="Sprite2D" parent="Objects/Trees" unique_id=941094359]
+position = Vector2(465, 871)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Pine055" type="Sprite2D" parent="Objects/Trees" unique_id=89720831]
+position = Vector2(13, 154)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree089" type="Sprite2D" parent="Objects/Trees" unique_id=340616346]
+position = Vector2(425, 172)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree090" type="Sprite2D" parent="Objects/Trees" unique_id=869697141]
+position = Vector2(951, 148)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Pine056" type="Sprite2D" parent="Objects/Trees" unique_id=158309949]
+position = Vector2(1, 381)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree091" type="Sprite2D" parent="Objects/Trees" unique_id=753035186]
+position = Vector2(1054, 520)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(129, 28, 122, 154)
+
+[node name="Pine057" type="Sprite2D" parent="Objects/Trees" unique_id=2056225888]
+position = Vector2(241, 629)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(844, 715, 38, 59)
+
+[node name="Tree092" type="Sprite2D" parent="Objects/Trees" unique_id=906243322]
+position = Vector2(402, 263)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree093" type="Sprite2D" parent="Objects/Trees" unique_id=1546770552]
+position = Vector2(46, 1658)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree094" type="Sprite2D" parent="Objects/Trees" unique_id=891919422]
+position = Vector2(544, 377)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree095" type="Sprite2D" parent="Objects/Trees" unique_id=1908340712]
+position = Vector2(1004, 375)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(465, 878, 77, 103)
+
+[node name="Tree096" type="Sprite2D" parent="Objects/Trees" unique_id=1568048185]
+position = Vector2(840, 814)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(264, 850, 88, 129)
+
+[node name="Tree097" type="Sprite2D" parent="Objects/Trees" unique_id=765454047]
+position = Vector2(221, 56)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree098" type="Sprite2D" parent="Objects/Trees" unique_id=1367001067]
+position = Vector2(802, 393)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree099" type="Sprite2D" parent="Objects/Trees" unique_id=555967119]
+position = Vector2(29, 1571)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree100" type="Sprite2D" parent="Objects/Trees" unique_id=173147564]
+position = Vector2(49, 875)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine058" type="Sprite2D" parent="Objects/Trees" unique_id=1856355320]
+position = Vector2(432, 445)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree101" type="Sprite2D" parent="Objects/Trees" unique_id=1282126596]
+position = Vector2(1097, 238)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Pine059" type="Sprite2D" parent="Objects/Trees" unique_id=1368855461]
+position = Vector2(804, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(775, 317, 37, 52)
+
+[node name="Pine060" type="Sprite2D" parent="Objects/Trees" unique_id=1160520961]
+position = Vector2(11, 433)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine061" type="Sprite2D" parent="Objects/Trees" unique_id=609064015]
+position = Vector2(429, 1042)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree102" type="Sprite2D" parent="Objects/Trees" unique_id=2043615557]
+position = Vector2(317, 831)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Pine062" type="Sprite2D" parent="Objects/Trees" unique_id=766504444]
+position = Vector2(326, 1337)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Pine063" type="Sprite2D" parent="Objects/Trees" unique_id=858438671]
+position = Vector2(469, 237)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree103" type="Sprite2D" parent="Objects/Trees" unique_id=1581260598]
+position = Vector2(615, 888)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree104" type="Sprite2D" parent="Objects/Trees" unique_id=299233561]
+position = Vector2(667, 298)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree105" type="Sprite2D" parent="Objects/Trees" unique_id=1845239696]
+position = Vector2(142, 1574)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Tree106" type="Sprite2D" parent="Objects/Trees" unique_id=1036119702]
+position = Vector2(789, 290)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(129, 28, 122, 154)
+
+[node name="Pine064" type="Sprite2D" parent="Objects/Trees" unique_id=857228342]
+position = Vector2(246, 165)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree107" type="Sprite2D" parent="Objects/Trees" unique_id=1208030263]
+position = Vector2(268, 243)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(554, 849, 123, 129)
+
+[node name="Pine065" type="Sprite2D" parent="Objects/Trees" unique_id=1437639030]
+position = Vector2(421, 1447)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree108" type="Sprite2D" parent="Objects/Trees" unique_id=173169045]
+position = Vector2(804, 457)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Pine066" type="Sprite2D" parent="Objects/Trees" unique_id=758528072]
+position = Vector2(705, 519)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree109" type="Sprite2D" parent="Objects/Trees" unique_id=311134004]
+position = Vector2(445, 52)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree110" type="Sprite2D" parent="Objects/Trees" unique_id=1483371620]
+position = Vector2(641, 164)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree111" type="Sprite2D" parent="Objects/Trees" unique_id=1935412883]
+position = Vector2(1073, 414)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(554, 849, 123, 129)
+
+[node name="Tree112" type="Sprite2D" parent="Objects/Trees" unique_id=568496948]
+position = Vector2(437, 1301)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Pine067" type="Sprite2D" parent="Objects/Trees" unique_id=967748686]
+position = Vector2(962, 446)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree113" type="Sprite2D" parent="Objects/Trees" unique_id=2054107902]
+position = Vector2(355, 1290)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(264, 850, 88, 129)
+
+[node name="Pine068" type="Sprite2D" parent="Objects/Trees" unique_id=291611822]
+position = Vector2(758, 867)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree114" type="Sprite2D" parent="Objects/Trees" unique_id=1325800490]
+position = Vector2(317, 932)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree115" type="Sprite2D" parent="Objects/Trees" unique_id=1513974177]
+position = Vector2(4, 1051)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine069" type="Sprite2D" parent="Objects/Trees" unique_id=774661108]
+position = Vector2(83, 968)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree116" type="Sprite2D" parent="Objects/Trees" unique_id=1817483803]
+position = Vector2(963, 671)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(129, 28, 122, 154)
+
+[node name="Tree117" type="Sprite2D" parent="Objects/Trees" unique_id=1495772826]
+position = Vector2(16, 930)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Pine070" type="Sprite2D" parent="Objects/Trees" unique_id=1138017515]
+position = Vector2(139, 1233)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine071" type="Sprite2D" parent="Objects/Trees" unique_id=902693811]
+position = Vector2(649, 830)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine072" type="Sprite2D" parent="Objects/Trees" unique_id=1886419450]
+position = Vector2(441, 1606)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree118" type="Sprite2D" parent="Objects/Trees" unique_id=1590283652]
+position = Vector2(903, 31)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree119" type="Sprite2D" parent="Objects/Trees" unique_id=1643724796]
+position = Vector2(673, 679)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree120" type="Sprite2D" parent="Objects/Trees" unique_id=1973583827]
+position = Vector2(649, 462)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(127, 630, 122, 154)
+
+[node name="Tree121" type="Sprite2D" parent="Objects/Trees" unique_id=90987375]
+position = Vector2(21, 1374)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Tree122" type="Sprite2D" parent="Objects/Trees" unique_id=668087284]
+position = Vector2(284, 1490)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(258, 641, 88, 129)
+
+[node name="Tree123" type="Sprite2D" parent="Objects/Trees" unique_id=911024033]
+position = Vector2(721, 36)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree124" type="Sprite2D" parent="Objects/Trees" unique_id=218641759]
+position = Vector2(3, 1476)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree125" type="Sprite2D" parent="Objects/Trees" unique_id=144056550]
+position = Vector2(1069, 625)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Pine073" type="Sprite2D" parent="Objects/Trees" unique_id=500647399]
+position = Vector2(165, 1045)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree126" type="Sprite2D" parent="Objects/Trees" unique_id=1648677848]
+position = Vector2(990, 556)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree127" type="Sprite2D" parent="Objects/Trees" unique_id=1410213702]
+position = Vector2(6, 51)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Pine074" type="Sprite2D" parent="Objects/Trees" unique_id=1807608740]
+position = Vector2(538, 691)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine075" type="Sprite2D" parent="Objects/Trees" unique_id=452740006]
+position = Vector2(10, 213)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Pine076" type="Sprite2D" parent="Objects/Trees" unique_id=461439967]
+position = Vector2(889, 632)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree128" type="Sprite2D" parent="Objects/Trees" unique_id=342363479]
+position = Vector2(94, 662)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+region_enabled = true
+region_rect = Rect2(5, 434, 113, 193)
+
+[node name="Tree129" type="Sprite2D" parent="Objects/Trees" unique_id=2022937338]
+position = Vector2(672, 1539)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(125, 431, 122, 154)
+
+[node name="Tree130" type="Sprite2D" parent="Objects/Trees" unique_id=613987555]
+position = Vector2(972, 1651)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Tree131" type="Sprite2D" parent="Objects/Trees" unique_id=1644969766]
+position = Vector2(661, 1656)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree132" type="Sprite2D" parent="Objects/Trees" unique_id=453716041]
+position = Vector2(796, 1589)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine077" type="Sprite2D" parent="Objects/Trees" unique_id=1126107972]
+position = Vector2(607, 1601)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree133" type="Sprite2D" parent="Objects/Trees" unique_id=2025308161]
+position = Vector2(805, 1654)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree134" type="Sprite2D" parent="Objects/Trees" unique_id=1786826199]
+position = Vector2(531, 1552)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree135" type="Sprite2D" parent="Objects/Trees" unique_id=656543232]
+position = Vector2(910, 1576)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(254, 245, 88, 129)
+
+[node name="Pine078" type="Sprite2D" parent="Objects/Trees" unique_id=561231720]
+position = Vector2(518, 1656)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(834, 317, 38, 59)
+
+[node name="Tree136" type="Sprite2D" parent="Objects/Trees" unique_id=386026594]
+position = Vector2(2099, 143)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Tree137" type="Sprite2D" parent="Objects/Trees" unique_id=1661631225]
+position = Vector2(1195, 64)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Pine079" type="Sprite2D" parent="Objects/Trees" unique_id=1364709137]
+position = Vector2(1697, 225)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine080" type="Sprite2D" parent="Objects/Trees" unique_id=640980805]
+position = Vector2(2016, 171)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree138" type="Sprite2D" parent="Objects/Trees" unique_id=251944805]
+position = Vector2(1497, 166)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Tree139" type="Sprite2D" parent="Objects/Trees" unique_id=30105388]
+position = Vector2(1406, 185)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine081" type="Sprite2D" parent="Objects/Trees" unique_id=1674613708]
+position = Vector2(1784, 187)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree140" type="Sprite2D" parent="Objects/Trees" unique_id=1802344522]
+position = Vector2(1236, 251)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine082" type="Sprite2D" parent="Objects/Trees" unique_id=1532545797]
+position = Vector2(1201, 121)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree141" type="Sprite2D" parent="Objects/Trees" unique_id=198187865]
+position = Vector2(1631, 127)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Pine083" type="Sprite2D" parent="Objects/Trees" unique_id=186705415]
+position = Vector2(1372, 88)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree142" type="Sprite2D" parent="Objects/Trees" unique_id=2046416030]
+position = Vector2(1928, 106)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(9, 12, 113, 193)
+
+[node name="Tree143" type="Sprite2D" parent="Objects/Trees" unique_id=1908574168]
+position = Vector2(1762, 77)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Pine084" type="Sprite2D" parent="Objects/Trees" unique_id=1783901682]
+position = Vector2(1528, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree144" type="Sprite2D" parent="Objects/Trees" unique_id=922594189]
+position = Vector2(1651, 72)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(361, 660, 88, 114)
+
+[node name="Pine085" type="Sprite2D" parent="Objects/Trees" unique_id=195599128]
+position = Vector2(1994, 42)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree145" type="Sprite2D" parent="Objects/Trees" unique_id=1432735874]
+position = Vector2(2074, 79)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Pine086" type="Sprite2D" parent="Objects/Trees" unique_id=1553818334]
+position = Vector2(2170, 33)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Pine087" type="Sprite2D" parent="Objects/Trees" unique_id=1506422408]
+position = Vector2(1307, 49)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree146" type="Sprite2D" parent="Objects/Trees" unique_id=679598337]
+position = Vector2(1588, 217)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(123, 234, 122, 154)
+
+[node name="Tree147" type="Sprite2D" parent="Objects/Trees" unique_id=1520490106]
+position = Vector2(1949, 218)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Pine088" type="Sprite2D" parent="Objects/Trees" unique_id=900878231]
+position = Vector2(1465, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree148" type="Sprite2D" parent="Objects/Trees" unique_id=581479980]
+position = Vector2(1294, 205)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree149" type="Sprite2D" parent="Objects/Trees" unique_id=1220160135]
+position = Vector2(1836, 33)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree150" type="Sprite2D" parent="Objects/Trees" unique_id=920807358]
+position = Vector2(1418, 248)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Pine089" type="Sprite2D" parent="Objects/Trees" unique_id=1199062306]
+position = Vector2(1185, 204)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(787, 113, 37, 52)
+
+[node name="Pine090" type="Sprite2D" parent="Objects/Trees" unique_id=1329160797]
+position = Vector2(1873, 183)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree151" type="Sprite2D" parent="Objects/Trees" unique_id=960318326]
+position = Vector2(2109, 229)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree152" type="Sprite2D" parent="Objects/Trees" unique_id=395081458]
+position = Vector2(2174, 92)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine091" type="Sprite2D" parent="Objects/Trees" unique_id=503250464]
+position = Vector2(1720, 127)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Pine092" type="Sprite2D" parent="Objects/Trees" unique_id=2103483730]
+position = Vector2(1499, 222)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree153" type="Sprite2D" parent="Objects/Trees" unique_id=1147736981]
+position = Vector2(1427, 624)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(546, 441, 123, 129)
+
+[node name="Tree154" type="Sprite2D" parent="Objects/Trees" unique_id=837705830]
+position = Vector2(1449, 403)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree155" type="Sprite2D" parent="Objects/Trees" unique_id=1560249242]
+position = Vector2(1804, 412)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree156" type="Sprite2D" parent="Objects/Trees" unique_id=1647662011]
+position = Vector2(1759, 505)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Pine093" type="Sprite2D" parent="Objects/Trees" unique_id=631858146]
+position = Vector2(1861, 650)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(850, 924, 38, 59)
+
+[node name="Tree157" type="Sprite2D" parent="Objects/Trees" unique_id=1894719147]
+position = Vector2(1618, 469)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree158" type="Sprite2D" parent="Objects/Trees" unique_id=1733825042]
+position = Vector2(1985, 529)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Pine094" type="Sprite2D" parent="Objects/Trees" unique_id=2103611476]
+position = Vector2(1574, 645)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree159" type="Sprite2D" parent="Objects/Trees" unique_id=1242254483]
+position = Vector2(1353, 513)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61.5, -129)
+region_enabled = true
+region_rect = Rect2(550, 38, 123, 129)
+
+[node name="Tree160" type="Sprite2D" parent="Objects/Trees" unique_id=1010339384]
+position = Vector2(1467, 717)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree161" type="Sprite2D" parent="Objects/Trees" unique_id=1875895629]
+position = Vector2(2096, 46)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree162" type="Sprite2D" parent="Objects/Trees" unique_id=384796225]
+position = Vector2(2146, 49)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Pine095" type="Sprite2D" parent="Objects/Trees" unique_id=449603217]
+position = Vector2(2231, 53)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree163" type="Sprite2D" parent="Objects/Trees" unique_id=479471148]
+position = Vector2(2281, 44)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Pine096" type="Sprite2D" parent="Objects/Trees" unique_id=852976686]
+position = Vector2(2337, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine097" type="Sprite2D" parent="Objects/Trees" unique_id=773018702]
+position = Vector2(2408, 63)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Pine098" type="Sprite2D" parent="Objects/Trees" unique_id=859587074]
+position = Vector2(2472, 52)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree164" type="Sprite2D" parent="Objects/Trees" unique_id=15467721]
+position = Vector2(2553, 64)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree165" type="Sprite2D" parent="Objects/Trees" unique_id=1200141349]
+position = Vector2(2602, 60)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Pine099" type="Sprite2D" parent="Objects/Trees" unique_id=1629426725]
+position = Vector2(2697, 47)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree166" type="Sprite2D" parent="Objects/Trees" unique_id=1438635910]
+position = Vector2(2764, 62)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree167" type="Sprite2D" parent="Objects/Trees" unique_id=2043428691]
+position = Vector2(2823, 59)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree168" type="Sprite2D" parent="Objects/Trees" unique_id=806814943]
+position = Vector2(2885, 66)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(254, 245, 88, 129)
+
+[node name="Pine100" type="Sprite2D" parent="Objects/Trees" unique_id=176022697]
+position = Vector2(2957, 65)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Tree169" type="Sprite2D" parent="Objects/Trees" unique_id=2054164166]
+position = Vector2(3031, 46)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree170" type="Sprite2D" parent="Objects/Trees" unique_id=1435476588]
+position = Vector2(3076, 43)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree171" type="Sprite2D" parent="Objects/Trees" unique_id=867079166]
+position = Vector2(3145, 45)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree172" type="Sprite2D" parent="Objects/Trees" unique_id=1954609238]
+position = Vector2(3225, 45)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree173" type="Sprite2D" parent="Objects/Trees" unique_id=2065166720]
+position = Vector2(3277, 63)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree174" type="Sprite2D" parent="Objects/Trees" unique_id=1149241911]
+position = Vector2(2100, 79)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree175" type="Sprite2D" parent="Objects/Trees" unique_id=1819722702]
+position = Vector2(2143, 77)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine101" type="Sprite2D" parent="Objects/Trees" unique_id=450120450]
+position = Vector2(2228, 83)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(834, 317, 38, 59)
+
+[node name="Pine102" type="Sprite2D" parent="Objects/Trees" unique_id=2106826310]
+position = Vector2(2290, 90)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree176" type="Sprite2D" parent="Objects/Trees" unique_id=1412078490]
+position = Vector2(2322, 94)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(258, 641, 88, 129)
+
+[node name="Tree177" type="Sprite2D" parent="Objects/Trees" unique_id=1804250620]
+position = Vector2(2405, 94)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Pine103" type="Sprite2D" parent="Objects/Trees" unique_id=253309408]
+position = Vector2(2468, 93)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Pine104" type="Sprite2D" parent="Objects/Trees" unique_id=1099012337]
+position = Vector2(2536, 99)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree178" type="Sprite2D" parent="Objects/Trees" unique_id=1433985206]
+position = Vector2(2596, 85)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree179" type="Sprite2D" parent="Objects/Trees" unique_id=151140976]
+position = Vector2(2637, 85)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(254, 245, 88, 129)
+
+[node name="Tree180" type="Sprite2D" parent="Objects/Trees" unique_id=1586492659]
+position = Vector2(2713, 85)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree181" type="Sprite2D" parent="Objects/Trees" unique_id=1134760273]
+position = Vector2(2773, 79)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Pine105" type="Sprite2D" parent="Objects/Trees" unique_id=1497500743]
+position = Vector2(2812, 83)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(785, 715, 37, 52)
+
+[node name="Pine106" type="Sprite2D" parent="Objects/Trees" unique_id=1191917733]
+position = Vector2(2878, 94)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(787, 113, 37, 52)
+
+[node name="Pine107" type="Sprite2D" parent="Objects/Trees" unique_id=944988147]
+position = Vector2(2944, 80)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree182" type="Sprite2D" parent="Objects/Trees" unique_id=1584734205]
+position = Vector2(3015, 94)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Pine108" type="Sprite2D" parent="Objects/Trees" unique_id=1729824548]
+position = Vector2(3075, 81)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine109" type="Sprite2D" parent="Objects/Trees" unique_id=233006483]
+position = Vector2(3145, 91)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree183" type="Sprite2D" parent="Objects/Trees" unique_id=1428281650]
+position = Vector2(3193, 94)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree184" type="Sprite2D" parent="Objects/Trees" unique_id=475435639]
+position = Vector2(3246, 87)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree185" type="Sprite2D" parent="Objects/Trees" unique_id=1391497426]
+position = Vector2(2082, 140)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree186" type="Sprite2D" parent="Objects/Trees" unique_id=524760598]
+position = Vector2(2139, 120)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Pine110" type="Sprite2D" parent="Objects/Trees" unique_id=2147467115]
+position = Vector2(2238, 128)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine111" type="Sprite2D" parent="Objects/Trees" unique_id=1393171733]
+position = Vector2(2280, 122)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Pine112" type="Sprite2D" parent="Objects/Trees" unique_id=413054627]
+position = Vector2(2340, 134)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Pine113" type="Sprite2D" parent="Objects/Trees" unique_id=1202643603]
+position = Vector2(2413, 132)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(775, 317, 37, 52)
+
+[node name="Tree187" type="Sprite2D" parent="Objects/Trees" unique_id=1502866588]
+position = Vector2(2471, 128)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine114" type="Sprite2D" parent="Objects/Trees" unique_id=1963413937]
+position = Vector2(2543, 134)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree188" type="Sprite2D" parent="Objects/Trees" unique_id=362642721]
+position = Vector2(2621, 119)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree189" type="Sprite2D" parent="Objects/Trees" unique_id=1264278626]
+position = Vector2(2693, 140)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(254, 245, 88, 129)
+
+[node name="Tree190" type="Sprite2D" parent="Objects/Trees" unique_id=117306745]
+position = Vector2(2741, 121)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree191" type="Sprite2D" parent="Objects/Trees" unique_id=439182638]
+position = Vector2(2800, 120)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(465, 878, 77, 103)
+
+[node name="Pine115" type="Sprite2D" parent="Objects/Trees" unique_id=402360453]
+position = Vector2(2869, 127)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree192" type="Sprite2D" parent="Objects/Trees" unique_id=585555706]
+position = Vector2(2955, 131)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree193" type="Sprite2D" parent="Objects/Trees" unique_id=1093086412]
+position = Vector2(2999, 132)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Tree194" type="Sprite2D" parent="Objects/Trees" unique_id=1774478827]
+position = Vector2(3070, 126)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine116" type="Sprite2D" parent="Objects/Trees" unique_id=1436628333]
+position = Vector2(3142, 127)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(791, 924, 37, 52)
+
+[node name="Tree195" type="Sprite2D" parent="Objects/Trees" unique_id=1355467524]
+position = Vector2(3198, 137)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Pine117" type="Sprite2D" parent="Objects/Trees" unique_id=861946031]
+position = Vector2(3292, 129)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Tree196" type="Sprite2D" parent="Objects/Trees" unique_id=320491650]
+position = Vector2(2094, 168)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree197" type="Sprite2D" parent="Objects/Trees" unique_id=495335411]
+position = Vector2(2171, 158)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3, 218, 113, 193)
+
+[node name="Tree198" type="Sprite2D" parent="Objects/Trees" unique_id=2126101421]
+position = Vector2(2272, 167)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(359, 461, 88, 114)
+
+[node name="Tree199" type="Sprite2D" parent="Objects/Trees" unique_id=568661834]
+position = Vector2(2382, 176)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(260, 39, 88, 129)
+
+[node name="Tree200" type="Sprite2D" parent="Objects/Trees" unique_id=1941732203]
+position = Vector2(2473, 173)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-56.5, -193)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(13, 823, 113, 193)
+
+[node name="Tree201" type="Sprite2D" parent="Objects/Trees" unique_id=1572849396]
+position = Vector2(2859, 158)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-61, -154)
+region_enabled = true
+region_rect = Rect2(133, 839, 122, 154)
+
+[node name="Pine118" type="Sprite2D" parent="Objects/Trees" unique_id=1143696771]
+position = Vector2(2977, 172)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Pine119" type="Sprite2D" parent="Objects/Trees" unique_id=800684292]
+position = Vector2(3163, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine120" type="Sprite2D" parent="Objects/Trees" unique_id=2140741836]
+position = Vector2(3235, 167)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(846, 113, 38, 59)
+
+[node name="Tree202" type="Sprite2D" parent="Objects/Trees" unique_id=1952707681]
+position = Vector2(2138, 242)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(361, 660, 88, 114)
+
+[node name="Tree203" type="Sprite2D" parent="Objects/Trees" unique_id=1386594388]
+position = Vector2(2218, 198)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree204" type="Sprite2D" parent="Objects/Trees" unique_id=681512450]
+position = Vector2(2284, 256)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Tree205" type="Sprite2D" parent="Objects/Trees" unique_id=536778193]
+position = Vector2(2160, 322)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree206" type="Sprite2D" parent="Objects/Trees" unique_id=2007348383]
+position = Vector2(2244, 322)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(465, 878, 77, 103)
+
+[node name="Tree207" type="Sprite2D" parent="Objects/Trees" unique_id=1606888067]
+position = Vector2(3238, 337)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Tree208" type="Sprite2D" parent="Objects/Trees" unique_id=1078677445]
+position = Vector2(3278, 458)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(357, 264, 88, 114)
+
+[node name="Tree209" type="Sprite2D" parent="Objects/Trees" unique_id=397972675]
+position = Vector2(3223, 564)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -129)
+region_enabled = true
+region_rect = Rect2(256, 442, 88, 129)
+
+[node name="Tree210" type="Sprite2D" parent="Objects/Trees" unique_id=524471494]
+position = Vector2(3267, 634)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(459, 669, 77, 103)
+
+[node name="Tree211" type="Sprite2D" parent="Objects/Trees" unique_id=1694402097]
+position = Vector2(3208, 700)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(363, 58, 88, 114)
+
+[node name="Pine121" type="Sprite2D" parent="Objects/Trees" unique_id=588244504]
+position = Vector2(3120, 700)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine122" type="Sprite2D" parent="Objects/Trees" unique_id=1488909642]
+position = Vector2(3234, 799)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Tree212" type="Sprite2D" parent="Objects/Trees" unique_id=1206530538]
+position = Vector2(2402, 513)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(457, 470, 77, 103)
+
+[node name="Tree213" type="Sprite2D" parent="Objects/Trees" unique_id=1095079115]
+position = Vector2(2574, 449)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+region_enabled = true
+region_rect = Rect2(461, 67, 77, 103)
+
+[node name="Tree214" type="Sprite2D" parent="Objects/Trees" unique_id=836444841]
+position = Vector2(2666, 502)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-44, -114)
+region_enabled = true
+region_rect = Rect2(367, 869, 88, 114)
+
+[node name="Tree215" type="Sprite2D" parent="Objects/Trees" unique_id=1898281368]
+position = Vector2(2600, 616)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(465, 878, 77, 103)
+
+[node name="Tree216" type="Sprite2D" parent="Objects/Trees" unique_id=238056881]
+position = Vector2(2636, 564)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-38.5, -103)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(455, 273, 77, 103)
+
+[node name="Pine123" type="Sprite2D" parent="Objects/Trees" unique_id=2011171793]
+position = Vector2(2372, 528)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine124" type="Sprite2D" parent="Objects/Trees" unique_id=1509100756]
+position = Vector2(2446, 700)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Bush001" type="Sprite2D" parent="Objects/Trees" unique_id=937341527]
+position = Vector2(2886, 700)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-21, -34)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(765, 43, 42, 34)
+
+[node name="Bush002" type="Sprite2D" parent="Objects/Trees" unique_id=401443773]
+position = Vector2(3062, 777)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-27, -45)
+region_enabled = true
+region_rect = Rect2(933, 237, 54, 45)
+
+[node name="Bush003" type="Sprite2D" parent="Objects/Trees" unique_id=1041302980]
+position = Vector2(2772, 590)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-25.5, -42)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(811, 242, 51, 42)
+
+[node name="Bush004" type="Sprite2D" parent="Objects/Trees" unique_id=803800972]
+position = Vector2(2442, 388)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-29, -50)
+region_enabled = true
+region_rect = Rect2(884, 34, 58, 50)
+
+[node name="Bush005" type="Sprite2D" parent="Objects/Trees" unique_id=1041546864]
+position = Vector2(544, 1024)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-21, -34)
+region_enabled = true
+region_rect = Rect2(765, 43, 42, 34)
+
+[node name="Bush006" type="Sprite2D" parent="Objects/Trees" unique_id=1100192213]
+position = Vector2(960, 1456)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-25.5, -42)
+region_enabled = true
+region_rect = Rect2(819, 441, 51, 42)
+
+[node name="Bush007" type="Sprite2D" parent="Objects/Trees" unique_id=1479972053]
+position = Vector2(496, 1408)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-27, -45)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(941, 436, 54, 45)
+
+[node name="Bush008" type="Sprite2D" parent="Objects/Trees" unique_id=1010459015]
+position = Vector2(2898, 1210)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-21, -34)
+region_enabled = true
+region_rect = Rect2(765, 43, 42, 34)
+
+[node name="Bush009" type="Sprite2D" parent="Objects/Trees" unique_id=607335688]
+position = Vector2(3246, 1229)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-21, -34)
+region_enabled = true
+region_rect = Rect2(753, 247, 42, 34)
+
+[node name="Bush010" type="Sprite2D" parent="Objects/Trees" unique_id=417174105]
+position = Vector2(2581, 1459)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-29, -50)
+region_enabled = true
+region_rect = Rect2(882, 636, 58, 50)
+
+[node name="Pine125" type="Sprite2D" parent="Objects/Trees" unique_id=2015158184]
+position = Vector2(3200, 1504)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-18.5, -52)
+region_enabled = true
+region_rect = Rect2(783, 516, 37, 52)
+
+[node name="Pine126" type="Sprite2D" parent="Objects/Trees" unique_id=1323601761]
+position = Vector2(3072, 1600)
+scale = Vector2(2, 2)
+texture = ExtResource("3_plants")
+centered = false
+offset = Vector2(-19, -59)
+region_enabled = true
+region_rect = Rect2(842, 516, 38, 59)
+
+[node name="Ruins" type="Node2D" parent="Objects" unique_id=1556652729]
+y_sort_enabled = true
+script = ExtResource("5_kb40f")
+WidthRatio = 1.0
+HeightRatio = 0.5
+
+[node name="Pillar001" type="Sprite2D" parent="Objects/Ruins" unique_id=1835225526]
+position = Vector2(2328, 462)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pillar002" type="Sprite2D" parent="Objects/Ruins" unique_id=776506842]
+position = Vector2(2442, 440)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Lean001" type="Sprite2D" parent="Objects/Ruins" unique_id=1249078447]
+position = Vector2(2385, 458)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-22, -60)
+region_enabled = true
+region_rect = Rect2(150, 39, 44, 60)
+
+[node name="Stub001" type="Sprite2D" parent="Objects/Ruins" unique_id=432245014]
+position = Vector2(2521, 410)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-25, -44)
+region_enabled = true
+region_rect = Rect2(84, 54, 50, 44)
+
+[node name="Block001" type="Sprite2D" parent="Objects/Ruins" unique_id=1970357624]
+position = Vector2(2499, 286)
+texture = ExtResource("5_wall")
+centered = false
+offset = Vector2(-16, -30)
+region_enabled = true
+region_rect = Rect2(896, 194, 32, 30)
+
+[node name="Block002" type="Sprite2D" parent="Objects/Ruins" unique_id=1169158139]
+position = Vector2(2534, 304)
+texture = ExtResource("5_wall")
+centered = false
+offset = Vector2(-16, -30)
+region_enabled = true
+region_rect = Rect2(896, 194, 32, 30)
+
+[node name="Pillar003" type="Sprite2D" parent="Objects/Ruins" unique_id=929483661]
+position = Vector2(2666, 348)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pillar004" type="Sprite2D" parent="Objects/Ruins" unique_id=1637128956]
+position = Vector2(2772, 352)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Beam001" type="Sprite2D" parent="Objects/Ruins" unique_id=665992142]
+position = Vector2(2719, 273)
+texture = ExtResource("5_wall")
+centered = false
+offset = Vector2(-48, -32)
+region_enabled = true
+region_rect = Rect2(448, 320, 96, 32)
+
+[node name="Stub002" type="Sprite2D" parent="Objects/Ruins" unique_id=465430502]
+position = Vector2(2831, 337)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-25, -44)
+region_enabled = true
+region_rect = Rect2(84, 54, 50, 44)
+
+[node name="Pillar005" type="Sprite2D" parent="Objects/Ruins" unique_id=1255629223]
+position = Vector2(2882, 300)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pillar006" type="Sprite2D" parent="Objects/Ruins" unique_id=334411684]
+position = Vector2(2955, 269)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pedestal001" type="Sprite2D" parent="Objects/Ruins" unique_id=1617405345]
+position = Vector2(2955, 168)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-17.5, -50)
+region_enabled = true
+region_rect = Rect2(206, 196, 35, 50)
+
+[node name="Pillar007" type="Sprite2D" parent="Objects/Ruins" unique_id=108055085]
+position = Vector2(3036, 269)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pillar008" type="Sprite2D" parent="Objects/Ruins" unique_id=1928631036]
+position = Vector2(3137, 278)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Lean002" type="Sprite2D" parent="Objects/Ruins" unique_id=522007113]
+position = Vector2(3087, 286)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-22, -60)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(150, 39, 44, 60)
+
+[node name="Pillar009" type="Sprite2D" parent="Objects/Ruins" unique_id=1641929006]
+position = Vector2(3159, 348)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pedestal002" type="Sprite2D" parent="Objects/Ruins" unique_id=1782488762]
+position = Vector2(2957, 381)
+scale = Vector2(2, 2)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-17.5, -50)
+region_enabled = true
+region_rect = Rect2(206, 196, 35, 50)
+
+[node name="Gazebo001" type="Sprite2D" parent="Objects/Ruins" unique_id=405752423]
+position = Vector2(2873, 506)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-43, -92)
+region_enabled = true
+region_rect = Rect2(333, 205, 86, 92)
+
+[node name="Obelisk001" type="Sprite2D" parent="Objects/Ruins" unique_id=764890794]
+position = Vector2(2517, 594)
+scale = Vector2(2, 2)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -84)
+region_enabled = true
+region_rect = Rect2(14, 14, 36, 84)
+
+[node name="Statuea001" type="Sprite2D" parent="Objects/Ruins" unique_id=1038586746]
+position = Vector2(2380, 711)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-27.5, -164)
+region_enabled = true
+region_rect = Rect2(203, 14, 55, 164)
+
+[node name="Statueb001" type="Sprite2D" parent="Objects/Ruins" unique_id=1189906625]
+position = Vector2(2750, 722)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-27.5, -164)
+region_enabled = true
+region_rect = Rect2(302, 14, 55, 164)
+
+[node name="Pillar010" type="Sprite2D" parent="Objects/Ruins" unique_id=920566039]
+position = Vector2(2169, 568)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Obelisk002" type="Sprite2D" parent="Objects/Ruins" unique_id=1872292838]
+position = Vector2(666, 1158)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -84)
+region_enabled = true
+region_rect = Rect2(14, 14, 36, 84)
+
+[node name="Pedestal003" type="Sprite2D" parent="Objects/Ruins" unique_id=1059431743]
+position = Vector2(768, 1296)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-17.5, -50)
+region_enabled = true
+region_rect = Rect2(206, 196, 35, 50)
+
+[node name="Pillar011" type="Sprite2D" parent="Objects/Ruins" unique_id=1053205040]
+position = Vector2(870, 1286)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Pillar012" type="Sprite2D" parent="Objects/Ruins" unique_id=1052131224]
+position = Vector2(966, 1216)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-18, -116)
+region_enabled = true
+region_rect = Rect2(398, 62, 36, 116)
+
+[node name="Stub003" type="Sprite2D" parent="Objects/Ruins" unique_id=477998292]
+position = Vector2(592, 1072)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-25, -44)
+region_enabled = true
+region_rect = Rect2(84, 54, 50, 44)
+
+[node name="Lean003" type="Sprite2D" parent="Objects/Ruins" unique_id=2139372565]
+position = Vector2(998, 1382)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-22, -60)
+region_enabled = true
+region_rect = Rect2(150, 39, 44, 60)
+
+[node name="Rocks" type="Node2D" parent="Objects" unique_id=1019013620]
+y_sort_enabled = true
+script = ExtResource("5_kb40f")
+HeightRatio = 0.5
+
+[node name="Blocks001" type="Sprite2D" parent="Objects/Rocks" unique_id=104413376]
+position = Vector2(2380, 484)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32, -30)
+region_enabled = true
+region_rect = Rect2(1, 448, 64, 30)
+
+[node name="Row001" type="Sprite2D" parent="Objects/Rocks" unique_id=2084689937]
+position = Vector2(2717, 388)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32.5, -31)
+region_enabled = true
+region_rect = Rect2(0, 481, 65, 31)
+
+[node name="Blocks002" type="Sprite2D" parent="Objects/Rocks" unique_id=364309936]
+position = Vector2(3098, 304)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32, -30)
+region_enabled = true
+region_rect = Rect2(114, 448, 64, 30)
+
+[node name="Pile001" type="Sprite2D" parent="Objects/Rocks" unique_id=496203134]
+position = Vector2(3014, 330)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -47)
+region_enabled = true
+region_rect = Rect2(65, 450, 48, 47)
+
+[node name="Rock001" type="Sprite2D" parent="Objects/Rocks" unique_id=65129314]
+position = Vector2(2992, 242)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(67, 449, 28, 16)
+
+[node name="Blocks003" type="Sprite2D" parent="Objects/Rocks" unique_id=1990854554]
+position = Vector2(3001, 484)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32, -30)
+region_enabled = true
+region_rect = Rect2(1, 448, 64, 30)
+
+[node name="Rock002" type="Sprite2D" parent="Objects/Rocks" unique_id=1260886683]
+position = Vector2(3047, 436)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Small001" type="Sprite2D" parent="Objects/Rocks" unique_id=496621785]
+position = Vector2(2772, 766)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -15)
+region_enabled = true
+region_rect = Rect2(179, 497, 48, 15)
+
+[node name="Rock003" type="Sprite2D" parent="Objects/Rocks" unique_id=1237708809]
+position = Vector2(2398, 656)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(67, 449, 28, 16)
+
+[node name="Rock004" type="Sprite2D" parent="Objects/Rocks" unique_id=1680039177]
+position = Vector2(2860, 700)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Stone001" type="Sprite2D" parent="Objects/Rocks" unique_id=61031867]
+position = Vector2(512, 1152)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-16, -22)
+region_enabled = true
+region_rect = Rect2(42, 261, 32, 22)
+
+[node name="Stone002" type="Sprite2D" parent="Objects/Rocks" unique_id=152153898]
+position = Vector2(816, 1056)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-16, -22)
+region_enabled = true
+region_rect = Rect2(42, 261, 32, 22)
+
+[node name="Rock005" type="Sprite2D" parent="Objects/Rocks" unique_id=2123624603]
+position = Vector2(640, 1424)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Spire001" type="Sprite2D" parent="Objects/Rocks" unique_id=1688856551]
+position = Vector2(3100, 1331)
+scale = Vector2(3, 3)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-30.5, -72)
+region_enabled = true
+region_rect = Rect2(1, 375, 61, 72)
+
+[node name="Blocks004" type="Sprite2D" parent="Objects/Rocks" unique_id=1502337228]
+position = Vector2(2970, 1335)
+scale = Vector2(2, 2)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32, -30)
+region_enabled = true
+region_rect = Rect2(1, 448, 64, 30)
+
+[node name="Pile002" type="Sprite2D" parent="Objects/Rocks" unique_id=584971347]
+position = Vector2(3182, 1329)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -47)
+region_enabled = true
+region_rect = Rect2(178, 450, 48, 47)
+
+[node name="Rock006" type="Sprite2D" parent="Objects/Rocks" unique_id=1298044764]
+position = Vector2(2970, 1295)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(67, 449, 28, 16)
+
+[node name="Rock007" type="Sprite2D" parent="Objects/Rocks" unique_id=1005084161]
+position = Vector2(3160, 1255)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Blocks005" type="Sprite2D" parent="Objects/Rocks" unique_id=684236496]
+position = Vector2(3210, 1285)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-32, -30)
+region_enabled = true
+region_rect = Rect2(114, 448, 64, 30)
+
+[node name="Pile003" type="Sprite2D" parent="Objects/Rocks" unique_id=403108893]
+position = Vector2(3050, 1351)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -47)
+region_enabled = true
+region_rect = Rect2(65, 450, 48, 47)
+
+[node name="Rock008" type="Sprite2D" parent="Objects/Rocks" unique_id=1308936812]
+position = Vector2(2466, 1445)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(67, 449, 28, 16)
+
+[node name="Rock009" type="Sprite2D" parent="Objects/Rocks" unique_id=649096926]
+position = Vector2(2658, 1325)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Small002" type="Sprite2D" parent="Objects/Rocks" unique_id=1564536551]
+position = Vector2(2855, 1469)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -15)
+region_enabled = true
+region_rect = Rect2(179, 497, 48, 15)
+
+[node name="Rock010" type="Sprite2D" parent="Objects/Rocks" unique_id=1045310206]
+position = Vector2(2934, 1277)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(67, 449, 28, 16)
+
+[node name="Rock011" type="Sprite2D" parent="Objects/Rocks" unique_id=352468868]
+position = Vector2(3246, 1526)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-14, -16)
+region_enabled = true
+region_rect = Rect2(180, 449, 28, 16)
+
+[node name="Small003" type="Sprite2D" parent="Objects/Rocks" unique_id=1799404048]
+position = Vector2(2586, 1469)
+texture = ExtResource("4_props")
+centered = false
+offset = Vector2(-24, -15)
+region_enabled = true
+region_rect = Rect2(179, 497, 48, 15)
+
+[node name="Portal" type="AnimatedSprite2D" parent="Objects" unique_id=775893804]
+position = Vector2(2735, 1382)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_portal")
+autoplay = "default"
+offset = Vector2(0, -56)
+
+[node name="Player" parent="Objects" unique_id=2013130420 instance=ExtResource("7_fde1s")]
+position = Vector2(12, 723)
+
+[node name="Camera2D" type="Camera2D" parent="Objects/Player" unique_id=609555132]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 3264
+limit_bottom = 1632
+limit_smoothed = true

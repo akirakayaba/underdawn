@@ -5,12 +5,12 @@
 
 public enum ElementType
 {
-    NONE,
-    FIRE,
-    EARTH,
-    WATER,
-    LIGHTNING,
-    WIND,
-    ICE,
-    POISON
+	NONE,
+	FIRE,
+	EARTH,
+	WATER,
+	LIGHTNING,
+	WIND,
+	ICE,
+	POISON
 }

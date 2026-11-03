@@ -18,11 +18,34 @@ public partial class Player : CharacterBody2D
 
 
 	public override void _Ready()
-	{
-		animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
-		animatedSprite.AnimationFinished += OnAnimationFinished;
-		animatedSprite.Play("idle_" + lastDirection);
-	}
+{
+	GD.Print("Player _Ready running, camera: ", GetViewport().GetCamera2D()?.GetPath());
+	animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
+	animatedSprite.AnimationFinished += OnAnimationFinished;
+	animatedSprite.Play("idle_" + lastDirection);
+
+	GD.Print("PLAYER SCRIPT RUNNING");
+	var cam = GetViewport().GetCamera2D();
+	GD.Print("Camera: ", cam.GetPath(), "  Limits: ", cam.LimitLeft, ", ", cam.LimitTop, ", ", cam.LimitRight, ", ", cam.LimitBottom);
+	//SetupCameraLimits();
+}
+
+// private void SetupCameraLimits()
+// {
+// 	var camera = GetNode<Camera2D>("Camera2D");
+// 	var ground = GetTree().CurrentScene.GetNode<Sprite2D>("Ground");
+
+// 	Vector2 size = ground.Texture.GetSize() * ground.Scale;
+// 	Vector2 topLeft = ground.GlobalPosition;
+// 	if (ground.Centered) topLeft -= size / 2f;
+
+// 	camera.LimitLeft = (int)topLeft.X;
+// 	camera.LimitTop = (int)topLeft.Y;
+// 	camera.LimitRight = (int)(topLeft.X + size.X);
+// 	camera.LimitBottom = (int)(topLeft.Y + size.Y);
+	
+// 	GD.Print($"Limits L{camera.LimitLeft} T{camera.LimitTop} R{camera.LimitRight} B{camera.LimitBottom}");
+// }
 
 	/*onAnimatonFinsished : to check if the attack is still going through*/
 	private void OnAnimationFinished() => isAttacking = false;

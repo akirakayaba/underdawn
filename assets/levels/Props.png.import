@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ditwesj0i2t4s"
-path="res://.godot/imported/Props.png-d919b7636fe6eeff6d41117ccaf652c1.ctex"
+path="res://.godot/imported/Props.png-3f5a3785b15eb1dc52db6175d01ee7f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/Grassland/Props.png"
-dest_files=["res://.godot/imported/Props.png-d919b7636fe6eeff6d41117ccaf652c1.ctex"]
+source_file="res://assets/levels/Props.png"
+dest_files=["res://.godot/imported/Props.png-3f5a3785b15eb1dc52db6175d01ee7f9.ctex"]
 
 [params]
 

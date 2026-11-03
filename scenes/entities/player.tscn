@@ -1013,10 +1013,3 @@ animation = &"idle_down"
 texture_filter = 1
 position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_3xya2")
-
-[node name="PlayerCamera" type="Camera2D" parent="." unique_id=1311086529]
-texture_filter = 1
-position = Vector2(0, 2)
-zoom = Vector2(2, 2)
-position_smoothing_speed = 0.55
-rotation_smoothing_speed = 0.49

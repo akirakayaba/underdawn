@@ -5,16 +5,16 @@ using Godot;
 
 public partial class SceneManager : Node
 {
-    //singleton static reference for global use
-    public static SceneManager Instance { get; private set; }
+	//singleton static reference for global use
+	public static SceneManager Instance { get; private set; }
 
-    public override void _Ready()
-    {
-        Instance = this;
-    }
+	public override void _Ready()
+	{
+		Instance = this;
+	}
 
-    public void ChangeScene(string scenePath)
-    {
-        GetTree().ChangeSceneToFile(scenePath);
-    }
+	public void ChangeScene(string scenePath)
+	{
+		GetTree().ChangeSceneToFile(scenePath);
+	}
 }
