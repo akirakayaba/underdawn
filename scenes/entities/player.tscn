@@ -1019,7 +1019,12 @@ shape = SubResource("CapsuleShape2D_3xya2")
 texture_filter = 1
 position = Vector2(0, 2)
 zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 3264
+limit_bottom = 1632
+limit_smoothed = true
 position_smoothing_speed = 0.55
 rotation_smoothing_speed = 0.49
 
-[node name="Hud" parent="." instance=ExtResource("18_hud")]
+[node name="Hud" parent="." unique_id=956606385 instance=ExtResource("18_hud")]
