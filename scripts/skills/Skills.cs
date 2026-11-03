@@ -42,6 +42,9 @@ public static class Skills
 			case ElementType.FIRE:
 				FireSkill.Cast(player, direction);
 				return true;
+			case ElementType.ICE:
+				IceSkill.Cast(player, direction);
+				return true;
 			default:
 				return false;
 		}
