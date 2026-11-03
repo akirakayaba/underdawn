@@ -40,6 +40,10 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 	/*set this if the sprite sheet is drawn facing left*/
 	[Export] protected bool spriteFacesLeft = false;
 
+	/*shadow under the enemy's feet, 0 width = no shadow*/
+	[Export] protected float shadowWidth = 0f;
+	[Export] protected float shadowOffsetY = 16f;
+
 	private float attackTimer;
 	private bool isAttacking;
 	private bool isHurt;
@@ -69,6 +73,8 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		AddChild(status);
 
 		ShowElement();
+		if (shadowWidth > 0)
+			Shadow.AddTo(this, shadowWidth, shadowOffsetY);
 	}
 
 	/*basic enemy behaviour: walk to the player and hit them when close.

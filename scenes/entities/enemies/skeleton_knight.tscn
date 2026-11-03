@@ -317,6 +317,8 @@ elementType = 6
 attackRange = 40.0
 attackHitTime = 0.3
 attackCooldown = 1.6
+shadowWidth = 24.0
+shadowOffsetY = 24.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -63,6 +63,8 @@ public partial class Player : CharacterBody2D, ICombatant
 	private Camera2D camera;
 	private const float EdgeMargin = 12f;
 
+	private Polygon2D shadow;
+
 
 	public override void _Ready()
 	{
@@ -71,6 +73,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		animatedSprite.AnimationFinished += OnAnimationFinished;
 		animatedSprite.Play("idle_" + lastDirection);
 		camera = GetNode<Camera2D>("PlayerCamera");
+		shadow = Shadow.AddTo(this, 20f, 16f);
 
 		status = new StatusEffectHandler { Target = this, Sprite = animatedSprite };
 		AddChild(status);

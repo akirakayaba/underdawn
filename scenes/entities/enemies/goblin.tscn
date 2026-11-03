@@ -278,6 +278,8 @@ elementType = 2
 attackRange = 30.0
 attackHitTime = 0.25
 attackCooldown = 1.2
+shadowWidth = 20.0
+shadowOffsetY = 20.0
 spriteFacesLeft = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
