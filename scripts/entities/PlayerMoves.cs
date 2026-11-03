@@ -3,7 +3,10 @@
 //				Player.cs, split out so that file doesnt get too long)
 //				charged attack	hold Q or E after an attack, let go once the player glows
 //				spin finisher	Q, Q, E combo: the E spins and hits all around
+//				dash attack		attack during a dash: thrust through every enemy on the way
+//				air slash		Q in the air (twice per jump), E in the air is the slam
 
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -19,6 +22,13 @@ public partial class Player
 	private float chargeTimer;
 	private bool chargeReady;
 	private int attack1Streak;
+
+	[Export] private int dashAttackDamage = 18;
+	[Export] private int airSlashDamage = 12;
+	private const int MaxAirSlashes = 2;
+	private bool isDashAttacking;
+	private readonly HashSet<Enemy> dashAttackHits = new();
+	private int airSlashesLeft;
 
 	/*starts the buffered attack, chained = it cancels the end of the last attack*/
 	private void StartBufferedAttack(Vector2 direction, bool chained)
@@ -37,6 +47,51 @@ public partial class Player
 		}
 		attack1Streak = attackName == "attack1" ? attack1Streak + 1 : 0;
 		StartAttack(attackName, attackName == "attack1" ? attack1Damage : attack2Damage);
+	}
+
+	/*called every frame of a dash: an attack pressed during a ground dash turns
+	  it into a thrust that hits every enemy it passes (each once)*/
+	private void UpdateDashAttack()
+	{
+		if (!isDashAttacking && bufferedAttack != null && !IsInAir && status.CanAttack)
+		{
+			bufferedAttack = null;
+			isDashAttacking = true;
+			dashAttackHits.Clear();
+			dashTimer += 0.08f;
+			BeginMove("attack1");
+		}
+		if (!isDashAttacking)
+			return;
+
+		foreach (var enemy in Skills.EnemiesNear(this, GlobalPosition + dashDirection * 12f, 24f))
+		{
+			if (dashAttackHits.Add(enemy))
+				Combat.Hit(GlobalPosition, CurrentElement, enemy, dashAttackDamage);
+		}
+	}
+
+	/*attack pressed in the air: Q slashes (MaxAirSlashes times per jump), E or out of slashes = slam*/
+	private void StartAirAttack()
+	{
+		string attackName = bufferedAttack;
+		bufferedAttack = null;
+		if (attackName == "attack1" && airSlashesLeft > 0)
+			AirSlash();
+		else
+			StartSlam(attackName);
+	}
+
+	/*small hop so the player hangs in the air a bit longer while slashing*/
+	private void AirSlash()
+	{
+		airSlashesLeft--;
+		heightVelocity = Mathf.Max(heightVelocity, 120f);
+		BeginMove("attack1");
+		var direction = DirectionToVector(lastDirection);
+		var center = GlobalPosition + direction * attackReach;
+		HitEnemiesAround(center, attackRadius, airSlashDamage, 60f);
+		SpawnSlashArc(center - direction * 8f, direction, attackRadius * 0.8f, 2f, Colors.White);
 	}
 
 	/*holding an attack key (not attacking, on the ground) builds the charge,

@@ -9,6 +9,10 @@ public partial class Player : CharacterBody2D, ICombatant
 {
 	public const string GroupName = "player";
 
+	/*collision layers: 1 = world (walls, pit, trees) and the player, 2 = enemies*/
+	public const uint WorldLayer = 1;
+	public const uint EnemyLayer = 2;
+
 	private AnimatedSprite2D animatedSprite;
 
 	/*using string to store last input of user*/
@@ -182,6 +186,8 @@ public partial class Player : CharacterBody2D, ICombatant
 		dashCooldownTimer -= (float)delta;
 		if (Input.IsActionJustPressed("dash") && dashCooldownTimer <= 0 && status.CanMove && (!IsInAir || canAirDash))
 			StartDash(direction);
+		/*dashing goes through enemies (but not walls)*/
+		CollisionMask = dashTimer > 0 ? WorldLayer : WorldLayer | EnemyLayer;
 		if (dashTimer > 0)
 		{
 			dashTimer -= (float)delta;
@@ -189,15 +195,16 @@ public partial class Player : CharacterBody2D, ICombatant
 			MoveAndSlide();
 			KeepInsideCameraLimits();
 			SpawnAfterimage((float)delta);
+			UpdateDashAttack();
 			return;
 		}
+		isDashAttacking = false;
 
 		UpdateHeight((float)delta);
 
-		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && IsInAir && !isSlamming)
+		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && IsInAir && !isSlamming && (!isAttacking || inCancelWindow))
 		{
-			StartSlam(bufferedAttack);
-			bufferedAttack = null;
+			StartAirAttack();
 		}
 		else if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && !IsInAir && (!isAttacking || inCancelWindow))
 		{
@@ -255,6 +262,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		heightVelocity = jumpVelocity;
 		height = 0.01f;
 		canAirDash = true;
+		airSlashesLeft = MaxAirSlashes;
 		isAttacking = false;
 		isSlamming = false;
 	}
@@ -264,7 +272,9 @@ public partial class Player : CharacterBody2D, ICombatant
 	{
 		if (IsInAir)
 		{
-			heightVelocity -= gravity * time;
+			/*floaty while air slashing so air combos are possible*/
+			bool airSlashing = isAttacking && !isSlamming;
+			heightVelocity -= (airSlashing ? gravity * 0.35f : gravity) * time;
 			height = Mathf.Max(height + heightVelocity * time, 0f);
 			if (isSlamming)
 				SpawnAfterimage(time);

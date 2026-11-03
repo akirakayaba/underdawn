@@ -59,6 +59,10 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		/*top down, so no floors: in the default (platformer) mode a body moving
 		  under another one drags it along like a moving platform*/
 		MotionMode = MotionModeEnum.Floating;
+
+		/*enemies are on layer 2 so the player can dash through them (Player.cs)*/
+		CollisionLayer = Player.EnemyLayer;
+		CollisionMask = Player.WorldLayer | Player.EnemyLayer;
 		health = maxHealth;
 		healthBar = GetNodeOrNull<ProgressBar>("HealthProgressBar");
 		UpdateHealthBar();
