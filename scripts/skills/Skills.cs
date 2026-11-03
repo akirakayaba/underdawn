@@ -57,6 +57,9 @@ public static class Skills
 			case ElementType.WATER:
 				WaterSkill.Cast(player, direction);
 				return true;
+			case ElementType.POISON:
+				PoisonSkill.Cast(player, direction);
+				return true;
 			default:
 				return false;
 		}
