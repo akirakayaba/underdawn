@@ -54,6 +54,9 @@ public static class Skills
 			case ElementType.EARTH:
 				EarthSkill.Cast(player, direction);
 				return true;
+			case ElementType.WATER:
+				WaterSkill.Cast(player, direction);
+				return true;
 			default:
 				return false;
 		}
