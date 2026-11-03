@@ -169,6 +169,9 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		if (healthBar != null)
 			healthBar.Visible = false;
 
+		/*the player can steal the element from the orb*/
+		ElementOrb.Drop(GetParent(), GlobalPosition, elementType);
+
 		if (!PlayAnimation("death"))
 			QueueFree();
 	}
