@@ -51,6 +51,9 @@ public static class Skills
 			case ElementType.WIND:
 				WindSkill.Cast(player, direction);
 				return true;
+			case ElementType.EARTH:
+				EarthSkill.Cast(player, direction);
+				return true;
 			default:
 				return false;
 		}
