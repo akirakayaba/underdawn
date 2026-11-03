@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="UnderDawn"
-run/main_scene="uid://b5dudyqlsi166"
+run/main_scene="uid://bjx385cjfg7b8"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://other/icon.svg"
 
