@@ -51,6 +51,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 	private float spriteScaleX = 1f;
 
 	protected StatusEffectHandler status;
+	private CanvasItem sprite;
 
 	public override void _Ready()
 	{
@@ -68,7 +69,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		}
 
 		/*tints the enemy's first sprite so the health bar keeps its color*/
-		var sprite = GetChildren().FirstOrDefault(child => child is Sprite2D or AnimatedSprite2D) as CanvasItem;
+		sprite = GetChildren().FirstOrDefault(child => child is Sprite2D or AnimatedSprite2D) as CanvasItem;
 		status = new StatusEffectHandler { Target = this, Sprite = sprite };
 		AddChild(status);
 
@@ -151,6 +152,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		health = Mathf.Max(health - amount, 0);
 		UpdateHealthBar();
 		FloatingText.Show(this, amount.ToString(), isBonus ? FloatingText.BonusColor : FloatingText.DamageColor);
+		HitEffects.Flash(sprite);
 
 		if (IsDead)
 			Die();

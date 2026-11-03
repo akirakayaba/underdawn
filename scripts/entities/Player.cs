@@ -53,6 +53,7 @@ public partial class Player : CharacterBody2D, ICombatant
 	[Export] private int slamDamage = 20;
 	[Export] private float slamRadius = 44f;
 	[Export] private float slamFallSpeed = 600f;
+	[Export] private float slamKnockback = 150f;
 	private bool isSlamming;
 
 	public bool IsInvincible => dashTimer > 0 || height > dodgeHeight;
@@ -120,6 +121,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		health = Mathf.Max(health - amount, 0);
 		EmitSignal(SignalName.HealthChanged, health, maxHealth);
 		FloatingText.Show(this, amount.ToString(), isBonus ? FloatingText.BonusColor : FloatingText.DamageColor);
+		HitEffects.Flash(animatedSprite);
 
 		/*no death animation yet, so the player stops and turns gray*/
 		if (IsDead)
@@ -251,6 +253,8 @@ public partial class Player : CharacterBody2D, ICombatant
 		{
 			heightVelocity -= gravity * time;
 			height = Mathf.Max(height + heightVelocity * time, 0f);
+			if (isSlamming)
+				SpawnAfterimage(time);
 			if (height == 0 && isSlamming)
 				Slam();
 		}
@@ -273,11 +277,21 @@ public partial class Player : CharacterBody2D, ICombatant
 	{
 		isSlamming = false;
 		attackStarted = true;
+		bool hitSomething = false;
 		foreach (var enemy in GetTree().GetNodesInGroup(Enemy.GroupName).OfType<Enemy>())
 		{
-			if (enemy.GlobalPosition.DistanceTo(GlobalPosition) <= slamRadius)
-				Combat.Hit(GlobalPosition, CurrentElement, enemy, slamDamage);
+			if (enemy.GlobalPosition.DistanceTo(GlobalPosition) > slamRadius)
+				continue;
+			/*slam pushes enemies out more than a normal hit*/
+			enemy.ApplyKnockback((enemy.GlobalPosition - GlobalPosition).Normalized() * slamKnockback);
+			Combat.Hit(GlobalPosition, CurrentElement, enemy, slamDamage);
+			hitSomething = true;
 		}
+
+		HitEffects.Shake(camera, 5f, 0.25f);
+		HitEffects.Dust(GetParent(), GlobalPosition + new Vector2(0, 16));
+		if (hitSomething)
+			HitEffects.Hitstop(GetTree(), 0.07f);
 
 		/*ring on the ground that grows and fades out*/
 		var ring = Shadow.AddTo(this, slamRadius * 2, 16f);
