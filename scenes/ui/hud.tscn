@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4hudpl4y3rhb"]
 
 [ext_resource type="Script" path="res://scripts/ui/Hud.cs" id="1_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/skill_slot.tscn" id="2_slot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.15, 0.05, 0.05, 0.8)
@@ -38,6 +39,25 @@ offset_bottom = 63.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 text = "Element: None"
+
+[node name="SkillBar" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="DashSlot" parent="SkillBar" instance=ExtResource("2_slot")]
+layout_mode = 2
+Key = "Shift"
+
+[node name="ElementSkillSlot" parent="SkillBar" instance=ExtResource("2_slot")]
+layout_mode = 2
+Key = "R"
 
 [node name="GameOver" type="Control" parent="."]
 process_mode = 3

@@ -37,6 +37,12 @@ public partial class Player : CharacterBody2D, ICombatant
 	private float dashTimer;
 	private float dashCooldownTimer;
 	private float afterimageTimer;
+	public float DashCooldown => dashCooldown;
+	public float DashCooldownLeft => Mathf.Max(dashCooldownTimer, 0f);
+
+	/*element skill (R), which skill it is depends on the current element (Skills.cs)*/
+	private float skillCooldownTimer;
+	public float SkillCooldownLeft => Mathf.Max(skillCooldownTimer, 0f);
 
 	/*jump: fake height for the top down view, the sprite goes up and the shadow
 	  stays on the ground. enemy attacks miss while the player is high enough,
@@ -159,6 +165,10 @@ public partial class Player : CharacterBody2D, ICombatant
 		else if (Input.IsActionJustPressed("attack2"))
 			BufferAttack("attack2");
 		bufferTimer -= (float)delta;
+
+		skillCooldownTimer -= (float)delta;
+		if (Input.IsActionJustPressed("skill") && skillCooldownTimer <= 0 && status.CanAttack && !isAttacking)
+			CastSkill(direction);
 
 		/*jumping also cancels the end of an attack (frozen players cant jump)*/
 		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;
@@ -302,6 +312,20 @@ public partial class Player : CharacterBody2D, ICombatant
 		tween.TweenProperty(ring, "scale", Vector2.One, 0.25);
 		tween.TweenProperty(ring, "modulate:a", 0.0, 0.25);
 		tween.Chain().TweenCallback(Callable.From(ring.QueueFree));
+	}
+
+	/*casts toward the held direction (or the facing direction), plays attack1 as the cast animation*/
+	private void CastSkill(Vector2 direction)
+	{
+		Vector2 aim = direction != Vector2.Zero ? direction.Normalized() : DirectionToVector(lastDirection);
+		if (!Skills.Cast(this, CurrentElement, aim))
+			return;
+		skillCooldownTimer = Skills.GetCooldown(CurrentElement);
+		UpdateLastDirection(aim);
+		isAttacking = true;
+		attackStarted = true;
+		animatedSprite.Stop();
+		animatedSprite.Play("attack1_" + lastDirection, attackSpeed);
 	}
 
 	private void StartDash(Vector2 direction)
