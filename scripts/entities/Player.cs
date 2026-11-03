@@ -80,9 +80,13 @@ public partial class Player : CharacterBody2D, ICombatant
 		EmitSignal(SignalName.HealthChanged, health, maxHealth);
 		FloatingText.Show(this, amount.ToString(), isBonus ? FloatingText.BonusColor : FloatingText.DamageColor);
 
+		/*no death animation yet, so the player stops and turns gray*/
 		if (IsDead)
 		{
+			status.Apply(ElementType.NONE);
 			animatedSprite.Play("idle_" + lastDirection);
+			animatedSprite.Modulate = new Color(0.4f, 0.4f, 0.4f);
+			Velocity = Vector2.Zero;
 			EmitSignal(SignalName.Died);
 		}
 	}
