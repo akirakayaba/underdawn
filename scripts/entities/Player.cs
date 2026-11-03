@@ -28,6 +28,17 @@ public partial class Player : CharacterBody2D, ICombatant
 	private float bufferTimer;
 	private bool attackStarted;
 
+	/*dash: quick burst in the move direction (or the facing direction),
+	  the player cant be hit while dashing and it cancels an attack*/
+	[Export] private float dashSpeed = 450f;
+	[Export] private float dashTime = 0.18f;
+	[Export] private float dashCooldown = 0.6f;
+	private Vector2 dashDirection;
+	private float dashTimer;
+	private float dashCooldownTimer;
+	private float afterimageTimer;
+	public bool IsInvincible => dashTimer > 0;
+
 	/*attack damage, and the area in front of the player that the attack hits*/
 	[Export] private int attack1Damage = 10;
 	[Export] private int attack2Damage = 15;
@@ -124,6 +135,20 @@ public partial class Player : CharacterBody2D, ICombatant
 			BufferAttack("attack2");
 		bufferTimer -= (float)delta;
 
+		/*frozen players cant dash, attacks pressed during a dash happen right after it*/
+		dashCooldownTimer -= (float)delta;
+		if (Input.IsActionJustPressed("dash") && dashCooldownTimer <= 0 && status.CanMove)
+			StartDash(direction);
+		if (dashTimer > 0)
+		{
+			dashTimer -= (float)delta;
+			Velocity = dashDirection * dashSpeed;
+			MoveAndSlide();
+			KeepInsideCameraLimits();
+			SpawnAfterimage((float)delta);
+			return;
+		}
+
 		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;
 		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && (!isAttacking || inCancelWindow))
 		{
@@ -174,6 +199,39 @@ public partial class Player : CharacterBody2D, ICombatant
 	{
 		bufferedAttack = attackName;
 		bufferTimer = attackBufferTime;
+	}
+
+	private void StartDash(Vector2 direction)
+	{
+		dashDirection = direction != Vector2.Zero ? direction.Normalized() : DirectionToVector(lastDirection);
+		dashTimer = dashTime;
+		dashCooldownTimer = dashCooldown;
+		isAttacking = false;
+		UpdateLastDirection(dashDirection);
+		animatedSprite.Play("run_" + lastDirection);
+	}
+
+	/*fading copies of the player sprite left behind while dashing*/
+	private void SpawnAfterimage(float time)
+	{
+		afterimageTimer -= time;
+		if (afterimageTimer > 0)
+			return;
+		afterimageTimer = 0.03f;
+
+		var afterimage = new Sprite2D
+		{
+			Texture = animatedSprite.SpriteFrames.GetFrameTexture(animatedSprite.Animation, animatedSprite.Frame),
+			Offset = animatedSprite.Offset,
+			TextureFilter = TextureFilterEnum.Nearest,
+			Modulate = new Color(0.6f, 0.8f, 1f, 0.5f)
+		};
+		GetParent().AddChild(afterimage);
+		afterimage.GlobalPosition = animatedSprite.GlobalPosition;
+
+		var tween = afterimage.CreateTween();
+		tween.TweenProperty(afterimage, "modulate:a", 0.0, 0.2);
+		tween.TweenCallback(Callable.From(afterimage.QueueFree));
 	}
 
 	/*plays the attack and hits the enemies in front of the player,

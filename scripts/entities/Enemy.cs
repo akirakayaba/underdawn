@@ -26,6 +26,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 	protected int health;
 	private ProgressBar healthBar;
 	public bool IsDead => health <= 0;
+	public bool IsInvincible => false;
 
 	/*how close the player has to be for the enemy to chase / attack them*/
 	[Export] protected float detectRange = 200f;

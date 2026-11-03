@@ -13,6 +13,7 @@ public interface ICombatant
 	ElementType Element { get; }
 	Vector2 GlobalPosition { get; }
 	bool IsDead { get; }
+	bool IsInvincible { get; }
 	void TakeDamage(int amount, bool isBonus = false);
 	void ApplyStatus(ElementType element);
 	void ApplyKnockback(Vector2 force);
@@ -55,7 +56,7 @@ public static class Combat
 	  (x1.5 damage if the attacker's element is strong against the target)*/
 	public static void Hit(Vector2 attackerPosition, ElementType attackerElement, ICombatant target, int baseDamage)
 	{
-		if (target.IsDead)
+		if (target.IsDead || target.IsInvincible)
 			return;
 
 		bool isBonus = IsStrongAgainst(attackerElement, target.Element);
