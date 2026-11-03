@@ -37,7 +37,19 @@ public partial class Player : CharacterBody2D, ICombatant
 	private float dashTimer;
 	private float dashCooldownTimer;
 	private float afterimageTimer;
-	public bool IsInvincible => dashTimer > 0;
+
+	/*jump: fake height for the top down view, the sprite goes up and the shadow
+	  stays on the ground. enemy attacks miss while the player is high enough,
+	  one air dash per jump (gravity stops during the air dash)*/
+	[Export] private float jumpVelocity = 260f;
+	[Export] private float gravity = 1100f;
+	[Export] private float dodgeHeight = 10f;
+	private float height;
+	private float heightVelocity;
+	private bool canAirDash;
+	public bool IsInAir => height > 0;
+
+	public bool IsInvincible => dashTimer > 0 || height > dodgeHeight;
 
 	/*attack damage, and the area in front of the player that the attack hits*/
 	[Export] private int attack1Damage = 10;
@@ -107,6 +119,8 @@ public partial class Player : CharacterBody2D, ICombatant
 		if (IsDead)
 		{
 			status.Apply(ElementType.NONE);
+			height = 0;
+			UpdateHeight(0);
 			animatedSprite.Play("idle_" + lastDirection);
 			animatedSprite.Modulate = new Color(0.4f, 0.4f, 0.4f);
 			Velocity = Vector2.Zero;
@@ -138,9 +152,14 @@ public partial class Player : CharacterBody2D, ICombatant
 			BufferAttack("attack2");
 		bufferTimer -= (float)delta;
 
+		/*jumping also cancels the end of an attack (frozen players cant jump)*/
+		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;
+		if (Input.IsActionJustPressed("jump") && !IsInAir && status.CanMove && (!isAttacking || inCancelWindow))
+			StartJump();
+
 		/*frozen players cant dash, attacks pressed during a dash happen right after it*/
 		dashCooldownTimer -= (float)delta;
-		if (Input.IsActionJustPressed("dash") && dashCooldownTimer <= 0 && status.CanMove)
+		if (Input.IsActionJustPressed("dash") && dashCooldownTimer <= 0 && status.CanMove && (!IsInAir || canAirDash))
 			StartDash(direction);
 		if (dashTimer > 0)
 		{
@@ -152,7 +171,8 @@ public partial class Player : CharacterBody2D, ICombatant
 			return;
 		}
 
-		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;
+		UpdateHeight((float)delta);
+
 		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && (!isAttacking || inCancelWindow))
 		{
 			UpdateLastDirection(direction);
@@ -204,8 +224,30 @@ public partial class Player : CharacterBody2D, ICombatant
 		bufferTimer = attackBufferTime;
 	}
 
+	private void StartJump()
+	{
+		heightVelocity = jumpVelocity;
+		height = 0.01f;
+		canAirDash = true;
+		isAttacking = false;
+	}
+
+	/*moves the sprite up by the jump height, the shadow gets smaller the higher the player is*/
+	private void UpdateHeight(float time)
+	{
+		if (IsInAir)
+		{
+			heightVelocity -= gravity * time;
+			height = Mathf.Max(height + heightVelocity * time, 0f);
+		}
+		animatedSprite.Position = new Vector2(0, -height);
+		shadow.Scale = Vector2.One * Mathf.Lerp(1f, 0.6f, Mathf.Min(height / 40f, 1f));
+	}
+
 	private void StartDash(Vector2 direction)
 	{
+		if (IsInAir)
+			canAirDash = false;
 		dashDirection = direction != Vector2.Zero ? direction.Normalized() : DirectionToVector(lastDirection);
 		dashTimer = dashTime;
 		dashCooldownTimer = dashCooldown;
