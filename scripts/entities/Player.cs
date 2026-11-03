@@ -21,6 +21,10 @@ public partial class Player : CharacterBody2D
 	[Export] private int maxHealth = 100;
 	private int health;
 
+	/*element ability the player currently has, the hud listens to ElementChanged*/
+	[Signal] public delegate void ElementChangedEventHandler(ElementType element);
+	public ElementType CurrentElement { get; private set; } = ElementType.NONE;
+
 
 	public override void _Ready()
 	{
@@ -30,7 +34,17 @@ public partial class Player : CharacterBody2D
 
 		health = maxHealth;
 		EmitSignal(SignalName.HealthChanged, health, maxHealth);
+		EmitSignal(SignalName.ElementChanged, (int)CurrentElement);
 	}
+
+	public void SetElement(ElementType element)
+	{
+		CurrentElement = element;
+		EmitSignal(SignalName.ElementChanged, (int)element);
+	}
+
+	/*shows the status effect on the player, NONE clears it*/
+	public void ApplyStatus(ElementType element) => ElementVisuals.ShowStatus(this, animatedSprite, element);
 
 	/*isBonus is for when the enemy's element is strong against the player*/
 	public void TakeDamage(int amount, bool isBonus = false)

@@ -1,6 +1,7 @@
 //Name:			Enemy.cs
 //Description:	Abstract class of what a basic enemy should have
 
+using System.Linq;
 using Godot;
 
 public abstract partial class Enemy : CharacterBody2D
@@ -41,6 +42,14 @@ public abstract partial class Enemy : CharacterBody2D
 	}
 
 	protected virtual void Die() => QueueFree();
+
+	/*shows the status effect on the enemy, NONE clears it
+	  (tints the enemy's first sprite so the health bar keeps its color)*/
+	public void ApplyStatus(ElementType element)
+	{
+		CanvasItem sprite = GetChildren().FirstOrDefault(child => child is Sprite2D or AnimatedSprite2D) as CanvasItem;
+		ElementVisuals.ShowStatus(this, sprite ?? this, element);
+	}
 
 	private void UpdateHealthBar()
 	{

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bxqet4m6hl63a"]
 
+[ext_resource type="Script" path="res://scripts/levels/TestArea.cs" id="1_tarea"]
 [ext_resource type="PackedScene" uid="uid://b5dudyqlsi166" path="res://scenes/entities/player.tscn" id="2_3ifaq"]
 [ext_resource type="PackedScene" uid="uid://b14i73g8l1eag" path="res://scenes/entities/enemy_test_character.tscn" id="3_1h2li"]
 
 [node name="TestArea" type="Node2D" unique_id=660049894]
+script = ExtResource("1_tarea")
 
 [node name="Player" parent="." unique_id=2013130420 instance=ExtResource("2_3ifaq")]
 

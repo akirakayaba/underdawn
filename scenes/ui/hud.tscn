@@ -29,3 +29,12 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_fill")
 step = 1.0
 value = 100.0
 show_percentage = false
+
+[node name="ElementLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 216.0
+offset_bottom = 63.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Element: None"
