@@ -66,9 +66,11 @@ public partial class StatusEffectHandler : Node
 		if (element == Target.Element || Target.IsDead)
 			return;
 
+		/*only show the name when the status is new, not every time it gets refreshed*/
+		if (!Has(element))
+			FloatingText.Show((Node2D)Target, ElementVisuals.GetStatusName(element), ElementVisuals.GetColor(element), 14f);
 		timeLeft[element] = Durations[element];
 		tickTimers.TryAdd(element, 0f);
-		FloatingText.Show((Node2D)Target, ElementVisuals.GetStatusName(element), ElementVisuals.GetColor(element), 14f);
 		ShowTint(element);
 	}
 
