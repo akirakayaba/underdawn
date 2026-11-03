@@ -18,6 +18,9 @@ public partial class EnemySpawner : Node2D
 	/*random element for each enemy, otherwise they keep the element from their scene*/
 	[Export] public bool RandomElements = true;
 
+	/*chance for each spawned enemy to be an elite (EnemyVariants.cs)*/
+	[Export] public float EliteChance = 0.15f;
+
 	private float timer;
 
 	public override void _Ready()
@@ -49,6 +52,7 @@ public partial class EnemySpawner : Node2D
 
 		var point = points[GD.RandRange(0, points.Count - 1)];
 		var enemy = EnemyScenes[GD.RandRange(0, EnemyScenes.Length - 1)].Instantiate<Enemy>();
+		enemy.IsElite = GD.Randf() < EliteChance;
 		if (RandomElements)
 			enemy.SetElement((ElementType)GD.RandRange(1, 7));
 

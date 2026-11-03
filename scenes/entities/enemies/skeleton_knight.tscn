@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" path="res://assets/entities/Enemies/SkeletonKnight/RELEASE/SIDE_SWING.png" id="4_sheet"]
 [ext_resource type="Texture2D" path="res://assets/entities/Enemies/SkeletonKnight/RELEASE/HURT.png" id="5_sheet"]
 [ext_resource type="Texture2D" path="res://assets/entities/Enemies/SkeletonKnight/RELEASE/DEATH.png" id="6_sheet"]
+[ext_resource type="Texture2D" path="res://assets/entities/Enemies/SkeletonKnight/RELEASE/FULL_COMBO.png" id="7_combo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1"]
 atlas = ExtResource("2_sheet")
@@ -159,6 +160,90 @@ region = Rect2(1190, 0, 170, 125)
 atlas = ExtResource("6_sheet")
 region = Rect2(1360, 0, 170, 125)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_39"]
+atlas = ExtResource("7_combo")
+region = Rect2(0, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40"]
+atlas = ExtResource("7_combo")
+region = Rect2(170, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41"]
+atlas = ExtResource("7_combo")
+region = Rect2(340, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42"]
+atlas = ExtResource("7_combo")
+region = Rect2(510, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43"]
+atlas = ExtResource("7_combo")
+region = Rect2(680, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44"]
+atlas = ExtResource("7_combo")
+region = Rect2(850, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45"]
+atlas = ExtResource("7_combo")
+region = Rect2(1020, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46"]
+atlas = ExtResource("7_combo")
+region = Rect2(1190, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47"]
+atlas = ExtResource("7_combo")
+region = Rect2(1360, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48"]
+atlas = ExtResource("7_combo")
+region = Rect2(1530, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_49"]
+atlas = ExtResource("7_combo")
+region = Rect2(1700, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50"]
+atlas = ExtResource("7_combo")
+region = Rect2(1870, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51"]
+atlas = ExtResource("7_combo")
+region = Rect2(2040, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52"]
+atlas = ExtResource("7_combo")
+region = Rect2(2210, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53"]
+atlas = ExtResource("7_combo")
+region = Rect2(2380, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54"]
+atlas = ExtResource("7_combo")
+region = Rect2(2550, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55"]
+atlas = ExtResource("7_combo")
+region = Rect2(2720, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56"]
+atlas = ExtResource("7_combo")
+region = Rect2(2890, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57"]
+atlas = ExtResource("7_combo")
+region = Rect2(3060, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58"]
+atlas = ExtResource("7_combo")
+region = Rect2(3230, 0, 170, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_59"]
+atlas = ExtResource("7_combo")
+region = Rect2(3400, 0, 170, 125)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1"]
 animations = [{
 "frames": [{
@@ -299,6 +384,74 @@ animations = [{
 "loop": false,
 "name": &"death",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_39")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_49")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_59")
+}],
+"loop": false,
+"name": &"attack2",
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
@@ -317,6 +470,8 @@ elementType = 6
 attackRange = 40.0
 attackHitTime = 0.3
 attackCooldown = 1.6
+attack2Damage = 10
+attack2HitTimes = PackedFloat32Array(0.25, 0.83, 1.42)
 shadowWidth = 24.0
 shadowOffsetY = 24.0
 

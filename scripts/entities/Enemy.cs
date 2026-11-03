@@ -63,6 +63,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		/*enemies are on layer 2 so the player can dash through them (Player.cs)*/
 		CollisionLayer = Player.EnemyLayer;
 		CollisionMask = Player.WorldLayer | Player.EnemyLayer;
+		ApplyElite();
 		health = maxHealth;
 		healthBar = GetNodeOrNull<ProgressBar>("HealthProgressBar");
 		UpdateHealthBar();
@@ -83,6 +84,8 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		ShowElement();
 		if (shadowWidth > 0)
 			Shadow.AddTo(this, shadowWidth, shadowOffsetY);
+		if (IsElite)
+			SpawnAura(EliteColor);
 	}
 
 	/*basic enemy behaviour: walk to the player and hit them when close.
@@ -130,13 +133,19 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		if (IsDead)
 			return;
 
-		bool hasAttackAnimation = PlayAnimation("attack");
-		await ToSignal(GetTree().CreateTimer(attackHitTime), SceneTreeTimer.SignalName.Timeout);
-		if (IsDead)
-			return;
-
-		if (IsInstanceValid(player) && IsInAttackHitbox(player.GlobalPosition))
-			Combat.Hit(GlobalPosition, elementType, player, attackDamage);
+		/*the second attack can hit more than once, each hit lands at its hit time*/
+		var (attackName, damage, hitTimes) = ChooseAttack();
+		bool hasAttackAnimation = PlayAnimation(attackName);
+		float elapsed = 0f;
+		foreach (float hitTime in hitTimes)
+		{
+			await ToSignal(GetTree().CreateTimer(Mathf.Max(hitTime - elapsed, 0f)), SceneTreeTimer.SignalName.Timeout);
+			elapsed = hitTime;
+			if (IsDead)
+				return;
+			if (status.CanAttack && IsInstanceValid(player) && IsInAttackHitbox(player.GlobalPosition))
+				Combat.Hit(GlobalPosition, elementType, player, damage);
+		}
 
 		/*without an attack animation there is no AnimationFinished to wait for*/
 		if (!hasAttackAnimation)
@@ -161,6 +170,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		FloatingText.Show(this, amount.ToString(), isBonus ? FloatingText.BonusColor : FloatingText.DamageColor);
 		HitEffects.Flash(sprite);
 
+		CheckEnrage();
 		if (IsDead)
 			Die();
 		else if (!isAttacking && PlayAnimation("hurt"))
@@ -201,7 +211,7 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 		string name = animatedSprite.Animation;
 		if (name == "death")
 			QueueFree();
-		else if (name == "attack")
+		else if (name == "attack" || name == "attack2")
 			isAttacking = false;
 		else if (name == "hurt")
 			isHurt = false;
