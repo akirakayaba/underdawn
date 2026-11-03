@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b14i73g8l1eag"]
 
 [ext_resource type="Texture2D" uid="uid://cbh4kio7c0vje" path="res://other/icon.svg" id="1_0quie"]
+[ext_resource type="Script" path="res://scripts/entities/TestEnemy.cs" id="2_tenmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5o53"]
 
 [node name="EnemyTestCharacter" type="CharacterBody2D" unique_id=1573022941]
+script = ExtResource("2_tenmy")
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=1039470272]
 texture_filter = 1

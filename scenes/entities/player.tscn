@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bvjxuwfo3q33u" path="res://assets/entities/Player/run/run_left.png" id="15_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://c46tb6c5ff428" path="res://assets/entities/Player/run/run_right.png" id="16_gl8cc"]
 [ext_resource type="Texture2D" uid="uid://djipk2dxk1l7v" path="res://assets/entities/Player/run/run_up.png" id="17_487ah"]
+[ext_resource type="PackedScene" uid="uid://c4hudpl4y3rhb" path="res://scenes/ui/hud.tscn" id="18_hud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ec2ns"]
 atlas = ExtResource("2_fulsm")
@@ -1020,3 +1021,5 @@ position = Vector2(0, 2)
 zoom = Vector2(2, 2)
 position_smoothing_speed = 0.55
 rotation_smoothing_speed = 0.49
+
+[node name="Hud" parent="." instance=ExtResource("18_hud")]

@@ -16,12 +16,28 @@ public partial class Player : CharacterBody2D
 
 	private bool isAttacking = false;
 
+	/*health of the player, the hud listens to HealthChanged to update the bar*/
+	[Signal] public delegate void HealthChangedEventHandler(int health, int maxHealth);
+	[Export] private int maxHealth = 100;
+	private int health;
+
 
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
 		animatedSprite.AnimationFinished += OnAnimationFinished;
 		animatedSprite.Play("idle_" + lastDirection);
+
+		health = maxHealth;
+		EmitSignal(SignalName.HealthChanged, health, maxHealth);
+	}
+
+	/*isBonus is for when the enemy's element is strong against the player*/
+	public void TakeDamage(int amount, bool isBonus = false)
+	{
+		health = Mathf.Max(health - amount, 0);
+		EmitSignal(SignalName.HealthChanged, health, maxHealth);
+		FloatingText.Show(this, amount.ToString(), isBonus ? FloatingText.BonusColor : FloatingText.DamageColor);
 	}
 
 	/*onAnimatonFinsished : to check if the attack is still going through*/
