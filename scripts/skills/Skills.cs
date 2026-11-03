@@ -48,6 +48,9 @@ public static class Skills
 			case ElementType.LIGHTNING:
 				LightningSkill.Cast(player, direction);
 				return true;
+			case ElementType.WIND:
+				WindSkill.Cast(player, direction);
+				return true;
 			default:
 				return false;
 		}
