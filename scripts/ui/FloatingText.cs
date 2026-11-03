@@ -9,7 +9,8 @@ public static class FloatingText
 	public static readonly Color DamageColor = Colors.White;
 	public static readonly Color BonusColor = Colors.Orange;
 
-	public static void Show(Node2D target, string text, Color color)
+	/*raise moves the text up so status names dont cover damage numbers*/
+	public static void Show(Node2D target, string text, Color color, float raise = 0f)
 	{
 		var label = new Label
 		{
@@ -23,7 +24,7 @@ public static class FloatingText
 
 		/*added to the target's parent so the text stays if the target dies*/
 		target.GetParent().AddChild(label);
-		label.GlobalPosition = target.GlobalPosition + new Vector2(-8, -40);
+		label.GlobalPosition = target.GlobalPosition + new Vector2(-label.GetMinimumSize().X / 2, -40 - raise);
 
 		var tween = label.CreateTween();
 		tween.SetParallel();

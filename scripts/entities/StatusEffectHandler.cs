@@ -68,7 +68,7 @@ public partial class StatusEffectHandler : Node
 
 		timeLeft[element] = Durations[element];
 		tickTimers.TryAdd(element, 0f);
-		FloatingText.Show((Node2D)Target, ElementVisuals.GetStatusName(element), ElementVisuals.GetColor(element));
+		FloatingText.Show((Node2D)Target, ElementVisuals.GetStatusName(element), ElementVisuals.GetColor(element), 14f);
 		ShowTint(element);
 	}
 

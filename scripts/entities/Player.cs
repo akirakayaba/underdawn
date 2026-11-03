@@ -39,41 +39,18 @@ public partial class Player : CharacterBody2D, ICombatant
 
 	private StatusEffectHandler status;
 
+	/*the player cant walk past the camera limits (the edges of the map)*/
+	private Camera2D camera;
+	private const float EdgeMargin = 12f;
+
 
 	public override void _Ready()
-{
-	GD.Print("Player _Ready running, camera: ", GetViewport().GetCamera2D()?.GetPath());
-	animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
-	animatedSprite.AnimationFinished += OnAnimationFinished;
-	animatedSprite.Play("idle_" + lastDirection);
-
-	GD.Print("PLAYER SCRIPT RUNNING");
-	var cam = GetViewport().GetCamera2D();
-	GD.Print("Camera: ", cam.GetPath(), "  Limits: ", cam.LimitLeft, ", ", cam.LimitTop, ", ", cam.LimitRight, ", ", cam.LimitBottom);
-	//SetupCameraLimits();
-
-
-// private void SetupCameraLimits()
-// {
-// 	var camera = GetNode<Camera2D>("Camera2D");
-// 	var ground = GetTree().CurrentScene.GetNode<Sprite2D>("Ground");
-
-// 	Vector2 size = ground.Texture.GetSize() * ground.Scale;
-// 	Vector2 topLeft = ground.GlobalPosition;
-// 	if (ground.Centered) topLeft -= size / 2f;
-
-// 	camera.LimitLeft = (int)topLeft.X;
-// 	camera.LimitTop = (int)topLeft.Y;
-// 	camera.LimitRight = (int)(topLeft.X + size.X);
-// 	camera.LimitBottom = (int)(topLeft.Y + size.Y);
-	
-// 	GD.Print($"Limits L{camera.LimitLeft} T{camera.LimitTop} R{camera.LimitRight} B{camera.LimitBottom}");
-// }
-	
+	{
 		AddToGroup(GroupName);
 		animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
 		animatedSprite.AnimationFinished += OnAnimationFinished;
 		animatedSprite.Play("idle_" + lastDirection);
+		camera = GetNode<Camera2D>("PlayerCamera");
 
 		status = new StatusEffectHandler { Target = this, Sprite = animatedSprite };
 		AddChild(status);
@@ -140,6 +117,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		  (knockback still moves the player)*/
 		Velocity = status.GetVelocity(isAttacking ? Vector2.Zero : direction * speed, delta);
 		MoveAndSlide();
+		KeepInsideCameraLimits();
 
 		if (isAttacking)
 			return;
@@ -188,6 +166,13 @@ public partial class Player : CharacterBody2D, ICombatant
 			if (enemy.GlobalPosition.DistanceTo(hitCenter) <= attackRadius)
 				Combat.Hit(GlobalPosition, CurrentElement, enemy, damage);
 		}
+	}
+
+	private void KeepInsideCameraLimits()
+	{
+		GlobalPosition = GlobalPosition.Clamp(
+			new Vector2(camera.LimitLeft + EdgeMargin, camera.LimitTop + EdgeMargin),
+			new Vector2(camera.LimitRight - EdgeMargin, camera.LimitBottom - EdgeMargin));
 	}
 
 	private static Vector2 DirectionToVector(string direction) => direction switch

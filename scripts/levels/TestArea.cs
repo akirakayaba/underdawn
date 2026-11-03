@@ -6,7 +6,7 @@
 //				2 - bonus damage to player and enemies
 //				3 - next status effect on player and enemies (cycles back to none)
 //				4 - next player element (cycles back to none)
-//				5 - spawn another test enemy near the player
+//				5 - spawn a random enemy (goblin / demon sword / skeleton knight) near the player
 
 using System.Linq;
 using Godot;
@@ -45,7 +45,8 @@ public partial class TestArea : Node2D
 				player.SetElement((ElementType)elementIndex);
 				break;
 			case Key.Key5:
-				var enemy = GD.Load<PackedScene>("res://scenes/entities/enemy_test_character.tscn").Instantiate<Enemy>();
+				string[] enemyScenes = { "goblin", "demon_sword", "skeleton_knight" };
+				var enemy = GD.Load<PackedScene>($"res://scenes/entities/enemies/{enemyScenes[GD.RandRange(0, 2)]}.tscn").Instantiate<Enemy>();
 				enemy.Position = player.Position + Vector2.Right.Rotated(GD.Randf() * Mathf.Tau) * 120;
 				AddChild(enemy);
 				break;

@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://4at836ax52t1" path="res://assets/levels/Wall.png" id="5_wall"]
 [ext_resource type="Texture2D" uid="uid://1occqufbo8wu" path="res://assets/levels/portal-Sheet.png" id="6_portal"]
 [ext_resource type="PackedScene" uid="uid://b5dudyqlsi166" path="res://scenes/entities/player.tscn" id="7_fde1s"]
+[ext_resource type="Script" path="res://scripts/levels/MaskCollision.cs" id="8_pitcol"]
+[ext_resource type="Texture2D" path="res://assets/levels/Grassland/grassland_pit_mask.png" id="9_pitmask"]
+[ext_resource type="Script" path="res://scripts/levels/EnemySpawner.cs" id="10_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/entities/enemies/goblin.tscn" id="11_goblin"]
+[ext_resource type="PackedScene" path="res://scenes/entities/enemies/demon_sword.tscn" id="12_demon"]
+[ext_resource type="PackedScene" path="res://scenes/entities/enemies/skeleton_knight.tscn" id="13_skeleton"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0"]
 atlas = ExtResource("6_portal")
@@ -148,6 +154,10 @@ centered = false
 position = Vector2(1332, 763)
 texture = ExtResource("2_platform")
 centered = false
+
+[node name="PitCollision" type="Node2D" parent="."]
+script = ExtResource("8_pitcol")
+Mask = ExtResource("9_pitmask")
 
 [node name="Objects" type="Node2D" parent="." unique_id=569720389]
 y_sort_enabled = true
@@ -3745,3 +3755,37 @@ offset = Vector2(0, -56)
 
 [node name="Player" parent="Objects" unique_id=2013130420 instance=ExtResource("7_fde1s")]
 position = Vector2(12, 723)
+
+[node name="EnemySpawner" type="Node2D" parent="Objects"]
+script = ExtResource("10_spawner")
+EnemyScenes = Array[PackedScene]([ExtResource("11_goblin"), ExtResource("12_demon"), ExtResource("13_skeleton")])
+
+[node name="SpawnPoint01" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(3120, 1440)
+
+[node name="SpawnPoint02" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(2120, 440)
+
+[node name="SpawnPoint03" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(1000, 1560)
+
+[node name="SpawnPoint04" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(3160, 440)
+
+[node name="SpawnPoint05" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(1360, 760)
+
+[node name="SpawnPoint06" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(2360, 1240)
+
+[node name="SpawnPoint07" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(680, 960)
+
+[node name="SpawnPoint08" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(2640, 720)
+
+[node name="SpawnPoint09" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(1600, 320)
+
+[node name="SpawnPoint10" type="Marker2D" parent="Objects/EnemySpawner"]
+position = Vector2(1897, 1053)
