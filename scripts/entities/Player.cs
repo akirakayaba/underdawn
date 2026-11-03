@@ -49,6 +49,12 @@ public partial class Player : CharacterBody2D, ICombatant
 	private bool canAirDash;
 	public bool IsInAir => height > 0;
 
+	/*air attack: attacking in the air slams down and hits every enemy around the landing spot*/
+	[Export] private int slamDamage = 20;
+	[Export] private float slamRadius = 44f;
+	[Export] private float slamFallSpeed = 600f;
+	private bool isSlamming;
+
 	public bool IsInvincible => dashTimer > 0 || height > dodgeHeight;
 
 	/*attack damage, and the area in front of the player that the attack hits*/
@@ -173,7 +179,12 @@ public partial class Player : CharacterBody2D, ICombatant
 
 		UpdateHeight((float)delta);
 
-		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && (!isAttacking || inCancelWindow))
+		if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && IsInAir && !isSlamming)
+		{
+			StartSlam(bufferedAttack);
+			bufferedAttack = null;
+		}
+		else if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && !IsInAir && (!isAttacking || inCancelWindow))
 		{
 			UpdateLastDirection(direction);
 			StartAttack(bufferedAttack, bufferedAttack == "attack1" ? attack1Damage : attack2Damage);
@@ -230,6 +241,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		height = 0.01f;
 		canAirDash = true;
 		isAttacking = false;
+		isSlamming = false;
 	}
 
 	/*moves the sprite up by the jump height, the shadow gets smaller the higher the player is*/
@@ -239,9 +251,43 @@ public partial class Player : CharacterBody2D, ICombatant
 		{
 			heightVelocity -= gravity * time;
 			height = Mathf.Max(height + heightVelocity * time, 0f);
+			if (height == 0 && isSlamming)
+				Slam();
 		}
 		animatedSprite.Position = new Vector2(0, -height);
 		shadow.Scale = Vector2.One * Mathf.Lerp(1f, 0.6f, Mathf.Min(height / 40f, 1f));
+	}
+
+	/*falls straight down fast playing the attack, Slam() happens on landing*/
+	private void StartSlam(string attackName)
+	{
+		isSlamming = true;
+		isAttacking = true;
+		attackStarted = false;
+		heightVelocity = -slamFallSpeed;
+		animatedSprite.Stop();
+		animatedSprite.Play(attackName + "_" + lastDirection, attackSpeed);
+	}
+
+	private void Slam()
+	{
+		isSlamming = false;
+		attackStarted = true;
+		foreach (var enemy in GetTree().GetNodesInGroup(Enemy.GroupName).OfType<Enemy>())
+		{
+			if (enemy.GlobalPosition.DistanceTo(GlobalPosition) <= slamRadius)
+				Combat.Hit(GlobalPosition, CurrentElement, enemy, slamDamage);
+		}
+
+		/*ring on the ground that grows and fades out*/
+		var ring = Shadow.AddTo(this, slamRadius * 2, 16f);
+		ring.Color = new Color(1f, 1f, 1f, 0.5f);
+		ring.Scale = Vector2.One * 0.3f;
+		var tween = ring.CreateTween();
+		tween.SetParallel();
+		tween.TweenProperty(ring, "scale", Vector2.One, 0.25);
+		tween.TweenProperty(ring, "modulate:a", 0.0, 0.25);
+		tween.Chain().TweenCallback(Callable.From(ring.QueueFree));
 	}
 
 	private void StartDash(Vector2 direction)
