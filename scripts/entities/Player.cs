@@ -94,6 +94,9 @@ public partial class Player : CharacterBody2D, ICombatant
 	public override void _Ready()
 	{
 		AddToGroup(GroupName);
+		/*top down, so no floors: in the default (platformer) mode a body moving
+		  under another one drags it along like a moving platform*/
+		MotionMode = MotionModeEnum.Floating;
 		animatedSprite = GetNode<AnimatedSprite2D>("player_animation");
 		animatedSprite.AnimationFinished += OnAnimationFinished;
 		animatedSprite.Play("idle_" + lastDirection);

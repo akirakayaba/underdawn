@@ -56,6 +56,9 @@ public abstract partial class Enemy : CharacterBody2D, ICombatant
 	public override void _Ready()
 	{
 		AddToGroup(GroupName);
+		/*top down, so no floors: in the default (platformer) mode a body moving
+		  under another one drags it along like a moving platform*/
+		MotionMode = MotionModeEnum.Floating;
 		health = maxHealth;
 		healthBar = GetNodeOrNull<ProgressBar>("HealthProgressBar");
 		UpdateHealthBar();
