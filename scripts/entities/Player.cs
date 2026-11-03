@@ -67,8 +67,8 @@ public partial class Player : CharacterBody2D, ICombatant
 	/*attack damage, and the area in front of the player that the attack hits*/
 	[Export] private int attack1Damage = 10;
 	[Export] private int attack2Damage = 15;
-	[Export] private float attackReach = 16f;
-	[Export] private float attackRadius = 28f;
+	[Export] private float attackReach = 18f;
+	[Export] private float attackRadius = 32f;
 
 	/*health of the player, the hud listens to HealthChanged to update the bar*/
 	[Signal] public delegate void HealthChangedEventHandler(int health, int maxHealth);
@@ -201,15 +201,15 @@ public partial class Player : CharacterBody2D, ICombatant
 		}
 		else if (bufferedAttack != null && bufferTimer > 0 && status.CanAttack && !IsInAir && (!isAttacking || inCancelWindow))
 		{
-			UpdateLastDirection(direction);
-			StartAttack(bufferedAttack, bufferedAttack == "attack1" ? attack1Damage : attack2Damage);
-			bufferedAttack = null;
+			StartBufferedAttack(direction, isAttacking);
 		}
 		/*moving cancels the end of an attack*/
 		else if (inCancelWindow && direction != Vector2.Zero)
 		{
 			isAttacking = false;
 		}
+
+		UpdateCharge((float)delta);
 
 		/*freeze movement temprorly until attack animation finshes
 		  (knockback still moves the player)*/
@@ -333,6 +333,7 @@ public partial class Player : CharacterBody2D, ICombatant
 
 	private void StartDash(Vector2 direction)
 	{
+		ResetCharge();
 		if (IsInAir)
 			canAirDash = false;
 		dashDirection = direction != Vector2.Zero ? direction.Normalized() : DirectionToVector(lastDirection);
