@@ -20,17 +20,17 @@ public partial class StatusEffectHandler : Node
 	private static readonly Dictionary<ElementType, float> Durations = new()
 	{
 		{ ElementType.FIRE, 3f },
-		{ ElementType.POISON, 8f },
+		{ ElementType.POISON, 10f },
 		{ ElementType.EARTH, 4f },
 		{ ElementType.WATER, 4f },
-		{ ElementType.LIGHTNING, 2f },
+		{ ElementType.LIGHTNING, 1.5f },
 		{ ElementType.WIND, 3f },
-		{ ElementType.ICE, 2f }
+		{ ElementType.ICE, 1f }
 	};
 
-	private const int BurnDamage = 4;
+	private const int BurnDamage = 2;
 	private const float BurnTickTime = 0.5f;
-	private const int PoisonDamage = 2;
+	private const int PoisonDamage = 1;
 	private const float PoisonTickTime = 1f;
 	private const float TremorAttackDelay = 0.5f;
 	private const float SlipperyAcceleration = 300f;
