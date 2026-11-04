@@ -6,7 +6,7 @@ using Godot;
 
 public partial class SkillSlot : Panel
 {
-	[Export] public string Key = "R";
+	[Export] public string Key = "L";
 
 	private static readonly Color Unavailable = new(0.35f, 0.35f, 0.35f);
 

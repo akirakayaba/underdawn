@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://brlvaagrlyufy"]
 
-[ext_resource type="Script" path="res://scripts/ui/SkillSlot.cs" id="1_slot"]
+[ext_resource type="Script" uid="uid://bkemd4eox0bfe" path="res://scripts/ui/SkillSlot.cs" id="1_slot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slot"]
 bg_color = Color(0.08, 0.08, 0.1, 0.85)
@@ -14,12 +14,12 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="SkillSlot" type="Panel"]
+[node name="SkillSlot" type="Panel" unique_id=777727899]
 custom_minimum_size = Vector2(64, 64)
 theme_override_styles/panel = SubResource("StyleBoxFlat_slot")
 script = ExtResource("1_slot")
 
-[node name="Icon" type="ColorRect" parent="."]
+[node name="Icon" type="ColorRect" parent="." unique_id=426982884]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.15, 0.15, 0.15, 1)
 
-[node name="KeyLabel" type="Label" parent="."]
+[node name="KeyLabel" type="Label" parent="." unique_id=684579305]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 3.0
@@ -42,9 +42,9 @@ offset_bottom = 20.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 11
-text = "R"
+text = "L"
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="." unique_id=453911749]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -64,7 +64,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 
-[node name="CooldownOverlay" type="ColorRect" parent="."]
+[node name="CooldownOverlay" type="ColorRect" parent="." unique_id=1624738466]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,7 +74,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="CooldownLabel" type="Label" parent="."]
+[node name="CooldownLabel" type="Label" parent="." unique_id=556079630]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

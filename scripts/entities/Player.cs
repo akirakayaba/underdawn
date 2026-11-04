@@ -36,7 +36,7 @@ public partial class Player : CharacterBody2D, ICombatant
 	  the player cant be hit while dashing and it cancels an attack*/
 	[Export] private float dashSpeed = 450f;
 	[Export] private float dashTime = 0.18f;
-	[Export] private float dashCooldown = 0.6f;
+	[Export] private float dashCooldown = 1.0f;
 	private Vector2 dashDirection;
 	private float dashTimer;
 	private float dashCooldownTimer;
