@@ -26,6 +26,8 @@ public partial class Hud : CanvasLayer
 		player = GetParent<Player>();
 
 		dashSlot.SetSkill("Dash", DashColor, true);
+		if (Tutorial.ShouldShow(GetTree()))
+			AddChild(new Tutorial(player) { Name = "Tutorial" });
 
 		player.HealthChanged += (health, maxHealth) =>
 		{
