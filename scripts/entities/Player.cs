@@ -212,6 +212,8 @@ public partial class Player : CharacterBody2D, ICombatant
 		speedBoostTimer -= (float)delta;
 		if (Input.IsActionJustPressed("skill") && skillCooldownTimer <= 0 && status.CanAttack && !isAttacking)
 			CastSkill(direction);
+		if (Input.IsActionJustPressed("burst") && CurrentElement != ElementType.NONE && status.CanAttack && !isAttacking)
+			ElementBurst();
 
 		/*jumping also cancels the end of an attack (frozen players cant jump)*/
 		bool inCancelWindow = isAttacking && attackStarted && animatedSprite.Frame >= comboCancelFrame;

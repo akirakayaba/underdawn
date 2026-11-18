@@ -5,6 +5,7 @@
 //				spin finisher	Q, Q, E combo: the E spins and hits all around
 //				dash attack		attack during a dash: thrust through every enemy on the way
 //				air slash		Q in the air (twice per jump), E in the air is the slam
+//				element burst	releases the current element in a big blast, the player loses the element
 
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,9 @@ public partial class Player
 	private bool isDashAttacking;
 	private readonly HashSet<Enemy> dashAttackHits = new();
 	private int airSlashesLeft;
+
+	[Export] private int burstDamage = 30;
+	[Export] private float burstRadius = 80f;
 
 	/*starts the buffered attack, chained = it cancels the end of the last attack*/
 	private void StartBufferedAttack(Vector2 direction, bool chained)
@@ -126,6 +130,36 @@ public partial class Player
 			animatedSprite.SelfModulate = Colors.White;
 		chargeTimer = 0;
 		chargeReady = false;
+	}
+
+	private void ElementBurst()
+	{
+		var color = ElementVisuals.GetColor(CurrentElement);
+		BeginMove("attack2");
+		/*hits with the element before letting go of it*/
+		bool hit = HitEnemiesAround(GlobalPosition, burstRadius, burstDamage, 260f);
+
+		var points = new Vector2[33];
+		for (int i = 0; i < points.Length; i++)
+		{
+			var point = Vector2.Right.Rotated(Mathf.Tau * i / (points.Length - 1)) * burstRadius;
+			points[i] = new Vector2(point.X, point.Y * 0.6f);
+		}
+		var ring = new Line2D { Points = points, Width = 4f, DefaultColor = color, Scale = Vector2.One * 0.1f, ZIndex = 3 };
+		GetParent().AddChild(ring);
+		ring.GlobalPosition = GlobalPosition + new Vector2(0, 10);
+		var tween = ring.CreateTween();
+		tween.SetParallel();
+		tween.TweenProperty(ring, "scale", Vector2.One, 0.3);
+		tween.TweenProperty(ring, "modulate:a", 0.0, 0.4);
+		tween.Chain().TweenCallback(Callable.From(ring.QueueFree));
+
+		Skills.Burst(GetParent(), GlobalPosition, color, 40, 220f, 0.6f);
+		HitEffects.Shake(camera, 6f, 0.3f);
+		if (hit)
+			HitEffects.Hitstop(GetTree(), 0.1f);
+		FloatingText.Show(this, "Burst!", color, 28f);
+		SetElement(ElementType.NONE);
 	}
 
 	private void ChargedAttack()

@@ -12,6 +12,7 @@ public partial class Hud : CanvasLayer
 	private Player player;
 	private SkillSlot dashSlot;
 	private SkillSlot elementSkillSlot;
+	private SkillSlot burstSlot;
 
 	public override void _Ready()
 	{
@@ -21,6 +22,7 @@ public partial class Hud : CanvasLayer
 		var restartButton = GetNode<Button>("GameOver/Center/Menu/RestartButton");
 		dashSlot = GetNode<SkillSlot>("SkillBar/DashSlot");
 		elementSkillSlot = GetNode<SkillSlot>("SkillBar/ElementSkillSlot");
+		burstSlot = GetNode<SkillSlot>("SkillBar/BurstSlot");
 		player = GetParent<Player>();
 
 		dashSlot.SetSkill("Dash", DashColor, true);
@@ -35,6 +37,7 @@ public partial class Hud : CanvasLayer
 			elementLabel.Text = "Element: " + element.ToString().Capitalize();
 			elementLabel.Modulate = ElementVisuals.GetColor(element);
 			elementSkillSlot.SetSkill(Skills.GetName(element), ElementVisuals.GetColor(element), element != ElementType.NONE);
+			burstSlot.SetSkill(element != ElementType.NONE ? element.ToString().Capitalize() + " Burst" : "Burst", ElementVisuals.GetColor(element), element != ElementType.NONE);
 		};
 		player.Died += () =>
 		{
@@ -51,6 +54,8 @@ public partial class Hud : CanvasLayer
 	{
 		dashSlot.SetCooldown(player.DashCooldownLeft, player.DashCooldown);
 		elementSkillSlot.SetCooldown(player.SkillCooldownLeft, Skills.GetCooldown(player.CurrentElement));
+		/*the burst has no cooldown (it uses up the element), this just keeps its key label up to date*/
+		burstSlot.SetCooldown(0, 0);
 	}
 
 	/*closes the pause menu first if it was opened after dying*/
