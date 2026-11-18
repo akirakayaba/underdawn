@@ -20,6 +20,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="UnderdawnLabel" type="Label" parent="VBoxContainer" unique_id=1367071473]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=638602569]
 texture_filter = 1
 layout_mode = 2
@@ -32,7 +39,7 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Save Game"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=493535525]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
