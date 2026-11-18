@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="UnderDawn"
 
+[gui]
+
+theme/custom="uid://c0obgurspxqad"
+
 [input]
 
 ui_left={

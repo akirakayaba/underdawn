@@ -28,11 +28,12 @@ alignment = 1
 
 [node name="UnderdawnLabel" type="Label" parent="VBoxContainer" unique_id=557779473]
 layout_mode = 2
+theme_type_variation = &"TitleLabel"
 text = "Underdawn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=86545624]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3

@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://71fpkfy7dua2"]
 
-[ext_resource type="Script" path="res://scripts/ui/OptionsMenu.cs" id="1_options"]
+[ext_resource type="Script" uid="uid://r2fbbq4nolqn" path="res://scripts/ui/OptionsMenu.cs" id="1_options"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.08, 0.08, 0.1, 0.95)
@@ -14,12 +14,12 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="OptionsMenu" type="CanvasLayer"]
+[node name="OptionsMenu" type="CanvasLayer" unique_id=680257281]
 process_mode = 3
 layer = 10
 script = ExtResource("1_options")
 
-[node name="Dim" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=1139437872]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,101 +27,102 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=879482419]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="PanelContainer" parent="Center"]
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=794318889]
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=1371034557]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 16
 
-[node name="Box" type="VBoxContainer" parent="Center/Panel/Margin"]
+[node name="Box" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=831641084]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="Center/Panel/Margin/Box"]
+[node name="Title" type="Label" parent="Center/Panel/Margin/Box" unique_id=662246191]
 layout_mode = 2
+theme_type_variation = &"HeaderLabel"
 theme_override_font_sizes/font_size = 28
 text = "Options"
 horizontal_alignment = 1
 
-[node name="MusicRow" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+[node name="MusicRow" type="HBoxContainer" parent="Center/Panel/Margin/Box" unique_id=55528218]
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="Center/Panel/Margin/Box/MusicRow"]
+[node name="MusicLabel" type="Label" parent="Center/Panel/Margin/Box/MusicRow" unique_id=2081513038]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Music Volume"
 
-[node name="MusicSlider" type="HSlider" parent="Center/Panel/Margin/Box/MusicRow"]
+[node name="MusicSlider" type="HSlider" parent="Center/Panel/Margin/Box/MusicRow" unique_id=1749877431]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 80.0
 
-[node name="SfxRow" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+[node name="SfxRow" type="HBoxContainer" parent="Center/Panel/Margin/Box" unique_id=850154546]
 layout_mode = 2
 
-[node name="SfxLabel" type="Label" parent="Center/Panel/Margin/Box/SfxRow"]
+[node name="SfxLabel" type="Label" parent="Center/Panel/Margin/Box/SfxRow" unique_id=701867472]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Sound Volume"
 
-[node name="SfxSlider" type="HSlider" parent="Center/Panel/Margin/Box/SfxRow"]
+[node name="SfxSlider" type="HSlider" parent="Center/Panel/Margin/Box/SfxRow" unique_id=1033068038]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 80.0
 
-[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/Margin/Box"]
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/Margin/Box" unique_id=1737225561]
 layout_mode = 2
 text = "Fullscreen"
 
-[node name="ControlsTitle" type="Label" parent="Center/Panel/Margin/Box"]
+[node name="ControlsTitle" type="Label" parent="Center/Panel/Margin/Box" unique_id=69468824]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Controls (click a key to change it)"
 
-[node name="Scroll" type="ScrollContainer" parent="Center/Panel/Margin/Box"]
+[node name="Scroll" type="ScrollContainer" parent="Center/Panel/Margin/Box" unique_id=628280687]
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="ControlsGrid" type="GridContainer" parent="Center/Panel/Margin/Box/Scroll"]
+[node name="ControlsGrid" type="GridContainer" parent="Center/Panel/Margin/Box/Scroll" unique_id=1689965832]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/Box" unique_id=622596582]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="ResetControlsButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+[node name="ResetControlsButton" type="Button" parent="Center/Panel/Margin/Box/Buttons" unique_id=1280246487]
 layout_mode = 2
 text = "Reset Controls"
 
-[node name="ResetSaveButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+[node name="ResetSaveButton" type="Button" parent="Center/Panel/Margin/Box/Buttons" unique_id=1028088439]
 layout_mode = 2
 text = "Reset Save"
 
-[node name="BackButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+[node name="BackButton" type="Button" parent="Center/Panel/Margin/Box/Buttons" unique_id=1538444803]
 layout_mode = 2
 text = "Back"
 
-[node name="ResetSaveConfirm" type="ConfirmationDialog" parent="."]
+[node name="ResetSaveConfirm" type="ConfirmationDialog" parent="." unique_id=598744049]
 title = "Reset Save"
 dialog_text = "Delete your saved playthrough and tutorial progress?
 (settings and controls are kept)"

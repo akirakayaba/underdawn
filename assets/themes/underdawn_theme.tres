@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://c0obgurspxqad"]
+
+[ext_resource type="FontFile" uid="uid://ig86sntakopl" path="res://assets/fonts/AlmendraSC-Regular.ttf" id="1_e0857"]
+[ext_resource type="FontFile" uid="uid://c4kbjc5yf3nbh" path="res://assets/fonts/Alegreya-Regular.ttf" id="1_kglpx"]
+[ext_resource type="FontFile" uid="uid://b28t06eluuplj" path="res://assets/fonts/CinzelDecorative-Regular.ttf" id="2_3x1da"]
+
+[resource]
+default_font = ExtResource("1_kglpx")
+default_font_size = 18
+HeaderLabel/base_type = &"Label"
+HeaderLabel/font_sizes/font_size = 32
+HeaderLabel/fonts/font = ExtResource("1_e0857")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 64
+TitleLabel/fonts/font = ExtResource("2_3x1da")
