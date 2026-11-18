@@ -129,6 +129,13 @@ public partial class Player : CharacterBody2D, ICombatant
 		EmitSignal(SignalName.ElementChanged, (int)element);
 	}
 
+	/*stealing an element from an enemy's orb (ElementOrb.cs), replaces the current one*/
+	public void AbsorbElement(ElementType element)
+	{
+		SetElement(element);
+		FloatingText.Show(this, "+" + element.ToString().Capitalize(), ElementVisuals.GetColor(element), 14f);
+	}
+
 	/*shows and applies the status effect on the player, NONE clears it*/
 	public void ApplyStatus(ElementType element) => status.Apply(element);
 

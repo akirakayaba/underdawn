@@ -1,20 +1,26 @@
 //Name:			ElementOrb.cs
-//Description:	Orb an enemy drops when it dies, walking into it steals the
-//				enemy's element (player's element and skill change to it)
-//				pulls towards the player when close, fades away after a while
+//Description:	Orb an enemy drops when it dies. standing next to it shows a
+//				prompt, pressing the absorb key (interact) steals the enemy's
+//				element. the player only holds one element, so absorbing
+//				replaces the current one. fades away after a while
 
+using System.Linq;
 using Godot;
 
 public partial class ElementOrb : Node2D
 {
-	private const float PickupRange = 16f;
-	private const float MagnetRange = 60f;
-	private const float MagnetSpeed = 160f;
-	private const float Lifetime = 12f;
+	public const string GroupName = "element_orbs";
+
+	private const float PickupRange = 24f;
+	private const float Lifetime = 20f;
 
 	public ElementType Element { get; set; }
 
 	private float timeLeft = Lifetime;
+	private Label prompt;
+
+	/*one key press absorbs one orb, even if another orb becomes the closest in the same frame*/
+	private static ulong lastAbsorbFrame = ulong.MaxValue;
 
 	public static void Drop(Node parent, Vector2 globalPosition, ElementType element)
 	{
@@ -27,10 +33,14 @@ public partial class ElementOrb : Node2D
 
 	public override void _Ready()
 	{
+		AddToGroup(GroupName);
 		var color = ElementVisuals.GetColor(Element);
-		AddChild(new Polygon2D { Polygon = Circle(6f), Color = color });
-		AddChild(new Polygon2D { Polygon = Circle(3f), Color = Colors.White });
-		AddChild(new CpuParticles2D
+
+		/*the orb itself pulses, the prompt stays still*/
+		var visual = new Node2D();
+		visual.AddChild(new Polygon2D { Polygon = Circle(6f), Color = color });
+		visual.AddChild(new Polygon2D { Polygon = Circle(3f), Color = Colors.White });
+		visual.AddChild(new CpuParticles2D
 		{
 			Amount = 8,
 			Lifetime = 0.8,
@@ -41,11 +51,23 @@ public partial class ElementOrb : Node2D
 			ScaleAmountMax = 2f,
 			Color = color
 		});
+		AddChild(visual);
+		var tween = visual.CreateTween().SetLoops();
+		tween.TweenProperty(visual, "scale", Vector2.One * 1.25f, 0.4);
+		tween.TweenProperty(visual, "scale", Vector2.One, 0.4);
 
-		/*bobs up and down so it stands out*/
-		var tween = CreateTween().SetLoops();
-		tween.TweenProperty(this, "scale", Vector2.One * 1.25f, 0.4);
-		tween.TweenProperty(this, "scale", Vector2.One, 0.4);
+		prompt = new Label
+		{
+			Visible = false,
+			ZIndex = 10,
+			HorizontalAlignment = HorizontalAlignment.Center,
+			Size = new Vector2(160, 30),
+			Position = new Vector2(-80, -40)
+		};
+		prompt.AddThemeFontSizeOverride("font_size", 10);
+		prompt.AddThemeConstantOverride("outline_size", 4);
+		prompt.AddThemeColorOverride("font_outline_color", Colors.Black);
+		AddChild(prompt);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -59,20 +81,39 @@ public partial class ElementOrb : Node2D
 		Modulate = new Color(1, 1, 1, Mathf.Min(timeLeft, 1f));
 
 		var player = GetTree().GetFirstNodeInGroup(Player.GroupName) as Player;
-		if (player == null || player.IsDead)
+		bool canAbsorb = player != null && !player.IsDead && IsClosestOrbInRange(player);
+		prompt.Visible = canAbsorb;
+		if (!canAbsorb)
 			return;
 
-		float distance = GlobalPosition.DistanceTo(player.GlobalPosition);
-		if (distance <= PickupRange)
+		prompt.Text = PromptText(player.CurrentElement);
+		if (Input.IsActionJustPressed("interact") && lastAbsorbFrame != Engine.GetPhysicsFrames())
 		{
-			player.SetElement(Element);
-			FloatingText.Show(player, "+" + Element.ToString().Capitalize(), ElementVisuals.GetColor(Element), 14f);
+			lastAbsorbFrame = Engine.GetPhysicsFrames();
+			player.AbsorbElement(Element);
 			QueueFree();
 		}
-		else if (distance <= MagnetRange)
-		{
-			GlobalPosition = GlobalPosition.MoveToward(player.GlobalPosition, MagnetSpeed * (float)delta);
-		}
+	}
+
+	/*only the closest orb answers the key when a few are on top of each other*/
+	private bool IsClosestOrbInRange(Player player)
+	{
+		float distance = GlobalPosition.DistanceTo(player.GlobalPosition);
+		if (distance > PickupRange)
+			return false;
+		return GetTree().GetNodesInGroup(GroupName).OfType<ElementOrb>()
+			.All(orb => orb == this || orb.IsQueuedForDeletion() || orb.GlobalPosition.DistanceTo(player.GlobalPosition) >= distance);
+	}
+
+	private string PromptText(ElementType current)
+	{
+		string name = Element.ToString().Capitalize();
+		string text = $"[{SaveManager.KeyName("interact")}] Absorb {name}";
+		if (current == Element)
+			return text + "\n(you already have it)";
+		if (current != ElementType.NONE)
+			return text + $"\n(replaces {current.ToString().Capitalize()})";
+		return text;
 	}
 
 	private static Vector2[] Circle(float radius)
