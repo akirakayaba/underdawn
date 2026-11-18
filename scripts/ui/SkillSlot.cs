@@ -6,11 +6,13 @@ using Godot;
 
 public partial class SkillSlot : Panel
 {
-	[Export] public string Key = "L";
+	/*the input action of this slot, the key shown is whatever it is bound to*/
+	[Export] public string Action = "skill";
 
 	private static readonly Color Unavailable = new(0.35f, 0.35f, 0.35f);
 
 	private Label nameLabel;
+	private Label keyLabel;
 	private Label cooldownLabel;
 	private ColorRect icon;
 	private ColorRect cooldownOverlay;
@@ -22,7 +24,8 @@ public partial class SkillSlot : Panel
 		cooldownLabel = GetNode<Label>("CooldownLabel");
 		icon = GetNode<ColorRect>("Icon");
 		cooldownOverlay = GetNode<ColorRect>("CooldownOverlay");
-		GetNode<Label>("KeyLabel").Text = Key;
+		keyLabel = GetNode<Label>("KeyLabel");
+		keyLabel.Text = SaveManager.KeyName(Action);
 
 		/*own copy of the style so each slot can have its own border color*/
 		style = (StyleBoxFlat)GetThemeStylebox("panel").Duplicate();
@@ -41,6 +44,11 @@ public partial class SkillSlot : Panel
 	/*overlay shrinks from the top as the cooldown runs out*/
 	public void SetCooldown(float timeLeft, float cooldown)
 	{
+		/*keeps up with keys changed in the options menu*/
+		string key = SaveManager.KeyName(Action);
+		if (keyLabel.Text != key)
+			keyLabel.Text = key;
+
 		bool coolingDown = timeLeft > 0 && cooldown > 0;
 		cooldownOverlay.Visible = coolingDown;
 		cooldownLabel.Visible = coolingDown;

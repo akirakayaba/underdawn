@@ -1,0 +1,127 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/OptionsMenu.cs" id="1_options"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.08, 0.1, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.45, 0.5, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="OptionsMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_options")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="Box" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Options"
+horizontal_alignment = 1
+
+[node name="MusicRow" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Center/Panel/Margin/Box/MusicRow"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Center/Panel/Margin/Box/MusicRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 80.0
+
+[node name="SfxRow" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="Center/Panel/Margin/Box/SfxRow"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Sound Volume"
+
+[node name="SfxSlider" type="HSlider" parent="Center/Panel/Margin/Box/SfxRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 80.0
+
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="ControlsTitle" type="Label" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Controls (click a key to change it)"
+
+[node name="Scroll" type="ScrollContainer" parent="Center/Panel/Margin/Box"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ControlsGrid" type="GridContainer" parent="Center/Panel/Margin/Box/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/Box"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ResetControlsButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+layout_mode = 2
+text = "Reset Controls"
+
+[node name="ResetSaveButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+layout_mode = 2
+text = "Reset Save"
+
+[node name="BackButton" type="Button" parent="Center/Panel/Margin/Box/Buttons"]
+layout_mode = 2
+text = "Back"
+
+[node name="ResetSaveConfirm" type="ConfirmationDialog" parent="."]
+title = "Reset Save"
+dialog_text = "Delete your saved playthrough and tutorial progress?
+(settings and controls are kept)"

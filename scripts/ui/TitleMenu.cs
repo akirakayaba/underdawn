@@ -29,7 +29,7 @@ public partial class TitleMenu : Control
 
 	private void Options()
 	{
-		throw new System.NotImplementedException();
+		OptionsMenu.Open(GetNode<Button>("VBoxContainer/OptionsButton"));
 	}
 
 	private void QuitGame()

@@ -32,6 +32,12 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Save Game"
 
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
 [node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1526821551]
 texture_filter = 1
 layout_mode = 2
@@ -40,4 +46,5 @@ text = "Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="ResumeGame"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="SaveGame"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="Options"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="MainMenu"]

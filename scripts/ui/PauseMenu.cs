@@ -29,6 +29,11 @@ public partial class PauseMenu : CanvasLayer
 			button.Text = "Save Game";
 	}
 
+	private void Options()
+	{
+		OptionsMenu.Open(GetNode<Button>("VBoxContainer/OptionsButton"));
+	}
+
 	private void MainMenu()
 	{
 		PauseManager.Instance.MainMenu();
