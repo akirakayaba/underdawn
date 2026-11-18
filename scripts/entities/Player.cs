@@ -174,6 +174,8 @@ public partial class Player : CharacterBody2D, ICombatant
 		/*no death animation yet, so the player stops and turns gray*/
 		if (IsDead)
 		{
+			/*losing ends the run: the saved playthrough is gone, restart starts over*/
+			SaveManager.Instance?.DeleteRun();
 			status.Apply(ElementType.NONE);
 			height = 0;
 			UpdateHeight(0);
