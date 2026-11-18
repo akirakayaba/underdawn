@@ -6,9 +6,9 @@
 
 [resource]
 default_font = ExtResource("1_kglpx")
-default_font_size = 18
+default_font_size = 20
 HeaderLabel/base_type = &"Label"
-HeaderLabel/font_sizes/font_size = 32
+HeaderLabel/font_sizes/font_size = 40
 HeaderLabel/fonts/font = ExtResource("1_e0857")
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 64
