@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="UnderDawn"
-run/main_scene="uid://bjx385cjfg7b8"
+run/main_scene="uid://cf44hroebpfw6"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://other/icon.svg"
 
 [autoload]
 
 ErrorLogger="*res://scripts/core/ErrorLogger.cs"
+SaveManager="*res://scripts/core/SaveManager.cs"
 SceneManager="*uid://bkwcjqtmhxy3p"
 PauseManager="*uid://k2h1d6j7duoh"
 

@@ -1,8 +1,8 @@
 //Name:			PauseMenu.cs
 //Description:	Functionality for pause menu buttons
 
+using System.Threading.Tasks;
 using Godot;
-using System;
 
 public partial class PauseMenu : CanvasLayer
 {
@@ -11,9 +11,22 @@ public partial class PauseMenu : CanvasLayer
 		PauseManager.Instance.Pauser();
 	}
 
-	private void SaveGame()
+	/*saves the playthrough (SaveManager.cs), the button says Saved! for a moment*/
+	private async void SaveGame()
 	{
-		throw new NotImplementedException();
+		var button = GetNode<Button>("VBoxContainer/SaveButton");
+		if (GetTree().GetFirstNodeInGroup(Player.GroupName) is not Player player || player.IsDead)
+		{
+			button.Text = "Can't save now";
+		}
+		else
+		{
+			SaveManager.Instance.SaveRun(player);
+			button.Text = "Saved!";
+		}
+		await ToSignal(GetTree().CreateTimer(1.5, true, false, true), SceneTreeTimer.SignalName.Timeout);
+		if (IsInstanceValid(button))
+			button.Text = "Save Game";
 	}
 
 	private void MainMenu()

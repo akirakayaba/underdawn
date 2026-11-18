@@ -80,6 +80,7 @@ public partial class Player : CharacterBody2D, ICombatant
 	[Export] private int maxHealth = 100;
 	private int health;
 	public bool IsDead => health <= 0;
+	public int Health => health;
 
 	/*element ability the player currently has, the hud listens to ElementChanged*/
 	[Signal] public delegate void ElementChangedEventHandler(ElementType element);
@@ -111,6 +112,13 @@ public partial class Player : CharacterBody2D, ICombatant
 		AddChild(status);
 
 		health = maxHealth;
+		/*continuing a saved playthrough (SaveManager.cs)*/
+		if (SaveManager.Instance != null && SaveManager.Instance.TryTakePendingRun(out var savedPosition, out int savedHealth, out var savedElement))
+		{
+			GlobalPosition = savedPosition;
+			health = Mathf.Clamp(savedHealth, 1, maxHealth);
+			CurrentElement = savedElement;
+		}
 		EmitSignal(SignalName.HealthChanged, health, maxHealth);
 		EmitSignal(SignalName.ElementChanged, (int)CurrentElement);
 	}

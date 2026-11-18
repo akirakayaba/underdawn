@@ -1,19 +1,35 @@
 //Name:			TitleMenu.cs
 //Description:	Functionality for title menu buttons
+//				(continue only shows up when there is a saved playthrough)
 
 using Godot;
-using System;
 
 public partial class TitleMenu : Control
 {
+	private const string FirstLevel = "res://grassland.tscn";
+
+	public override void _Ready()
+	{
+		var continueButton = GetNode<Button>("VBoxContainer/ContinueButton");
+		continueButton.Visible = SaveManager.Instance.HasRun;
+		(continueButton.Visible ? continueButton : GetNode<Button>("VBoxContainer/StartButton")).GrabFocus();
+	}
+
+	private void ContinueGame()
+	{
+		SaveManager.Instance.ContinueRun();
+	}
+
+	/*a new game throws away the saved playthrough*/
 	private void StartGame()
 	{
-		SceneManager.Instance.ChangeScene("res://scenes/levels/test_area.tscn");
+		SaveManager.Instance.DeleteRun();
+		SceneManager.Instance.ChangeScene(FirstLevel);
 	}
 
 	private void Options()
 	{
-		throw new NotImplementedException();
+		throw new System.NotImplementedException();
 	}
 
 	private void QuitGame()
