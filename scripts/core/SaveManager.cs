@@ -12,7 +12,8 @@ public partial class SaveManager : Node
 {
 	public static SaveManager Instance { get; private set; }
 
-	public const string SavePath = "user://save.cfg";
+	public const string DefaultSavePath = "user://save.cfg";
+	public string SavePath { get; private set; } = DefaultSavePath;
 
 	/*actions the player can remap in the options menu (shown name, action)*/
 	public static readonly (string Label, string Action)[] RemappableActions =
@@ -36,6 +37,20 @@ public partial class SaveManager : Node
 				defaultControls[action] = InputMap.ActionGetEvents(action);
 		}
 
+		LoadFile();
+	}
+
+	/*the tests use their own save file so they never touch the player's save*/
+	public void UseSaveFile(string path)
+	{
+		SavePath = path;
+		config.Clear();
+		pendingRun = false;
+		LoadFile();
+	}
+
+	private void LoadFile()
+	{
 		/*a missing save file is fine (first time playing)*/
 		var error = config.Load(SavePath);
 		if (error != Error.Ok && error != Error.FileNotFound)
