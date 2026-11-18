@@ -94,6 +94,7 @@ public partial class Player : CharacterBody2D, ICombatant
 	private const float EdgeMargin = 12f;
 
 	private Polygon2D shadow;
+	private ElementAura elementAura;
 
 
 	public override void _Ready()
@@ -107,6 +108,10 @@ public partial class Player : CharacterBody2D, ICombatant
 		animatedSprite.Play("idle_" + lastDirection);
 		camera = GetNode<Camera2D>("PlayerCamera");
 		shadow = Shadow.AddTo(this, 20f, 16f);
+		elementAura = new ElementAura { Name = "ElementAura" };
+		AddChild(elementAura);
+		/*after the shadow, before the sprite, so it draws under the player*/
+		MoveChild(elementAura, 1);
 
 		status = new StatusEffectHandler { Target = this, Sprite = animatedSprite };
 		AddChild(status);
@@ -119,6 +124,7 @@ public partial class Player : CharacterBody2D, ICombatant
 			health = Mathf.Clamp(savedHealth, 1, maxHealth);
 			CurrentElement = savedElement;
 		}
+		elementAura.SetElement(CurrentElement);
 		EmitSignal(SignalName.HealthChanged, health, maxHealth);
 		EmitSignal(SignalName.ElementChanged, (int)CurrentElement);
 	}
@@ -126,6 +132,7 @@ public partial class Player : CharacterBody2D, ICombatant
 	public void SetElement(ElementType element)
 	{
 		CurrentElement = element;
+		elementAura?.SetElement(element);
 		EmitSignal(SignalName.ElementChanged, (int)element);
 	}
 
