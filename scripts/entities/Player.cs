@@ -44,6 +44,13 @@ public partial class Player : CharacterBody2D, ICombatant
 	public float DashCooldown => dashCooldown;
 	public float DashCooldownLeft => Mathf.Max(dashCooldownTimer, 0f);
 
+	/*speed boost after absorbing a new element (AbsorbElement)*/
+	[Export] private float speedBoostTime = 3f;
+	[Export] private float speedBoostMultiplier = 1.4f;
+	private float speedBoostTimer;
+	public bool IsSpeedBoosted => speedBoostTimer > 0;
+	private float SpeedMultiplier => IsSpeedBoosted ? speedBoostMultiplier : 1f;
+
 	/*element skill (R), which skill it is depends on the current element (Skills.cs)*/
 	private float skillCooldownTimer;
 	public float SkillCooldownLeft => Mathf.Max(skillCooldownTimer, 0f);
@@ -139,6 +146,12 @@ public partial class Player : CharacterBody2D, ICombatant
 	/*stealing an element from an enemy's orb (ElementOrb.cs), replaces the current one*/
 	public void AbsorbElement(ElementType element)
 	{
+		/*a new element gives a short speed boost (not when absorbing the same one again)*/
+		if (element != CurrentElement)
+		{
+			speedBoostTimer = speedBoostTime;
+			FloatingText.Show(this, "Speed Up!", Colors.White, 28f);
+		}
 		SetElement(element);
 		FloatingText.Show(this, "+" + element.ToString().Capitalize(), ElementVisuals.GetColor(element), 14f);
 	}
@@ -196,6 +209,7 @@ public partial class Player : CharacterBody2D, ICombatant
 		bufferTimer -= (float)delta;
 
 		skillCooldownTimer -= (float)delta;
+		speedBoostTimer -= (float)delta;
 		if (Input.IsActionJustPressed("skill") && skillCooldownTimer <= 0 && status.CanAttack && !isAttacking)
 			CastSkill(direction);
 
@@ -242,9 +256,11 @@ public partial class Player : CharacterBody2D, ICombatant
 
 		/*freeze movement temprorly until attack animation finshes
 		  (knockback still moves the player)*/
-		Velocity = status.GetVelocity(isAttacking ? Vector2.Zero : direction * speed, delta);
+		Velocity = status.GetVelocity(isAttacking ? Vector2.Zero : direction * speed * SpeedMultiplier, delta);
 		MoveAndSlide();
 		KeepInsideCameraLimits();
+		if (IsSpeedBoosted && direction != Vector2.Zero)
+			SpawnAfterimage((float)delta);
 
 		if (isAttacking)
 			return;
