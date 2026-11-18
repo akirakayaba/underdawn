@@ -19,6 +19,7 @@ config/icon="res://other/icon.svg"
 
 ErrorLogger="*res://scripts/core/ErrorLogger.cs"
 SaveManager="*res://scripts/core/SaveManager.cs"
+MusicManager="*res://scripts/core/MusicManager.cs"
 SceneManager="*uid://bkwcjqtmhxy3p"
 PauseManager="*uid://k2h1d6j7duoh"
 
