@@ -17,6 +17,7 @@ config/icon="res://other/icon.svg"
 
 [autoload]
 
+ErrorLogger="*res://scripts/core/ErrorLogger.cs"
 SceneManager="*uid://bkwcjqtmhxy3p"
 PauseManager="*uid://k2h1d6j7duoh"
 
