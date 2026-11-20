@@ -1,0 +1,1172 @@
+[gd_scene format=3 uid="uid://d1acjg3fp7jv8"]
+
+[ext_resource type="Texture2D" uid="uid://csef0foyth7ua" path="res://assets/levels/Undead/PNG/Animation1.png" id="anim1"]
+[ext_resource type="Texture2D" uid="uid://ckg0e30rs4b4y" path="res://assets/levels/Undead/PNG/Animation2.png" id="anim2"]
+[ext_resource type="Texture2D" uid="uid://dxbxapnnomo0v" path="res://assets/levels/Undead/PNG/Animation3.png" id="anim3"]
+[ext_resource type="Texture2D" uid="uid://46brfg0x1bku" path="res://assets/levels/Undead/PNG/Animation4.png" id="anim4"]
+[ext_resource type="Texture2D" uid="uid://bjnak4ao1o232" path="res://assets/levels/Undead/PNG/Animation6.png" id="anim6"]
+[ext_resource type="Texture2D" uid="uid://dvohbqdwe7iwp" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_1.png" id="Bones_shadow1_1"]
+[ext_resource type="Texture2D" uid="uid://jg5rh32b0t3q" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_2.png" id="Bones_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://cc07a4ynq2gvh" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_3.png" id="Bones_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://x5t7ak228v8k" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_4.png" id="Bones_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://c31bmpeuvpann" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_5.png" id="Bones_shadow1_5"]
+[ext_resource type="Texture2D" uid="uid://c2nuhmvcd8nv8" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_6.png" id="Bones_shadow1_6"]
+[ext_resource type="Texture2D" uid="uid://26oplgk8kby3" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_7.png" id="Bones_shadow1_7"]
+[ext_resource type="Texture2D" uid="uid://bxjlfnaoaqo4g" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_12.png" id="Bones_shadow1_12"]
+[ext_resource type="Texture2D" uid="uid://c1satmip4i8q0" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_13.png" id="Bones_shadow1_13"]
+[ext_resource type="Texture2D" uid="uid://brtevufxdcdgy" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_14.png" id="Bones_shadow1_14"]
+[ext_resource type="Texture2D" uid="uid://dtd1i0ay6ycia" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_15.png" id="Bones_shadow1_15"]
+[ext_resource type="Texture2D" uid="uid://dihmfxoq46er5" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_16.png" id="Bones_shadow1_16"]
+[ext_resource type="Texture2D" uid="uid://cv4x8scss3njg" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_17.png" id="Bones_shadow1_17"]
+[ext_resource type="Texture2D" uid="uid://cffbq2478n6nf" path="res://assets/levels/Undead/PNG/Objects_separately/Bones_shadow1_18.png" id="Bones_shadow1_18"]
+[ext_resource type="Texture2D" uid="uid://dsrjpavcg58t5" path="res://assets/levels/Undead/PNG/Objects_separately/Broken_tree_shadow1_2.png" id="Broken_tree_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://ctp8u2egv1m1s" path="res://assets/levels/Undead/PNG/Objects_separately/Broken_tree_shadow1_4.png" id="Broken_tree_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://g4hitjl84lm5" path="res://assets/levels/Undead/PNG/Objects_separately/Crystal_shadow1_1.png" id="Crystal_shadow1_1"]
+[ext_resource type="Texture2D" uid="uid://3c7pqdsjhqkm" path="res://assets/levels/Undead/PNG/Objects_separately/Crystal_shadow1_2.png" id="Crystal_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://ccevve8r4xn5l" path="res://assets/levels/Undead/PNG/Objects_separately/Crystal_shadow1_3.png" id="Crystal_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://bfg2v2cxdx568" path="res://assets/levels/Undead/PNG/Objects_separately/Crystal_shadow1_4.png" id="Crystal_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://bgvbcv5a1ba35" path="res://assets/levels/Undead/PNG/Objects_separately/Dead_arm_shadow1_2.png" id="Dead_arm_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://byv2ildpqucnv" path="res://assets/levels/Undead/PNG/Objects_separately/Dead_arm_shadow1_4.png" id="Dead_arm_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://dovl3b2wxcyav" path="res://assets/levels/Undead/PNG/Objects_separately/Dead_tree_shadow1_3.png" id="Dead_tree_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://2blce1uqh6cy" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_1.png" id="Grave_shadow1_1"]
+[ext_resource type="Texture2D" uid="uid://d117cbufw473s" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_4.png" id="Grave_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://c4nie76p6n6iw" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_5.png" id="Grave_shadow1_5"]
+[ext_resource type="Texture2D" uid="uid://dumii8e2bt433" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_6.png" id="Grave_shadow1_6"]
+[ext_resource type="Texture2D" uid="uid://cs83lwh3mtejx" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_7.png" id="Grave_shadow1_7"]
+[ext_resource type="Texture2D" uid="uid://duwsnmb2owehc" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_8.png" id="Grave_shadow1_8"]
+[ext_resource type="Texture2D" uid="uid://bfi41l4x2v2vq" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_9.png" id="Grave_shadow1_9"]
+[ext_resource type="Texture2D" uid="uid://dervosyw3b0rc" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_12.png" id="Grave_shadow1_12"]
+[ext_resource type="Texture2D" uid="uid://lwtli2wgvejl" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_16.png" id="Grave_shadow1_16"]
+[ext_resource type="Texture2D" uid="uid://d4hd4vp4smbpc" path="res://assets/levels/Undead/PNG/Objects_separately/Grave_shadow1_17.png" id="Grave_shadow1_17"]
+[ext_resource type="Texture2D" uid="uid://bsmqh26eqfm30" path="res://assets/levels/Undead/PNG/undead_ground.png" id="ground"]
+[ext_resource type="Texture2D" uid="uid://dc47dx16f5lxr" path="res://assets/levels/Undead/PNG/Objects_separately/Lich_shadow1.png" id="Lich_shadow1"]
+[ext_resource type="Texture2D" uid="uid://bi6nkxhjb44yf" path="res://assets/levels/Undead/PNG/Objects_separately/Pile_sculls_shadow1.png" id="Pile_sculls_shadow1"]
+[ext_resource type="Texture2D" uid="uid://jalw487rmdwr" path="res://assets/levels/Undead/PNG/Objects_separately/Plant_shadow1_1.png" id="Plant_shadow1_1"]
+[ext_resource type="Texture2D" uid="uid://bf6fv88hn47ea" path="res://assets/levels/Undead/PNG/Objects_separately/Plant_shadow1_2.png" id="Plant_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://cv4x7hgiciev3" path="res://assets/levels/Undead/PNG/Objects_separately/Plant_shadow1_3.png" id="Plant_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://blqbk2dfgplmd" path="res://assets/levels/Undead/PNG/Objects_separately/Rock_shadow1_3.png" id="Rock_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://cc23ubjq7hvds" path="res://assets/levels/Undead/PNG/Objects_separately/Rock_shadow1_4.png" id="Rock_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://dceji4t4t3n2u" path="res://assets/levels/Undead/PNG/Objects_separately/Rock_shadow1_5.png" id="Rock_shadow1_5"]
+[ext_resource type="Texture2D" uid="uid://cj0cm2det1ow6" path="res://assets/levels/Undead/PNG/Objects_separately/Ruin_shadow1_1.png" id="Ruin_shadow1_1"]
+[ext_resource type="Texture2D" uid="uid://bjea08wevembj" path="res://assets/levels/Undead/PNG/Objects_separately/Ruin_shadow1_2.png" id="Ruin_shadow1_2"]
+[ext_resource type="Texture2D" uid="uid://bl6326tpnj0oe" path="res://assets/levels/Undead/PNG/Objects_separately/Ruin_shadow1_3.png" id="Ruin_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://cn8et5tv376x" path="res://assets/levels/Undead/PNG/Objects_separately/Ruin_shadow1_4.png" id="Ruin_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://d5eswsjd7lf6" path="res://assets/levels/Undead/PNG/Objects_separately/Ruin_shadow1_5.png" id="Ruin_shadow1_5"]
+[ext_resource type="Texture2D" uid="uid://chfrh5ggjqc5l" path="res://assets/levels/Undead/PNG/Objects_separately/Thorn_plant_shadow1_3.png" id="Thorn_plant_shadow1_3"]
+[ext_resource type="Texture2D" uid="uid://dyjbandcjgfks" path="res://assets/levels/Undead/PNG/Objects_separately/Thorn_plant_shadow1_4.png" id="Thorn_plant_shadow1_4"]
+[ext_resource type="Texture2D" uid="uid://b7urx7kbn0dso" path="res://assets/levels/Undead/PNG/Objects_separately/Thorn_plant_shadow1_6.png" id="Thorn_plant_shadow1_6"]
+
+[sub_resource type="AtlasTexture" id="AT_2_0"]
+atlas = ExtResource("anim2")
+region = Rect2(0, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AT_2_1"]
+atlas = ExtResource("anim2")
+region = Rect2(80, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AT_2_2"]
+atlas = ExtResource("anim2")
+region = Rect2(160, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AT_2_3"]
+atlas = ExtResource("anim2")
+region = Rect2(240, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AT_2_4"]
+atlas = ExtResource("anim2")
+region = Rect2(320, 0, 80, 96)
+
+[sub_resource type="AtlasTexture" id="AT_2_5"]
+atlas = ExtResource("anim2")
+region = Rect2(400, 0, 80, 96)
+
+[sub_resource type="SpriteFrames" id="SF_2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_2_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_2_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_2_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_2_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_2_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_2_5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AT_1_0"]
+atlas = ExtResource("anim1")
+region = Rect2(0, 0, 98.6667, 128)
+
+[sub_resource type="AtlasTexture" id="AT_1_1"]
+atlas = ExtResource("anim1")
+region = Rect2(98.6667, 0, 98.6667, 128)
+
+[sub_resource type="AtlasTexture" id="AT_1_2"]
+atlas = ExtResource("anim1")
+region = Rect2(197.333, 0, 98.6667, 128)
+
+[sub_resource type="AtlasTexture" id="AT_1_3"]
+atlas = ExtResource("anim1")
+region = Rect2(296, 0, 98.6667, 128)
+
+[sub_resource type="AtlasTexture" id="AT_1_4"]
+atlas = ExtResource("anim1")
+region = Rect2(394.667, 0, 98.6667, 128)
+
+[sub_resource type="AtlasTexture" id="AT_1_5"]
+atlas = ExtResource("anim1")
+region = Rect2(493.333, 0, 98.6667, 128)
+
+[sub_resource type="SpriteFrames" id="SF_1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_1_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_1_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_1_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_1_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_1_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_1_5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AT_4_0"]
+atlas = ExtResource("anim4")
+region = Rect2(0, 0, 80, 112)
+
+[sub_resource type="AtlasTexture" id="AT_4_1"]
+atlas = ExtResource("anim4")
+region = Rect2(80, 0, 80, 112)
+
+[sub_resource type="AtlasTexture" id="AT_4_2"]
+atlas = ExtResource("anim4")
+region = Rect2(160, 0, 80, 112)
+
+[sub_resource type="AtlasTexture" id="AT_4_3"]
+atlas = ExtResource("anim4")
+region = Rect2(240, 0, 80, 112)
+
+[sub_resource type="AtlasTexture" id="AT_4_4"]
+atlas = ExtResource("anim4")
+region = Rect2(320, 0, 80, 112)
+
+[sub_resource type="AtlasTexture" id="AT_4_5"]
+atlas = ExtResource("anim4")
+region = Rect2(400, 0, 80, 112)
+
+[sub_resource type="SpriteFrames" id="SF_4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_4_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_4_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_4_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_4_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_4_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_4_5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AT_6_0"]
+atlas = ExtResource("anim6")
+region = Rect2(0, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AT_6_1"]
+atlas = ExtResource("anim6")
+region = Rect2(48, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AT_6_2"]
+atlas = ExtResource("anim6")
+region = Rect2(96, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AT_6_3"]
+atlas = ExtResource("anim6")
+region = Rect2(144, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AT_6_4"]
+atlas = ExtResource("anim6")
+region = Rect2(192, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AT_6_5"]
+atlas = ExtResource("anim6")
+region = Rect2(240, 0, 48, 80)
+
+[sub_resource type="SpriteFrames" id="SF_6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_6_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_6_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_6_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_6_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_6_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_6_5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AT_3_0"]
+atlas = ExtResource("anim3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AT_3_1"]
+atlas = ExtResource("anim3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AT_3_2"]
+atlas = ExtResource("anim3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AT_3_3"]
+atlas = ExtResource("anim3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AT_3_4"]
+atlas = ExtResource("anim3")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AT_3_5"]
+atlas = ExtResource("anim3")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SF_3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_3_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_3_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_3_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_3_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_3_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_3_5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="LightGradient"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="LightTexture"]
+gradient = SubResource("LightGradient")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Undead" type="Node2D" unique_id=2103919444]
+texture_filter = 1
+metadata/_edit_vertical_guides_ = [-66523.0]
+metadata/_edit_horizontal_guides_ = [-64436.0]
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=1067810602]
+color = Color(0.5, 0.53, 0.6, 1)
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=217914617]
+texture = ExtResource("ground")
+centered = false
+
+[node name="Objects" type="Node2D" parent="." unique_id=762224488]
+y_sort_enabled = true
+
+[node name="Grave01" type="Sprite2D" parent="Objects" unique_id=1765573762]
+position = Vector2(92, 157)
+texture = ExtResource("Grave_shadow1_1")
+centered = false
+offset = Vector2(-16, -25)
+
+[node name="Grave02" type="Sprite2D" parent="Objects" unique_id=1917940864]
+position = Vector2(145, 154)
+texture = ExtResource("Grave_shadow1_17")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Grave03" type="Sprite2D" parent="Objects" unique_id=91230230]
+position = Vector2(185, 160)
+texture = ExtResource("Grave_shadow1_8")
+centered = false
+offset = Vector2(-16, -24)
+
+[node name="Grave04" type="Sprite2D" parent="Objects" unique_id=1720014539]
+position = Vector2(238, 158)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave05" type="Sprite2D" parent="Objects" unique_id=1049551095]
+position = Vector2(290, 159)
+texture = ExtResource("Grave_shadow1_7")
+centered = false
+offset = Vector2(-16, -24)
+
+[node name="Grave06" type="Sprite2D" parent="Objects" unique_id=1131322959]
+position = Vector2(95, 201)
+texture = ExtResource("Grave_shadow1_12")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Grave07" type="Sprite2D" parent="Objects" unique_id=355897929]
+position = Vector2(140, 203)
+texture = ExtResource("Grave_shadow1_1")
+centered = false
+offset = Vector2(-16, -25)
+
+[node name="Grave08" type="Sprite2D" parent="Objects" unique_id=946937004]
+position = Vector2(185, 200)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave09" type="Sprite2D" parent="Objects" unique_id=131678615]
+position = Vector2(233, 203)
+texture = ExtResource("Grave_shadow1_4")
+centered = false
+offset = Vector2(-16, -26)
+
+[node name="Grave10" type="Sprite2D" parent="Objects" unique_id=611846589]
+position = Vector2(292, 201)
+texture = ExtResource("Grave_shadow1_7")
+centered = false
+offset = Vector2(-16, -24)
+
+[node name="Grave11" type="Sprite2D" parent="Objects" unique_id=483939226]
+position = Vector2(97, 240)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave12" type="Sprite2D" parent="Objects" unique_id=876778315]
+position = Vector2(145, 245)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave13" type="Sprite2D" parent="Objects" unique_id=1626212244]
+position = Vector2(190, 242)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave14" type="Sprite2D" parent="Objects" unique_id=725939534]
+position = Vector2(235, 242)
+texture = ExtResource("Grave_shadow1_16")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Grave15" type="Sprite2D" parent="Objects" unique_id=615920160]
+position = Vector2(291, 246)
+texture = ExtResource("Grave_shadow1_16")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Grave16" type="Sprite2D" parent="Objects" unique_id=1809875039]
+position = Vector2(90, 286)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Grave17" type="Sprite2D" parent="Objects" unique_id=1961954332]
+position = Vector2(145, 289)
+texture = ExtResource("Grave_shadow1_1")
+centered = false
+offset = Vector2(-16, -25)
+
+[node name="Grave18" type="Sprite2D" parent="Objects" unique_id=1766089507]
+position = Vector2(190, 286)
+texture = ExtResource("Grave_shadow1_1")
+centered = false
+offset = Vector2(-16, -25)
+
+[node name="Grave19" type="Sprite2D" parent="Objects" unique_id=852190869]
+position = Vector2(238, 288)
+texture = ExtResource("Grave_shadow1_17")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Grave20" type="Sprite2D" parent="Objects" unique_id=1230208564]
+position = Vector2(291, 287)
+texture = ExtResource("Grave_shadow1_6")
+centered = false
+offset = Vector2(-15.5, -24)
+
+[node name="Ruin01" type="Sprite2D" parent="Objects" unique_id=639174446]
+position = Vector2(328, 168)
+texture = ExtResource("Ruin_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Lich01" type="Sprite2D" parent="Objects" unique_id=207573902]
+position = Vector2(552, 227)
+texture = ExtResource("Lich_shadow1")
+centered = false
+offset = Vector2(-128, -184)
+
+[node name="Pilesculls01" type="Sprite2D" parent="Objects" unique_id=2009793397]
+position = Vector2(701, 213)
+texture = ExtResource("Pile_sculls_shadow1")
+centered = false
+offset = Vector2(-63.5, -89)
+
+[node name="Bones01" type="Sprite2D" parent="Objects" unique_id=975948893]
+position = Vector2(752, 208)
+texture = ExtResource("Bones_shadow1_6")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="Bones02" type="Sprite2D" parent="Objects" unique_id=624402043]
+position = Vector2(648, 205)
+texture = ExtResource("Bones_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Bones03" type="Sprite2D" parent="Objects" unique_id=1364087715]
+position = Vector2(669, 264)
+texture = ExtResource("Bones_shadow1_1")
+centered = false
+offset = Vector2(-16, -27)
+
+[node name="Bones04" type="Sprite2D" parent="Objects" unique_id=112525205]
+position = Vector2(749, 376)
+texture = ExtResource("Bones_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Thornplant01" type="Sprite2D" parent="Objects" unique_id=1092961780]
+position = Vector2(808, 152)
+texture = ExtResource("Thorn_plant_shadow1_4")
+centered = false
+offset = Vector2(-32, -55)
+
+[node name="Brokentree01" type="Sprite2D" parent="Objects" unique_id=342767870]
+position = Vector2(848, 157)
+texture = ExtResource("Broken_tree_shadow1_2")
+centered = false
+offset = Vector2(-15.5, -32)
+
+[node name="Crystal01" type="Sprite2D" parent="Objects" unique_id=1842916482]
+position = Vector2(890, 160)
+texture = ExtResource("Crystal_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Rock01" type="Sprite2D" parent="Objects" unique_id=997154660]
+position = Vector2(723, 336)
+texture = ExtResource("Rock_shadow1_3")
+centered = false
+offset = Vector2(-32, -48)
+
+[node name="Bones05" type="Sprite2D" parent="Objects" unique_id=163278493]
+position = Vector2(680, 288)
+texture = ExtResource("Bones_shadow1_16")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Rock02" type="Sprite2D" parent="Objects" unique_id=1571620791]
+position = Vector2(752, 400)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Pilesculls02" type="Sprite2D" parent="Objects" unique_id=156265229]
+position = Vector2(1347, 176)
+texture = ExtResource("Pile_sculls_shadow1")
+centered = false
+offset = Vector2(-63.5, -89)
+
+[node name="Bones06" type="Sprite2D" parent="Objects" unique_id=1711956327]
+position = Vector2(1416, 157)
+texture = ExtResource("Bones_shadow1_13")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Bones07" type="Sprite2D" parent="Objects" unique_id=1869891670]
+position = Vector2(1459, 160)
+texture = ExtResource("Bones_shadow1_18")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Bones08" type="Sprite2D" parent="Objects" unique_id=1851718941]
+position = Vector2(1376, 205)
+texture = ExtResource("Bones_shadow1_14")
+centered = false
+offset = Vector2(-31.5, -47)
+
+[node name="Ruin02" type="Sprite2D" parent="Objects" unique_id=500877785]
+position = Vector2(1240, 256)
+texture = ExtResource("Ruin_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Bones09" type="Sprite2D" parent="Objects" unique_id=1004393942]
+position = Vector2(1024, 192)
+texture = ExtResource("Bones_shadow1_2")
+centered = false
+offset = Vector2(-7.5, -14)
+
+[node name="Rock03" type="Sprite2D" parent="Objects" unique_id=381502506]
+position = Vector2(1120, 240)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Bones10" type="Sprite2D" parent="Objects" unique_id=1177946402]
+position = Vector2(1448, 328)
+texture = ExtResource("Bones_shadow1_5")
+centered = false
+offset = Vector2(-16, -30)
+
+[node name="Rock04" type="Sprite2D" parent="Objects" unique_id=1287263703]
+position = Vector2(1488, 480)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Pilesculls03" type="Sprite2D" parent="Objects" unique_id=810504101]
+position = Vector2(131, 552)
+texture = ExtResource("Pile_sculls_shadow1")
+centered = false
+offset = Vector2(-63.5, -89)
+
+[node name="Pilesculls04" type="Sprite2D" parent="Objects" unique_id=2067211545]
+position = Vector2(419, 552)
+texture = ExtResource("Pile_sculls_shadow1")
+centered = false
+offset = Vector2(-63.5, -89)
+flip_h = true
+
+[node name="Bones11" type="Sprite2D" parent="Objects" unique_id=429479523]
+position = Vector2(72, 579)
+texture = ExtResource("Bones_shadow1_13")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Bones12" type="Sprite2D" parent="Objects" unique_id=1589016591]
+position = Vector2(184, 563)
+texture = ExtResource("Bones_shadow1_18")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Bones13" type="Sprite2D" parent="Objects" unique_id=1505678717]
+position = Vector2(360, 547)
+texture = ExtResource("Bones_shadow1_15")
+centered = false
+offset = Vector2(-16, -31)
+
+[node name="Bones14" type="Sprite2D" parent="Objects" unique_id=1138762412]
+position = Vector2(480, 579)
+texture = ExtResource("Bones_shadow1_13")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Bones15" type="Sprite2D" parent="Objects" unique_id=47966382]
+position = Vector2(288, 640)
+texture = ExtResource("Bones_shadow1_2")
+centered = false
+offset = Vector2(-7.5, -14)
+
+[node name="Bones16" type="Sprite2D" parent="Objects" unique_id=426127185]
+position = Vector2(96, 832)
+texture = ExtResource("Bones_shadow1_1")
+centered = false
+offset = Vector2(-16, -27)
+
+[node name="Rock05" type="Sprite2D" parent="Objects" unique_id=1450776585]
+position = Vector2(314, 528)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Crystal02" type="Sprite2D" parent="Objects" unique_id=899919885]
+position = Vector2(328, 536)
+texture = ExtResource("Crystal_shadow1_4")
+centered = false
+offset = Vector2(-7.5, -15)
+
+[node name="Plant01" type="Sprite2D" parent="Objects" unique_id=1807288681]
+position = Vector2(88, 656)
+texture = ExtResource("Plant_shadow1_2")
+centered = false
+offset = Vector2(-32, -50)
+
+[node name="Thornplant02" type="Sprite2D" parent="Objects" unique_id=190456265]
+position = Vector2(432, 723)
+texture = ExtResource("Thorn_plant_shadow1_4")
+centered = false
+offset = Vector2(-32, -55)
+
+[node name="Plant02" type="Sprite2D" parent="Objects" unique_id=1205198763]
+position = Vector2(424, 787)
+texture = ExtResource("Plant_shadow1_1")
+centered = false
+offset = Vector2(-64, -93)
+
+[node name="Brokentree02" type="Sprite2D" parent="Objects" unique_id=927838682]
+position = Vector2(72, 744)
+texture = ExtResource("Broken_tree_shadow1_4")
+centered = false
+offset = Vector2(-31.5, -47)
+
+[node name="Bones17" type="Sprite2D" parent="Objects" unique_id=809294702]
+position = Vector2(115, 808)
+texture = ExtResource("Bones_shadow1_12")
+centered = false
+offset = Vector2(-31.5, -51)
+
+[node name="Bones18" type="Sprite2D" parent="Objects" unique_id=1865255668]
+position = Vector2(173, 800)
+texture = ExtResource("Bones_shadow1_7")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Bones19" type="Sprite2D" parent="Objects" unique_id=1439948895]
+position = Vector2(440, 840)
+texture = ExtResource("Bones_shadow1_17")
+centered = false
+offset = Vector2(-16, -31)
+
+[node name="Deadarm01" type="Sprite2D" parent="Objects" unique_id=669095923]
+position = Vector2(496, 480)
+texture = ExtResource("Dead_arm_shadow1_4")
+centered = false
+offset = Vector2(-32, -53)
+
+[node name="Rock06" type="Sprite2D" parent="Objects" unique_id=2109565639]
+position = Vector2(624, 584)
+texture = ExtResource("Rock_shadow1_3")
+centered = false
+offset = Vector2(-32, -48)
+
+[node name="Rock07" type="Sprite2D" parent="Objects" unique_id=601221370]
+position = Vector2(752, 576)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Rock08" type="Sprite2D" parent="Objects" unique_id=1628908123]
+position = Vector2(765, 600)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Bones20" type="Sprite2D" parent="Objects" unique_id=946557713]
+position = Vector2(704, 792)
+texture = ExtResource("Bones_shadow1_16")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Bones21" type="Sprite2D" parent="Objects" unique_id=382860575]
+position = Vector2(637, 824)
+texture = ExtResource("Bones_shadow1_1")
+centered = false
+offset = Vector2(-16, -27)
+
+[node name="Bones22" type="Sprite2D" parent="Objects" unique_id=564379689]
+position = Vector2(744, 840)
+texture = ExtResource("Bones_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Rock09" type="Sprite2D" parent="Objects" unique_id=1464324]
+position = Vector2(616, 800)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Ruin03" type="Sprite2D" parent="Objects" unique_id=1352683384]
+position = Vector2(925, 659)
+texture = ExtResource("Ruin_shadow1_2")
+centered = false
+offset = Vector2(-63.5, -95)
+
+[node name="Ruin04" type="Sprite2D" parent="Objects" unique_id=293499123]
+position = Vector2(1048, 659)
+texture = ExtResource("Ruin_shadow1_2")
+centered = false
+offset = Vector2(-63.5, -95)
+flip_h = true
+
+[node name="Ruin05" type="Sprite2D" parent="Objects" unique_id=1911605116]
+position = Vector2(963, 813)
+texture = ExtResource("Ruin_shadow1_2")
+centered = false
+offset = Vector2(-63.5, -95)
+
+[node name="Ruin06" type="Sprite2D" parent="Objects" unique_id=1024650141]
+position = Vector2(1096, 515)
+texture = ExtResource("Ruin_shadow1_1")
+centered = false
+offset = Vector2(-64, -111)
+
+[node name="Ruin07" type="Sprite2D" parent="Objects" unique_id=1471508580]
+position = Vector2(1024, 480)
+texture = ExtResource("Ruin_shadow1_3")
+centered = false
+offset = Vector2(-31.5, -59)
+
+[node name="Ruin08" type="Sprite2D" parent="Objects" unique_id=567876201]
+position = Vector2(1000, 680)
+texture = ExtResource("Ruin_shadow1_4")
+centered = false
+offset = Vector2(-31.5, -55)
+
+[node name="Deadtree01" type="Sprite2D" parent="Objects" unique_id=216767546]
+position = Vector2(872, 504)
+texture = ExtResource("Dead_tree_shadow1_3")
+centered = false
+offset = Vector2(-32, -54)
+
+[node name="Thornplant03" type="Sprite2D" parent="Objects" unique_id=616132487]
+position = Vector2(832, 672)
+texture = ExtResource("Thorn_plant_shadow1_3")
+centered = false
+offset = Vector2(-16, -27)
+
+[node name="Grave21" type="Sprite2D" parent="Objects" unique_id=1093244442]
+position = Vector2(1128, 808)
+texture = ExtResource("Grave_shadow1_9")
+centered = false
+offset = Vector2(-16, -30)
+
+[node name="Grave22" type="Sprite2D" parent="Objects" unique_id=949672054]
+position = Vector2(1187, 808)
+texture = ExtResource("Grave_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Plant03" type="Sprite2D" parent="Objects" unique_id=217421873]
+position = Vector2(1235, 752)
+texture = ExtResource("Plant_shadow1_3")
+centered = false
+offset = Vector2(-16, -30)
+
+[node name="Rock10" type="Sprite2D" parent="Objects" unique_id=1770171057]
+position = Vector2(851, 768)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Rock11" type="Sprite2D" parent="Objects" unique_id=2011145186]
+position = Vector2(1104, 688)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Bones23" type="Sprite2D" parent="Objects" unique_id=1364063209]
+position = Vector2(896, 832)
+texture = ExtResource("Bones_shadow1_2")
+centered = false
+offset = Vector2(-7.5, -14)
+
+[node name="Ruin09" type="Sprite2D" parent="Objects" unique_id=1994834697]
+position = Vector2(1432, 632)
+texture = ExtResource("Ruin_shadow1_2")
+centered = false
+offset = Vector2(-63.5, -95)
+
+[node name="Ruin10" type="Sprite2D" parent="Objects" unique_id=898527252]
+position = Vector2(1528, 728)
+texture = ExtResource("Ruin_shadow1_5")
+centered = false
+offset = Vector2(-15.5, -27)
+
+[node name="Bones24" type="Sprite2D" parent="Objects" unique_id=1224584316]
+position = Vector2(1379, 840)
+texture = ExtResource("Bones_shadow1_15")
+centered = false
+offset = Vector2(-16, -31)
+
+[node name="Bones25" type="Sprite2D" parent="Objects" unique_id=966233522]
+position = Vector2(1549, 845)
+texture = ExtResource("Bones_shadow1_7")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Rock12" type="Sprite2D" parent="Objects" unique_id=435818614]
+position = Vector2(1344, 736)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Crystal03" type="Sprite2D" parent="Objects" unique_id=214387132]
+position = Vector2(67, 1251)
+texture = ExtResource("Crystal_shadow1_2")
+centered = false
+offset = Vector2(-31.5, -50)
+
+[node name="Crystal04" type="Sprite2D" parent="Objects" unique_id=1222407894]
+position = Vector2(144, 1341)
+texture = ExtResource("Crystal_shadow1_1")
+centered = false
+offset = Vector2(-32, -57)
+
+[node name="Rock13" type="Sprite2D" parent="Objects" unique_id=456361876]
+position = Vector2(480, 1120)
+texture = ExtResource("Rock_shadow1_3")
+centered = false
+offset = Vector2(-32, -48)
+
+[node name="Rock14" type="Sprite2D" parent="Objects" unique_id=1828853424]
+position = Vector2(64, 1104)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Bones26" type="Sprite2D" parent="Objects" unique_id=1570644385]
+position = Vector2(304, 1328)
+texture = ExtResource("Bones_shadow1_17")
+centered = false
+offset = Vector2(-16, -31)
+
+[node name="Bones27" type="Sprite2D" parent="Objects" unique_id=1850983925]
+position = Vector2(240, 1120)
+texture = ExtResource("Bones_shadow1_2")
+centered = false
+offset = Vector2(-7.5, -14)
+
+[node name="Crystal05" type="Sprite2D" parent="Objects" unique_id=694771813]
+position = Vector2(752, 1069)
+texture = ExtResource("Crystal_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Crystal06" type="Sprite2D" parent="Objects" unique_id=1793283479]
+position = Vector2(624, 1112)
+texture = ExtResource("Crystal_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Crystal07" type="Sprite2D" parent="Objects" unique_id=412387661]
+position = Vector2(624, 1288)
+texture = ExtResource("Crystal_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Crystal08" type="Sprite2D" parent="Objects" unique_id=1200765505]
+position = Vector2(752, 1288)
+texture = ExtResource("Crystal_shadow1_3")
+centered = false
+offset = Vector2(-15.5, -28)
+
+[node name="Bones28" type="Sprite2D" parent="Objects" unique_id=1953544084]
+position = Vector2(688, 1200)
+texture = ExtResource("Bones_shadow1_14")
+centered = false
+offset = Vector2(-31.5, -47)
+
+[node name="Rock15" type="Sprite2D" parent="Objects" unique_id=1755522669]
+position = Vector2(728, 1376)
+texture = ExtResource("Rock_shadow1_5")
+centered = false
+offset = Vector2(-7.5, -16)
+
+[node name="Crystal09" type="Sprite2D" parent="Objects" unique_id=1006378016]
+position = Vector2(1018, 1107)
+texture = ExtResource("Crystal_shadow1_2")
+centered = false
+offset = Vector2(-31.5, -50)
+
+[node name="Bones29" type="Sprite2D" parent="Objects" unique_id=1216802761]
+position = Vector2(1016, 1299)
+texture = ExtResource("Bones_shadow1_13")
+centered = false
+offset = Vector2(-32, -49)
+
+[node name="Bones30" type="Sprite2D" parent="Objects" unique_id=1223013745]
+position = Vector2(1088, 1360)
+texture = ExtResource("Bones_shadow1_4")
+centered = false
+offset = Vector2(-16, -30)
+
+[node name="Rock16" type="Sprite2D" parent="Objects" unique_id=552744426]
+position = Vector2(960, 1376)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Crystal10" type="Sprite2D" parent="Objects" unique_id=243631361]
+position = Vector2(1325, 1064)
+texture = ExtResource("Crystal_shadow1_1")
+centered = false
+offset = Vector2(-32, -57)
+
+[node name="Deadarm02" type="Sprite2D" parent="Objects" unique_id=811998851]
+position = Vector2(1488, 1312)
+texture = ExtResource("Dead_arm_shadow1_2")
+centered = false
+offset = Vector2(-31.5, -60)
+
+[node name="Bones31" type="Sprite2D" parent="Objects" unique_id=215173823]
+position = Vector2(1152, 1024)
+texture = ExtResource("Bones_shadow1_16")
+centered = false
+offset = Vector2(-16, -28)
+
+[node name="Thornplant04" type="Sprite2D" parent="Objects" unique_id=1542592843]
+position = Vector2(1216, 1216)
+texture = ExtResource("Thorn_plant_shadow1_6")
+centered = false
+offset = Vector2(-15.5, -25)
+
+[node name="Rock17" type="Sprite2D" parent="Objects" unique_id=874902087]
+position = Vector2(1528, 1024)
+texture = ExtResource("Rock_shadow1_4")
+centered = false
+offset = Vector2(-16, -29)
+
+[node name="Bones32" type="Sprite2D" parent="Objects" unique_id=1204752867]
+position = Vector2(1120, 1368)
+texture = ExtResource("Bones_shadow1_6")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="DeadTree01" type="AnimatedSprite2D" parent="Objects" unique_id=1268089858]
+position = Vector2(653, 765)
+sprite_frames = SubResource("SF_2")
+autoplay = "default"
+offset = Vector2(0, -45)
+
+[node name="BigDeadTree01" type="AnimatedSprite2D" parent="Objects" unique_id=443544422]
+position = Vector2(1203, 589)
+sprite_frames = SubResource("SF_1")
+autoplay = "default"
+offset = Vector2(0, -62)
+
+[node name="FlameStatue01" type="AnimatedSprite2D" parent="Objects" unique_id=2103292046]
+position = Vector2(152, 1155)
+sprite_frames = SubResource("SF_4")
+autoplay = "default"
+offset = Vector2(0, -50)
+
+[node name="FlameStatue02" type="AnimatedSprite2D" parent="Objects" unique_id=524278203]
+position = Vector2(400, 1155)
+sprite_frames = SubResource("SF_4")
+autoplay = "default"
+offset = Vector2(0, -50)
+
+[node name="FlameStatue03" type="AnimatedSprite2D" parent="Objects" unique_id=274819480]
+position = Vector2(400, 1325)
+sprite_frames = SubResource("SF_4")
+autoplay = "default"
+offset = Vector2(0, -50)
+
+[node name="SkullIdol01" type="AnimatedSprite2D" parent="Objects" unique_id=291744934]
+position = Vector2(1536, 1203)
+sprite_frames = SubResource("SF_6")
+autoplay = "default"
+offset = Vector2(0, -37)
+
+[node name="SmallDeadTree01" type="AnimatedSprite2D" parent="Objects" unique_id=1616198541]
+position = Vector2(1440, 1024)
+sprite_frames = SubResource("SF_3")
+autoplay = "default"
+offset = Vector2(0, -30)
+flip_h = true
+
+[node name="Lights" type="Node2D" parent="." unique_id=1699691846]
+
+[node name="Light01" type="PointLight2D" parent="Lights" unique_id=466924636]
+position = Vector2(890, 154)
+color = Color(0.35, 1, 0.45, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 0.547
+
+[node name="Light02" type="PointLight2D" parent="Lights" unique_id=1700030316]
+position = Vector2(152, 1091)
+color = Color(0.35, 1, 0.45, 1)
+energy = 1.4
+texture = SubResource("LightTexture")
+texture_scale = 1.172
+
+[node name="Light03" type="PointLight2D" parent="Lights" unique_id=783052161]
+position = Vector2(400, 1091)
+color = Color(0.35, 1, 0.45, 1)
+energy = 1.4
+texture = SubResource("LightTexture")
+texture_scale = 1.172
+
+[node name="Light04" type="PointLight2D" parent="Lights" unique_id=416946730]
+position = Vector2(400, 1261)
+color = Color(0.35, 1, 0.45, 1)
+energy = 1.4
+texture = SubResource("LightTexture")
+texture_scale = 1.172
+
+[node name="Light05" type="PointLight2D" parent="Lights" unique_id=1821044768]
+position = Vector2(67, 1235)
+color = Color(0.35, 1, 0.45, 1)
+energy = 0.9
+texture = SubResource("LightTexture")
+texture_scale = 0.625
+
+[node name="Light06" type="PointLight2D" parent="Lights" unique_id=1647110610]
+position = Vector2(144, 1322)
+color = Color(0.35, 1, 0.45, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.703
+
+[node name="Light07" type="PointLight2D" parent="Lights" unique_id=67539752]
+position = Vector2(752, 1056)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.664
+
+[node name="Light08" type="PointLight2D" parent="Lights" unique_id=1893478423]
+position = Vector2(624, 1099)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.664
+
+[node name="Light09" type="PointLight2D" parent="Lights" unique_id=1366132109]
+position = Vector2(624, 1275)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.664
+
+[node name="Light10" type="PointLight2D" parent="Lights" unique_id=320136091]
+position = Vector2(752, 1275)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.664
+
+[node name="Light11" type="PointLight2D" parent="Lights" unique_id=918304968]
+position = Vector2(1018, 1088)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.742
+
+[node name="Light12" type="PointLight2D" parent="Lights" unique_id=367533201]
+position = Vector2(1325, 1043)
+color = Color(0.4, 0.9, 0.8, 1)
+texture = SubResource("LightTexture")
+texture_scale = 0.781
+
+[node name="Light13" type="PointLight2D" parent="Lights" unique_id=1625032092]
+position = Vector2(1536, 1168)
+color = Color(0.35, 1, 0.45, 1)
+energy = 1.2
+texture = SubResource("LightTexture")
+texture_scale = 1.016
+
+[node name="Light14" type="PointLight2D" parent="Lights" unique_id=1710903413]
+position = Vector2(192, 224)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.562
+
+[node name="Light15" type="PointLight2D" parent="Lights" unique_id=1401469713]
+position = Vector2(576, 192)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.562
+
+[node name="Light16" type="PointLight2D" parent="Lights" unique_id=1181100321]
+position = Vector2(1120, 200)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.797
+
+[node name="Light17" type="PointLight2D" parent="Lights" unique_id=495503023]
+position = Vector2(272, 672)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.797
+
+[node name="Light18" type="PointLight2D" parent="Lights" unique_id=608076792]
+position = Vector2(688, 672)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.25
+
+[node name="Light19" type="PointLight2D" parent="Lights" unique_id=618825424]
+position = Vector2(1040, 704)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 2.031
+
+[node name="Light20" type="PointLight2D" parent="Lights" unique_id=608266029]
+position = Vector2(1440, 720)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.406
+
+[node name="Light21" type="PointLight2D" parent="Lights" unique_id=257594941]
+position = Vector2(1448, 432)
+color = Color(0.55, 0.7, 1, 1)
+energy = 0.35
+texture = SubResource("LightTexture")
+texture_scale = 1.016
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1383610652]
+position = Vector2(824, 728)
+zoom = Vector2(0.45, 0.45)
